@@ -27,11 +27,13 @@
 4. Log storage for past activities.
    - Before you start any activity in EPONA, EPONA asks you whether you want to keep a record of the activity for history. You can access the statistical data of the activities you have saved days, weeks or even months later.
 5. Detailed user profile with activity statistics.
-   - 
+   - The profile includes a table of the number of steps taken in the current day by hours and a brief summary of the different activities performed during the day.
 
 
 
 
 ## Prototype
-- [Protoype](https://www.figma.com/proto/4Os1gplcwPt1cogi9XLT4Y/20200808033_EPONA?page-id=0%3A1&type=design&node-id=38-2361&viewport=2504%2C640%2C0.81&scaling=scale-down&starting-point-node-id=3%3A6)	is the interactive version of EPONA on Figma. 
+- [Protoype](https://www.figma.com/proto/4Os1gplcwPt1cogi9XLT4Y/20200808033_EPONA?page-id=0%3A1&type=design&node-id=3-6&viewport=862%2C395%2C0.22&scaling=scale-down&starting-point-node-id=3%3A6)	is the interactive version of EPONA on Figma. 
 
+
+    
