@@ -2,9 +2,10 @@
     <string name="app_name">Personal Health Tracker</string>
     <string name="login">Login</string>
     <string name="pleas_enter_your_password">Pleas Enter Your Password</string>
-    <string name="please_enter_your_email">Please Enter Your Email</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="don_t_you_have_an_account">Don\'t you have an account?</string>
     <string name="sign_up">Sign Up</string>
+    <string name="epona_application_logo">Epona Application Logo</string>
+    <string name="pleas_enter_your_email">Pleas Enter Your Email</string>
 </resources>
