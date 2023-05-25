@@ -29,6 +29,18 @@
         android:layout_marginLeft="40dp"
         tools:ignore="RtlSymmetry" />
 
+    <EditText
+        android:id="@+id/password"
+        android:background="@drawable/textviewbackground"
+        android:paddingStart="14dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/emailViewInLogin"
+        android:layout_marginTop="30dp"
+        android:hint="@string/please_enter_your_password"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        tools:ignore="RtlSymmetry" />
 
 
 
