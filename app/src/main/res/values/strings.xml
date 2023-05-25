@@ -3,4 +3,6 @@
     <string name="login">Login</string>
     <string name="pleas_enter_your_password">Pleas Enter Your Password</string>
     <string name="please_enter_your_email">Please Enter Your Email</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
 </resources>
