@@ -80,6 +80,43 @@
             android:textAllCaps="false"
             android:textColor="@color/white" />
 
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints"
+            android:layout_below="@+id/login_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="125dp"
+            >
+            <EditText
+                android:id="@+id/haveAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:hint="@string/don_t_you_have_an_account"
+                android:textSize="17sp" />
+
+            <Button
+                android:id="@+id/signup_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="@string/sign_up"
+                android:textAllCaps="false"
+                android:textColor="@color/signuplogincolor"
+                android:textSize="17sp" />
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
     </RelativeLayout>
 
 
