@@ -16,6 +16,18 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"/>
 
+    <EditText
+        android:id="@+id/emailViewInLogin"
+        android:background="@drawable/textviewbackground"
+        android:paddingStart="14dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/app_logo"
+        android:layout_marginTop="50dp"
+        android:hint="@string/please_enter_your_email"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        tools:ignore="RtlSymmetry" />
 
 
 

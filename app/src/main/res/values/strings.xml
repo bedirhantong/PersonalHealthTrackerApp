@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Personal Health Tracker</string>
+    <string name="please_enter_your_email">Please enter your email</string>
 </resources>
