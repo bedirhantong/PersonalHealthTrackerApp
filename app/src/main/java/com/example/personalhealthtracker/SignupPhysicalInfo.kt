@@ -1,10 +1,13 @@
 package com.example.personalhealthtracker
 
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
+import androidx.annotation.RequiresApi
 import com.example.personalhealthtracker.databinding.FragmentSignupPhysicalInfoBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -36,13 +39,34 @@ class SignupPhysicalInfo : Fragment() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
        _binding = FragmentSignupPhysicalInfoBinding.inflate(inflater,container,false)
 
-      return binding.root
+
+        val ageSeekBar = binding.volumeSeekBar
+        ageSeekBar.min = 18
+        ageSeekBar.max = 100
+
+        ageSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+                binding.ageResult.text =p1.toString()
+            }
+
+            override fun onStartTrackingTouch(p0: SeekBar?) {
+
+            }
+
+            override fun onStopTrackingTouch(p0: SeekBar?) {
+            }
+
+        })
+
+
+        return binding.root
     }
 
 

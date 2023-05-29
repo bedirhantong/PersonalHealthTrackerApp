@@ -12,21 +12,22 @@
         android:layout_height="11dp"
         android:orientation="horizontal"
         tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="44dp">
+        tools:layout_editor_absoluteY="44dp"
+        tools:ignore="MissingConstraints">
 
         <Button
-            android:id="@+id/signupUserInfoPageTransition"
+            android:id="@+id/UserInfoPageTransition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/buttonColour" />
+            android:background="@color/white" />
 
         <Button
             android:id="@+id/BodyMassIndexPageTransition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/white" />
+            android:background="@color/buttonColour" />
 
         <Button
             android:id="@+id/AddAcitivitesPageTransition"
@@ -47,19 +48,18 @@
         android:textColor="#000000"
         android:textSize="24sp"
         tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="127dp" />
+        tools:layout_editor_absoluteY="92dp" />
 
 
     <TextView
-        android:id="@+id/userNameViewHead2"
+        android:id="@+id/AgeViewHead2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="How old are you?"
         android:textColor="#000000"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="212dp" />
-
+        tools:layout_editor_absoluteX="69dp"
+        tools:layout_editor_absoluteY="196dp" />
 
     <TextView
         android:id="@+id/ageResult"
@@ -68,8 +68,8 @@
         android:text="25"
         android:textColor="#000000"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="194dp"
-        tools:layout_editor_absoluteY="261dp" />
+        tools:layout_editor_absoluteX="274dp"
+        tools:layout_editor_absoluteY="196dp" />
 
     <SeekBar
         android:id="@+id/volumeSeekBar"
@@ -79,7 +79,8 @@
         android:min="18"
         android:progress="25"
         tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="305dp" />
+        tools:layout_editor_absoluteY="232dp" />
+
 
     <Button
         android:id="@+id/prevButton"
