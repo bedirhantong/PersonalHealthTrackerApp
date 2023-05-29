@@ -20,22 +20,53 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="159dp" />
+        tools:layout_editor_absoluteY="139dp" />
+
+    <TextView
+        android:id="@+id/userNameViewHead2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="208dp" />
+
+    <EditText
+        android:id="@+id/usernameViewTextInLogin"
+        android:layout_width="363dp"
+        android:layout_height="51dp"
+        android:layout_below="@id/emailViewHead"
+        android:background="@drawable/textviewbackground"
+        android:hint="Please enter your username"
+        android:paddingStart="14dp"
+        tools:ignore="MissingConstraints,RtlSymmetry"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="253dp" />
 
 
+    <EditText
+        android:id="@+id/emailViewTextInLogin"
+        android:layout_width="363dp"
+        android:layout_height="51dp"
+        android:layout_below="@id/emailViewHead"
+        android:background="@drawable/textviewbackground"
+        android:hint="Please enter your email"
+        android:paddingStart="14dp"
+        tools:ignore="MissingConstraints,RtlSymmetry"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="378dp" />
 
-
-
-
-
-
-
-
-
-
-
-
-
+    <TextView
+        android:id="@+id/emailViewHead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="338dp" />
 
 
     <Button
