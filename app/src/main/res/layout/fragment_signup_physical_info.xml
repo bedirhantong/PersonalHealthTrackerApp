@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignupPhysicalInfo">
+    tools:context=".SignupPhysicalInfo"
+    android:background="@drawable/login_background">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -45,11 +47,34 @@
         android:text="Body Mass Index"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="92dp" />
+        tools:layout_editor_absoluteY="92dp"
+        tools:ignore="MissingConstraints" />
 
+
+    <TextView
+        android:id="@+id/AgeViewHead2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How old are you?"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="218dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/ageResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="25"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="311dp"
+        tools:layout_editor_absoluteY="218dp"
+        tools:ignore="MissingConstraints" />
 
     <SeekBar
         android:id="@+id/volumeSeekBar"
@@ -59,27 +84,28 @@
         android:min="18"
         android:progress="25"
         tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="196dp" />
+        tools:layout_editor_absoluteY="246dp"
+        android:thumb="@drawable/seekbar_thumb"/>
 
     <TextView
-        android:id="@+id/AgeViewHead2"
+        android:id="@+id/heightViewHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="How old are you?"
-        android:textColor="#000000"
+        android:text="What is your height?"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="160dp" />
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="343dp" />
 
     <TextView
-        android:id="@+id/ageResult"
+        android:id="@+id/heightResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="25"
-        android:textColor="#000000"
+        android:text="167"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
         tools:layout_editor_absoluteX="311dp"
-        tools:layout_editor_absoluteY="160dp" />
+        tools:layout_editor_absoluteY="343dp" />
 
     <SeekBar
         android:id="@+id/heightSeekBar"
@@ -88,9 +114,9 @@
         android:max="100"
         android:min="18"
         android:progress="25"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="317dp" />
-
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="371dp"
+        android:thumb="@drawable/seekbar_thumb"/>
 
     <SeekBar
         android:id="@+id/weightSeekBar"
@@ -100,54 +126,77 @@
         android:min="50"
         android:progress="25"
         tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="434dp" />
+        tools:layout_editor_absoluteY="507dp"
+        android:thumb="@drawable/seekbar_thumb"/>
 
     <TextView
         android:id="@+id/weightViewHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="What is your weight?"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="391dp" />
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="479dp" />
 
     <TextView
         android:id="@+id/weightResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="50"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
         tools:layout_editor_absoluteX="311dp"
-        tools:layout_editor_absoluteY="399dp" />
+        tools:layout_editor_absoluteY="479dp" />
 
     <TextView
-        android:id="@+id/heightResult"
+        android:id="@+id/genderViewHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="167"
-        android:textColor="#000000"
+        android:text="What is your gender?"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="311dp"
-        tools:layout_editor_absoluteY="279dp" />
+        tools:layout_editor_absoluteX="112dp"
+        tools:layout_editor_absoluteY="595dp" />
 
-    <TextView
-        android:id="@+id/heightViewHead"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="What is your height?"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="279dp" />
+    <RadioGroup
+        android:id="@+id/gender"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="638dp">
+
+        <RadioButton
+            android:id="@+id/maleButton"
+            android:layout_width="106dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="24dp"
+            android:text="male"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/femaleButton"
+            android:layout_width="122dp"
+            android:layout_height="60dp"
+            android:textColor="@color/white"
+            android:text="female" />
+
+        <RadioButton
+            android:id="@+id/notToSayButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:text="prefer not to say" />
+
+    </RadioGroup>
 
     <Button
         android:id="@+id/prevButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cancel"
-        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteX="114dp"
         tools:layout_editor_absoluteY="744dp" />
 
     <Button

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioGroup
 import android.widget.SeekBar
 import androidx.annotation.RequiresApi
 import com.example.personalhealthtracker.databinding.FragmentSignupPhysicalInfoBinding
@@ -49,12 +50,28 @@ class SignupPhysicalInfo : Fragment() {
         progressOfAge()
         progressOfHeight()
         progressOfWeight()
-
+        progressOfGender()
 
 
         return binding.root
     }
 
+    fun progressOfGender(){
+        val genderGroup = binding.gender
+        genderGroup.setOnCheckedChangeListener { radioGroup, checkedId ->
+            when(checkedId){
+                R.id.maleButton -> {
+
+                }
+                R.id.femaleButton -> {
+
+                }
+                R.id.notToSayButton -> {
+
+                }
+            }
+        }
+    }
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun progressOfAge(){
