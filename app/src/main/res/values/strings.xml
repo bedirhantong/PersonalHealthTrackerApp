@@ -8,4 +8,6 @@
     <string name="sign_up">Sign Up</string>
     <string name="epona_application_logo">Epona Application Logo</string>
     <string name="pleas_enter_your_email">Pleas Enter Your Email</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
