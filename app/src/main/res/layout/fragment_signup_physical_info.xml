@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignupPhysicalInfo"
-    android:background="@drawable/login_background">
+    android:background="@drawable/login_background"
+    tools:context=".SignupPhysicalInfo">
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="295dp"
+        android:layout_width="0dp"
         android:layout_height="11dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="58dp"
+        android:layout_marginBottom="37dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="44dp"
+        app:layout_constraintBottom_toTopOf="@+id/header_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
         <Button
@@ -22,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/white" />
+            android:background="@color/buttonColour" />
 
         <Button
             android:id="@+id/BodyMassIndexPageTransition"
@@ -44,13 +49,17 @@
         android:id="@+id/header_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:layout_marginBottom="94dp"
         android:text="Body Mass Index"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="92dp"
+        app:layout_constraintBottom_toTopOf="@+id/AgeViewHead2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
 
@@ -58,117 +67,147 @@
         android:id="@+id/AgeViewHead2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="49dp"
+        android:layout_marginEnd="53dp"
         android:text="How old are you?"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="218dp"
+        app:layout_constraintBottom_toTopOf="@+id/volumeSeekBar"
+        app:layout_constraintEnd_toStartOf="@+id/ageResult"
+        app:layout_constraintStart_toStartOf="@+id/volumeSeekBar"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/ageResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="22dp"
         android:text="25"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="311dp"
-        tools:layout_editor_absoluteY="218dp"
+        app:layout_constraintBottom_toTopOf="@+id/volumeSeekBar"
+        app:layout_constraintEnd_toEndOf="@+id/volumeSeekBar"
         tools:ignore="MissingConstraints" />
 
     <SeekBar
         android:id="@+id/volumeSeekBar"
-        android:layout_width="301dp"
+        style="@style/CustomSeekBar"
+        android:layout_width="0dp"
         android:layout_height="40dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="58dp"
         android:max="100"
         android:min="18"
         android:progress="25"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="246dp"
         android:thumb="@drawable/seekbar_thumb"
-        style="@style/CustomSeekBar"/>
+        app:layout_constraintBottom_toTopOf="@+id/heightResult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/heightViewHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="49dp"
+        android:layout_marginEnd="49dp"
         android:text="What is your height?"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="343dp" />
+        app:layout_constraintBottom_toTopOf="@+id/heightSeekBar"
+        app:layout_constraintEnd_toEndOf="@+id/ageResult"
+        app:layout_constraintStart_toStartOf="@+id/heightSeekBar" />
 
     <TextView
         android:id="@+id/heightResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="11dp"
         android:text="167"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="311dp"
-        tools:layout_editor_absoluteY="343dp" />
+        app:layout_constraintBottom_toTopOf="@+id/heightSeekBar"
+        app:layout_constraintEnd_toEndOf="@+id/heightSeekBar" />
 
     <SeekBar
         android:id="@+id/heightSeekBar"
-        android:layout_width="301dp"
+        style="@style/CustomSeekBar"
+        android:layout_width="0dp"
         android:layout_height="40dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="69dp"
         android:max="100"
         android:min="18"
         android:progress="25"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="371dp"
         android:thumb="@drawable/seekbar_thumb"
-        style="@style/CustomSeekBar"/>
+        app:layout_constraintBottom_toTopOf="@+id/weightResult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <SeekBar
         android:id="@+id/weightSeekBar"
-        android:layout_width="301dp"
+        style="@style/CustomSeekBar"
+        android:layout_width="0dp"
         android:layout_height="40dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="296dp"
         android:max="170"
         android:min="50"
         android:progress="25"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="507dp"
         android:thumb="@drawable/seekbar_thumb"
-        style="@style/CustomSeekBar"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/weightViewHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="49dp"
+        android:layout_marginEnd="45dp"
         android:text="What is your weight?"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="479dp" />
+        app:layout_constraintBottom_toTopOf="@+id/weightSeekBar"
+        app:layout_constraintEnd_toEndOf="@+id/weightResult"
+        app:layout_constraintStart_toStartOf="@+id/weightSeekBar" />
 
     <TextView
         android:id="@+id/weightResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="22dp"
         android:text="50"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="311dp"
-        tools:layout_editor_absoluteY="479dp" />
+        app:layout_constraintBottom_toTopOf="@+id/weightSeekBar"
+        app:layout_constraintEnd_toEndOf="@+id/weightSeekBar" />
 
     <TextView
         android:id="@+id/genderViewHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
         android:text="What is your gender?"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="112dp"
-        tools:layout_editor_absoluteY="595dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weightSeekBar" />
 
     <RadioGroup
         android:id="@+id/gender"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="60dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginBottom="47dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="638dp">
+        app:layout_constraintBottom_toTopOf="@+id/prevButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/genderViewHead">
 
         <RadioButton
             android:id="@+id/maleButton"
@@ -182,15 +221,15 @@
             android:id="@+id/femaleButton"
             android:layout_width="122dp"
             android:layout_height="60dp"
-            android:textColor="@color/white"
-            android:text="female" />
+            android:text="female"
+            android:textColor="@color/white" />
 
         <RadioButton
             android:id="@+id/notToSayButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="@color/white"
-            android:text="prefer not to say" />
+            android:text="prefer not to say"
+            android:textColor="@color/white" />
 
     </RadioGroup>
 
@@ -198,17 +237,23 @@
         android:id="@+id/prevButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="21dp"
         android:text="Cancel"
-        tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="744dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/nextButton"
+        app:layout_constraintEnd_toStartOf="@+id/nextButton"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
         android:text="Next"
-        tools:layout_editor_absoluteX="223dp"
-        tools:layout_editor_absoluteY="744dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/prevButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
