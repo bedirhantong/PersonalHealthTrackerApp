@@ -41,15 +41,25 @@
     </LinearLayout>
 
 
+    <TextView
+        android:id="@+id/header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add your activities"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="107dp"
+        tools:layout_editor_absoluteY="93dp" />
 
-
-
-
-
-
-
-
-
+    <TextView
+        android:id = "@+id/description_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose at least one activity"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="131dp"
+        tools:layout_editor_absoluteY="125dp" />
 
 
 
