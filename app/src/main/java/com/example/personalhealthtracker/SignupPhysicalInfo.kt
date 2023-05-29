@@ -47,7 +47,8 @@ class SignupPhysicalInfo : Fragment() {
     ): View? {
        _binding = FragmentSignupPhysicalInfoBinding.inflate(inflater,container,false)
         progressOfAge()
-
+        progressOfHeight()
+        progressOfWeight()
 
 
 
@@ -78,13 +79,13 @@ class SignupPhysicalInfo : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun progressOfHeight(){
-        val ageSeekBar = binding.volumeSeekBar
-        ageSeekBar.min = 150
-        ageSeekBar.max = 210
+        val heightSeekBar = binding.heightSeekBar
+        heightSeekBar.min = 150
+        heightSeekBar.max = 210
 
-        ageSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+        heightSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                binding.ageResult.text =p1.toString()
+                binding.heightResult.text =p1.toString()
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {
@@ -97,6 +98,26 @@ class SignupPhysicalInfo : Fragment() {
         })
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun progressOfWeight(){
+        val weightSeekBar = binding.weightSeekBar
+        weightSeekBar.min = 50
+        weightSeekBar.max = 170
+
+        weightSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+                binding.weightResult.text =p1.toString()
+            }
+
+            override fun onStartTrackingTouch(p0: SeekBar?) {
+
+            }
+
+            override fun onStopTrackingTouch(p0: SeekBar?) {
+            }
+
+        })
+    }
 
 
 
