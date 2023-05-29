@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/signup_background"
+    android:background="@drawable/login_background"
     tools:context=".SignupUserInfo">
 
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="295dp"
+        android:layout_width="0dp"
         android:layout_height="11dp"
+        android:layout_marginStart="58dp"
         android:layout_marginTop="44dp"
+        android:layout_marginEnd="58dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -46,7 +47,7 @@
         android:id="@+id/header_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="55dp"
         android:text="Tell us About Yourself"
         android:textAlignment="center"
         android:textAllCaps="false"
@@ -60,13 +61,11 @@
         android:id="@+id/userNameViewHead2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="208dp"
-        android:layout_marginBottom="209dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="216dp"
         android:text="Username"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/passwordViewHead"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -75,62 +74,61 @@
         android:layout_width="0dp"
         android:layout_height="49dp"
         android:layout_below="@id/emailViewHead"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="125dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="123dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="51dp"
         android:background="@drawable/textviewbackground"
         android:hint="Please enter your username"
         android:paddingStart="14dp"
-        app:layout_constraintBottom_toBottomOf="@+id/emailViewTextInLogin"
+        app:layout_constraintBottom_toBottomOf="@+id/emailViewHead"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header_title"
+        app:layout_constraintTop_toTopOf="@+id/userNameViewHead2"
         tools:ignore="MissingConstraints,RtlSymmetry" />
 
     <TextView
         android:id="@+id/emailViewHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="81dp"
+        android:layout_marginTop="94dp"
         android:text="Email"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/passwordViewHead"
         app:layout_constraintStart_toStartOf="@+id/emailViewTextInLogin"
+        app:layout_constraintTop_toBottomOf="@+id/userNameViewHead2"
         tools:ignore="MissingConstraints" />
+
 
     <EditText
         android:id="@+id/emailViewTextInLogin"
         android:layout_width="0dp"
-        android:layout_height="49dp"
+        android:layout_height="48dp"
         android:layout_below="@id/emailViewHead"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="46dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="28dp"
         android:background="@drawable/textviewbackground"
         android:hint="Please enter your email"
         android:paddingStart="14dp"
-        app:layout_constraintBottom_toBottomOf="@+id/passwordViewHead"
+        app:layout_constraintBottom_toTopOf="@+id/passwordViewHead"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/emailViewHead"
         tools:ignore="MissingConstraints,RtlSymmetry" />
 
-
     <TextView
         android:id="@+id/passwordViewHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="107dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="89dp"
         android:text="password"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/passwordViewHead2"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailViewHead" />
 
     <EditText
         android:id="@+id/password"
@@ -138,13 +136,13 @@
         android:layout_height="49dp"
         android:layout_below="@+id/passwordViewHead"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="42dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="53dp"
         android:background="@drawable/textviewbackground"
         android:hint="Please enter your password"
         android:paddingStart="14dp"
-        app:layout_constraintBottom_toTopOf="@+id/passwordViewHead2"
+        app:layout_constraintBottom_toBottomOf="@+id/passwordViewHead2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/passwordViewHead"
@@ -155,13 +153,15 @@
         android:id="@+id/passwordViewHead2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="193dp"
+        android:layout_marginBottom="195dp"
         android:text="password"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/repassword"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/prevButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/emailViewTextInLogin" />
 
 
     <EditText
@@ -170,16 +170,17 @@
         android:layout_height="49dp"
         android:layout_below="@+id/passwordViewHead"
         android:layout_marginStart="25dp"
+        android:layout_marginTop="77dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginBottom="170dp"
+        android:layout_marginBottom="74dp"
         android:background="@drawable/textviewbackground"
         android:hint="Please re-enter your password"
         android:paddingStart="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/prevButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
         tools:ignore="RtlSymmetry" />
-
 
     <Button
         android:id="@+id/prevButton"
@@ -194,8 +195,8 @@
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginBottom="49dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginBottom="50dp"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/prevButton" />
