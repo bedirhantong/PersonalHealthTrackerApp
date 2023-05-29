@@ -51,26 +51,6 @@
         tools:layout_editor_absoluteY="92dp" />
 
 
-    <TextView
-        android:id="@+id/AgeViewHead2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="How old are you?"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="196dp" />
-
-    <TextView
-        android:id="@+id/ageResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="25"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="274dp"
-        tools:layout_editor_absoluteY="196dp" />
-
     <SeekBar
         android:id="@+id/volumeSeekBar"
         android:layout_width="301dp"
@@ -79,8 +59,57 @@
         android:min="18"
         android:progress="25"
         tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="232dp" />
+        tools:layout_editor_absoluteY="196dp" />
 
+    <TextView
+        android:id="@+id/AgeViewHead2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How old are you?"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="69dp"
+        tools:layout_editor_absoluteY="160dp" />
+
+    <TextView
+        android:id="@+id/ageResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="25"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="285dp"
+        tools:layout_editor_absoluteY="160dp" />
+
+    <SeekBar
+        android:id="@+id/heightSeekBar"
+        android:layout_width="301dp"
+        android:layout_height="40dp"
+        android:max="100"
+        android:min="18"
+        android:progress="25"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="317dp" />
+
+    <TextView
+        android:id="@+id/heightResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="167"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="285dp"
+        tools:layout_editor_absoluteY="279dp" />
+
+    <TextView
+        android:id="@+id/heightViewHead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How tall are you?"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="279dp" />
 
     <Button
         android:id="@+id/prevButton"
