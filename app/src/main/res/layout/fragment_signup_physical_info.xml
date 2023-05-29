@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment_signup_physical_info">
+    tools:context=".SignupPhysicalInfo">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -49,24 +49,37 @@
         tools:layout_editor_absoluteX="114dp"
         tools:layout_editor_absoluteY="127dp" />
 
+
     <TextView
         android:id="@+id/userNameViewHead2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="How old are you"
+        android:text="How old are you?"
         android:textColor="#000000"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="207dp" />
+        tools:layout_editor_absoluteX="128dp"
+        tools:layout_editor_absoluteY="212dp" />
 
 
+    <TextView
+        android:id="@+id/ageResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="25"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="194dp"
+        tools:layout_editor_absoluteY="261dp" />
 
-
-
-
-
-
-
+    <SeekBar
+        android:id="@+id/volumeSeekBar"
+        android:layout_width="301dp"
+        android:layout_height="40dp"
+        android:max="100"
+        android:min="18"
+        android:progress="25"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="305dp" />
 
     <Button
         android:id="@+id/prevButton"
