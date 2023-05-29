@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".SignupUserInfo">
 
 
@@ -17,10 +16,8 @@
         android:textAllCaps="false"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="139dp" />
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="138dp" />
 
     <TextView
         android:id="@+id/userNameViewHead2"
@@ -35,7 +32,7 @@
     <EditText
         android:id="@+id/usernameViewTextInLogin"
         android:layout_width="363dp"
-        android:layout_height="51dp"
+        android:layout_height="49dp"
         android:layout_below="@id/emailViewHead"
         android:background="@drawable/textviewbackground"
         android:hint="Please enter your username"
@@ -43,19 +40,6 @@
         tools:ignore="MissingConstraints,RtlSymmetry"
         tools:layout_editor_absoluteX="24dp"
         tools:layout_editor_absoluteY="253dp" />
-
-
-    <EditText
-        android:id="@+id/emailViewTextInLogin"
-        android:layout_width="363dp"
-        android:layout_height="51dp"
-        android:layout_below="@id/emailViewHead"
-        android:background="@drawable/textviewbackground"
-        android:hint="Please enter your email"
-        android:paddingStart="14dp"
-        tools:ignore="MissingConstraints,RtlSymmetry"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="378dp" />
 
     <TextView
         android:id="@+id/emailViewHead"
@@ -66,28 +50,83 @@
         android:textSize="20sp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="338dp" />
+        tools:layout_editor_absoluteY="336dp" />
+
+    <EditText
+        android:id="@+id/emailViewTextInLogin"
+        android:layout_width="363dp"
+        android:layout_height="49dp"
+        android:layout_below="@id/emailViewHead"
+        android:background="@drawable/textviewbackground"
+        android:hint="Please enter your email"
+        android:paddingStart="14dp"
+        tools:ignore="MissingConstraints,RtlSymmetry"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="376dp" />
+
+
+    <TextView
+        android:id="@+id/passwordViewHead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="password"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="444dp" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="361dp"
+        android:layout_height="49dp"
+        android:layout_below="@+id/passwordViewHead"
+        android:background="@drawable/textviewbackground"
+        android:hint="Please enter your password"
+        android:paddingStart="14dp"
+        tools:ignore="RtlSymmetry"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="485dp" />
+
+
+    <TextView
+        android:id="@+id/passwordViewHead2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="password"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="578dp" />
+
+
+    <EditText
+        android:id="@+id/repassword"
+        android:layout_width="361dp"
+        android:layout_height="49dp"
+        android:layout_below="@+id/passwordViewHead"
+        android:background="@drawable/textviewbackground"
+        android:hint="Please re-enter your password"
+        android:paddingStart="14dp"
+        tools:ignore="RtlSymmetry"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="623dp" />
 
 
     <Button
         android:id="@+id/prevButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginBottom="48dp"
         android:text="Cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="745dp" />
 
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="48dp"
         android:text="Next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        tools:layout_editor_absoluteX="223dp"
+        tools:layout_editor_absoluteY="745dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
