@@ -10,11 +10,17 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="296dp"
+        android:layout_width="0dp"
         android:layout_height="11dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginBottom="38dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="44dp">
+        app:layout_constraintBottom_toTopOf="@+id/header_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/signupUserInfoPageTransition"
@@ -45,44 +51,144 @@
         android:id="@+id/header_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="93dp"
+        android:layout_marginBottom="95dp"
         android:text="Add your activities"
         android:textColor="@color/white"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="107dp"
-        tools:layout_editor_absoluteY="93dp" />
+        app:layout_constraintBottom_toTopOf="@+id/diving_activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id = "@+id/description_title"
+        android:id="@+id/description_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:text="Choose at least one activity"
         android:textColor="@color/white"
         android:textSize="12sp"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="125dp" />
+        app:layout_constraintStart_toStartOf="@+id/header_title"
+        app:layout_constraintTop_toBottomOf="@+id/header_title" />
 
 
-
-
-
-
-
-
-    <Button
-        android:id="@+id/prevButton"
+    <TextView
+        android:id="@+id/running_activity_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cancel"
-        tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="743dp" />
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="13dp"
+        android:text="Running"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/running_activity"
+        app:layout_constraintTop_toBottomOf="@+id/running_activity" />
+
+    <ImageView
+        android:id="@+id/running_activity"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="37dp"
+        android:src="@drawable/running_nonselected_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/hiking_activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/hiking_activity"
+        app:layout_constraintTop_toTopOf="@+id/hiking_activity" />
+
+    <TextView
+        android:id="@+id/cycling_activity_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="370dp"
+        android:layout_marginEnd="35dp"
+        android:text="Cycling"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/cycling_activity"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/cycling_activity"
+        android:layout_width="0dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="213dp"
+        android:src="@drawable/cycling_nonselected_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/hiking_activity"
+        app:layout_constraintEnd_toStartOf="@+id/diving_activity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/diving_activity_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="38dp"
+        android:text="Diving"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/diving_activity"
+        app:layout_constraintTop_toBottomOf="@+id/diving_activity" />
+
+    <ImageView
+        android:id="@+id/diving_activity"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="37dp"
+        android:src="@drawable/diving_nonselected_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/cycling_activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cycling_activity"
+        app:layout_constraintTop_toTopOf="@+id/cycling_activity" />
+
+    <TextView
+        android:id="@+id/hiking_activity_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="39dp"
+        android:layout_marginBottom="229dp"
+        android:text="Hiking"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/hiking_activity" />
+
+    <ImageView
+        android:id="@+id/hiking_activity"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/hiking_nonselected_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/hiking_activity_text"
+        app:layout_constraintEnd_toStartOf="@+id/running_activity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cycling_activity_text" />
 
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="29dp"
         android:text="Next"
-        tools:layout_editor_absoluteX="223dp"
-        tools:layout_editor_absoluteY="743dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/prevButton"
+        app:layout_constraintEnd_toEndOf="@+id/running_activity_text" />
+
+    <Button
+        android:id="@+id/prevButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="21dp"
+        android:text="Cancel"
+        app:layout_constraintEnd_toStartOf="@+id/nextButton"
+        app:layout_constraintTop_toBottomOf="@+id/hiking_activity_text" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
