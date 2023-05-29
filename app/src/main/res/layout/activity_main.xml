@@ -14,7 +14,7 @@
         android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="104dp"
         android:adjustViewBounds="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.609"
@@ -60,8 +60,10 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="17sp"
-        tools:ignore="MissingConstraints,RtlSymmetry"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="859dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="10dp"
+        tools:ignore="MissingConstraints,RtlSymmetry" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
