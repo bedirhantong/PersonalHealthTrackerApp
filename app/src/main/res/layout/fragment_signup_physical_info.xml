@@ -85,7 +85,8 @@
         android:progress="25"
         tools:layout_editor_absoluteX="55dp"
         tools:layout_editor_absoluteY="246dp"
-        android:thumb="@drawable/seekbar_thumb"/>
+        android:thumb="@drawable/seekbar_thumb"
+        style="@style/CustomSeekBar"/>
 
     <TextView
         android:id="@+id/heightViewHead"
@@ -116,7 +117,8 @@
         android:progress="25"
         tools:layout_editor_absoluteX="55dp"
         tools:layout_editor_absoluteY="371dp"
-        android:thumb="@drawable/seekbar_thumb"/>
+        android:thumb="@drawable/seekbar_thumb"
+        style="@style/CustomSeekBar"/>
 
     <SeekBar
         android:id="@+id/weightSeekBar"
@@ -127,7 +129,8 @@
         android:progress="25"
         tools:layout_editor_absoluteX="55dp"
         tools:layout_editor_absoluteY="507dp"
-        android:thumb="@drawable/seekbar_thumb"/>
+        android:thumb="@drawable/seekbar_thumb"
+        style="@style/CustomSeekBar"/>
 
     <TextView
         android:id="@+id/weightViewHead"
