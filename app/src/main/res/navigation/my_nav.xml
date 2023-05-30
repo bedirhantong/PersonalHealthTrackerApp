@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
@@ -8,20 +9,63 @@
         android:id="@+id/signupPhysicalInfo"
         android:name="com.example.personalhealthtracker.SignupPhysicalInfo"
         android:label="fragment_signup_physical_info"
-        tools:layout="@layout/fragment_signup_physical_info" />
+        tools:layout="@layout/fragment_signup_physical_info" >
+        <action
+            android:id="@+id/navigateTo_signupPhysicalInfo_to_signupChoosingActivities"
+            app:destination="@id/signupChoosingActivities" />
+        <action
+            android:id="@+id/navigateTo_signupPhysicalInfo_to_signupUserInfo"
+            app:destination="@id/signupUserInfo" />
+    </fragment>
     <fragment
         android:id="@+id/signupUserInfo"
         android:name="com.example.personalhealthtracker.SignupUserInfo"
         android:label="fragment_signup_user_info"
-        tools:layout="@layout/fragment_signup_user_info" />
+        tools:layout="@layout/fragment_signup_user_info" >
+        <action
+            android:id="@+id/navigateTo_signupUserInfo_to_signupPhysicalInfo"
+            app:destination="@id/signupPhysicalInfo" />
+        <action
+            android:id="@+id/navigateTo_signupUserInfo_to_introFragment5"
+            app:destination="@id/introFragment5" />
+    </fragment>
+
     <fragment
         android:id="@+id/signupChoosingActivities"
         android:name="com.example.personalhealthtracker.SignupChoosingActivities"
         android:label="fragment_signup_choosing_activities"
-        tools:layout="@layout/fragment_signup_choosing_activities" />
+        tools:layout="@layout/fragment_signup_choosing_activities" >
+        <action
+            android:id="@+id/navigateTo_signupChoosingActivities_to_signupPhysicalInfo"
+            app:destination="@id/signupPhysicalInfo" />
+        <action
+            android:id="@+id/navigateTo_signupChoosingActivities_to_signupResultFragment"
+            app:destination="@id/signupResultFragment" />
+    </fragment>
     <fragment
         android:id="@+id/introFragment5"
         android:name="com.example.personalhealthtracker.IntroFragment"
         android:label="fragment_intro"
-        tools:layout="@layout/fragment_intro" />
+        tools:layout="@layout/fragment_intro" >
+        <action
+            android:id="@+id/navigateTo_introFragment5_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/navigateTo_introFragment5_to_signupUserInfo"
+            app:destination="@id/signupUserInfo" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.personalhealthtracker.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/signupResultFragment"
+        android:name="com.example.personalhealthtracker.SignupResultFragment"
+        android:label="fragment_signup_result"
+        tools:layout="@layout/fragment_signup_result" >
+        <action
+            android:id="@+id/navigateTo_signupResultFragment_to_signupChoosingActivities"
+            app:destination="@id/signupChoosingActivities" />
+    </fragment>
 </navigation>
