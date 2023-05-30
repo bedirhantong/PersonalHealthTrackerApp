@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import com.example.personalhealthtracker.databinding.FragmentLoginBinding
 import com.example.personalhealthtracker.databinding.FragmentSignupPhysicalInfoBinding
 import com.example.personalhealthtracker.databinding.FragmentSignupUserInfoBinding
 
@@ -21,8 +23,19 @@ class SignupUserInfo : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_signup_user_info, container, false)
+        _binding = FragmentSignupUserInfoBinding.inflate(inflater,container,false)
+        val view: View = binding.root
+
+        binding.nextButton.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.navigateTo_signupUserInfo_to_signupPhysicalInfo)
+        }
+
+        binding.prevButton.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.navigateTo_signupUserInfo_to_introFragment5)
+
+        }
+
+        return view
     }
 
 

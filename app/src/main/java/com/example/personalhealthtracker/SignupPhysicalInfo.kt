@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.RadioGroup
 import android.widget.SeekBar
 import androidx.annotation.RequiresApi
+import androidx.navigation.Navigation
 import com.example.personalhealthtracker.databinding.FragmentSignupPhysicalInfoBinding
 
 class SignupPhysicalInfo : Fragment() {
@@ -31,10 +32,21 @@ class SignupPhysicalInfo : Fragment() {
     ): View {
        _binding = FragmentSignupPhysicalInfoBinding.inflate(inflater,container,false)
         val view: View = binding.root
+
         progressOfAge()
         progressOfHeight()
         progressOfWeight()
         progressOfGender()
+
+
+        binding.nextButton.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.navigateTo_signupPhysicalInfo_to_signupChoosingActivities)
+        }
+
+        binding.prevButton.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.navigateTo_signupPhysicalInfo_to_signupUserInfo)
+        }
+
 
 
         return view
