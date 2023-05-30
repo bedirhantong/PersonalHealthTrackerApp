@@ -80,6 +80,7 @@
         android:layout_marginBottom="51dp"
         android:background="@drawable/textviewbackground"
         android:hint="Please enter your username"
+        android:textColor="#000000"
         android:paddingStart="14dp"
         app:layout_constraintBottom_toBottomOf="@+id/emailViewHead"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,6 +112,7 @@
         android:layout_marginBottom="28dp"
         android:background="@drawable/textviewbackground"
         android:hint="Please enter your email"
+        android:textColor="#000000"
         android:paddingStart="14dp"
         app:layout_constraintBottom_toTopOf="@+id/passwordViewHead"
         app:layout_constraintEnd_toEndOf="parent"
@@ -141,6 +143,7 @@
         android:layout_marginBottom="53dp"
         android:background="@drawable/textviewbackground"
         android:hint="Please enter your password"
+        android:textColor="#000000"
         android:paddingStart="14dp"
         app:layout_constraintBottom_toBottomOf="@+id/passwordViewHead2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -153,7 +156,7 @@
         android:id="@+id/passwordViewHead2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="193dp"
         android:layout_marginBottom="195dp"
         android:text="password"
@@ -161,8 +164,8 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/prevButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/emailViewTextInLogin" />
-
+        app:layout_constraintTop_toTopOf="@+id/emailViewTextInLogin"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/repassword"
@@ -175,6 +178,7 @@
         android:layout_marginBottom="74dp"
         android:background="@drawable/textviewbackground"
         android:hint="Please re-enter your password"
+        android:textColor="#000000"
         android:paddingStart="14dp"
         app:layout_constraintBottom_toTopOf="@+id/prevButton"
         app:layout_constraintEnd_toEndOf="parent"
