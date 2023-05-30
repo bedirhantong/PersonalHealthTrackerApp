@@ -27,11 +27,11 @@ class SignupChoosingActivities : Fragment() {
 
 
         binding.nextButton.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.navigateTo_signupChoosingActivities_to_signupPhysicalInfo)
+            Navigation.findNavController(view).navigate(R.id.navigateTo_signupChoosingActivities_to_signupResultFragment)
         }
 
         binding.prevButton.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.navigateTo_signupChoosingActivities_to_signupResultFragment)
+            Navigation.findNavController(view).navigate(R.id.navigateTo_signupChoosingActivities_to_signupPhysicalInfo)
         }
 
 
