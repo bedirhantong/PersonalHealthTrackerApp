@@ -67,5 +67,8 @@
         <action
             android:id="@+id/navigateTo_signupResultFragment_to_signupChoosingActivities"
             app:destination="@id/signupChoosingActivities" />
+        <action
+            android:id="@+id/navigateTo_signupResultFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
 </navigation>
