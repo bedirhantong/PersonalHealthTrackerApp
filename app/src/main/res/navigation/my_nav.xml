@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/my_nav">
-
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/introFragment5">
+    <fragment
+        android:id="@+id/signupPhysicalInfo"
+        android:name="com.example.personalhealthtracker.SignupPhysicalInfo"
+        android:label="fragment_signup_physical_info"
+        tools:layout="@layout/fragment_signup_physical_info" />
+    <fragment
+        android:id="@+id/signupUserInfo"
+        android:name="com.example.personalhealthtracker.SignupUserInfo"
+        android:label="fragment_signup_user_info"
+        tools:layout="@layout/fragment_signup_user_info" />
+    <fragment
+        android:id="@+id/signupChoosingActivities"
+        android:name="com.example.personalhealthtracker.SignupChoosingActivities"
+        android:label="fragment_signup_choosing_activities"
+        tools:layout="@layout/fragment_signup_choosing_activities" />
+    <fragment
+        android:id="@+id/introFragment5"
+        android:name="com.example.personalhealthtracker.IntroFragment"
+        android:label="fragment_intro"
+        tools:layout="@layout/fragment_intro" />
 </navigation>
