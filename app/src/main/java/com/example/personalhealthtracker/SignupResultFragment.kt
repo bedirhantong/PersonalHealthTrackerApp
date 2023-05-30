@@ -26,11 +26,11 @@ class SignupResultFragment : Fragment() {
         val view: View = binding.root
 
         binding.nextButton.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.navigateTo_signupChoosingActivities_to_signupPhysicalInfo)
+            Navigation.findNavController(view).navigate(R.id.navigateTo_signupResultFragment_to_loginFragment)
         }
 
         binding.prevButton.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.navigateTo_signupChoosingActivities_to_signupResultFragment)
+            Navigation.findNavController(view).navigate(R.id.navigateTo_signupResultFragment_to_signupChoosingActivities)
         }
         return view
     }
