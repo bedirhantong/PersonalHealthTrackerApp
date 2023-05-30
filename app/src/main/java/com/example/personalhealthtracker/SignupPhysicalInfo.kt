@@ -30,13 +30,14 @@ class SignupPhysicalInfo : Fragment() {
         savedInstanceState: Bundle?
     ): View {
        _binding = FragmentSignupPhysicalInfoBinding.inflate(inflater,container,false)
+        val view: View = binding.root
         progressOfAge()
         progressOfHeight()
         progressOfWeight()
         progressOfGender()
 
 
-        return binding.root
+        return view
     }
 
     fun progressOfGender(){

@@ -5,10 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.personalhealthtracker.databinding.FragmentSignupPhysicalInfoBinding
+import com.example.personalhealthtracker.databinding.FragmentSignupUserInfoBinding
 
 class SignupUserInfo : Fragment() {
 
-
+    private var _binding : FragmentSignupUserInfoBinding?= null
+    private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -20,6 +23,12 @@ class SignupUserInfo : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_signup_user_info, container, false)
+    }
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }
