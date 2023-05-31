@@ -27,7 +27,8 @@ class SignupUserInfo : Fragment() {
         val view: View = binding.root
 
         binding.nextButton.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.navigateTo_signupUserInfo_to_signupPhysicalInfo)
+            val action = SignupUserInfoDirections.navigateToSignupUserInfoToSignupPhysicalInfo(binding.emailViewTextInLogin.text.toString(),binding.password.text.toString())
+            Navigation.findNavController(it).navigate(action)
         }
 
         binding.prevButton.setOnClickListener {

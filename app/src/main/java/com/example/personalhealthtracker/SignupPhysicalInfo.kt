@@ -8,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioGroup
 import android.widget.SeekBar
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.navigation.Navigation
 import com.example.personalhealthtracker.databinding.FragmentSignupPhysicalInfoBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class SignupPhysicalInfo : Fragment() {
 
@@ -18,6 +20,7 @@ class SignupPhysicalInfo : Fragment() {
     private var _binding : FragmentSignupPhysicalInfoBinding?= null
     private val binding get() = _binding!!
 
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +35,7 @@ class SignupPhysicalInfo : Fragment() {
     ): View {
        _binding = FragmentSignupPhysicalInfoBinding.inflate(inflater,container,false)
         val view: View = binding.root
+        mAuth = FirebaseAuth.getInstance()
 
         progressOfAge()
         progressOfHeight()
@@ -40,7 +44,25 @@ class SignupPhysicalInfo : Fragment() {
 
 
         binding.nextButton.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.navigateTo_signupPhysicalInfo_to_signupChoosingActivities)
+            arguments?.let {
+                val email = SignupPhysicalInfoArgs.fromBundle(it).email
+                val password = SignupPhysicalInfoArgs.fromBundle(it).password
+
+                mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener{ task ->
+                        if (task.isSuccessful) {
+                            // jump to login screen
+                            Navigation.findNavController(requireView()).navigate(R.id.navigateTo_signupPhysicalInfo_to_loginFragment)
+                        } else {
+                            // give an error
+                            val errorMessage = task.exception?.message
+                            Toast.makeText(requireContext(), "Kayıt işlemi başarısız: $errorMessage", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+
+
+            }
         }
 
         binding.prevButton.setOnClickListener {
@@ -131,7 +153,6 @@ class SignupPhysicalInfo : Fragment() {
 
         })
     }
-
 
 
     override fun onDestroyView() {
