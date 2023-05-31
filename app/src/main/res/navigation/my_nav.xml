@@ -14,7 +14,7 @@
             android:id="@+id/navigateTo_signupPhysicalInfo_to_signupUserInfo"
             app:destination="@id/signupUserInfo" />
         <action
-            android:id="@+id/action_signupPhysicalInfo_to_loginFragment"
+            android:id="@+id/navigateTo_signupPhysicalInfo_to_loginFragment"
             app:destination="@id/loginFragment" />
         <argument
             android:name="username"
