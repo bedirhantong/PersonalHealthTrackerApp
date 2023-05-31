@@ -88,4 +88,9 @@
         android:name="com.example.personalhealthtracker.MainScreenFragment"
         android:label="fragment_main_screen"
         tools:layout="@layout/fragment_main_screen" />
+    <fragment
+        android:id="@+id/startNewActivityFragment"
+        android:name="com.example.personalhealthtracker.StartNewActivityFragment"
+        android:label="fragment_start_new_activity"
+        tools:layout="@layout/fragment_start_new_activity" />
 </navigation>
