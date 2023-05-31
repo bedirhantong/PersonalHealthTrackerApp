@@ -11,40 +11,48 @@
         android:id="@+id/header_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="46dp"
         android:text="Here are your choices"
         android:textColor="@color/white"
         android:textSize="28sp"
-        tools:layout_editor_absoluteX="70dp"
-        tools:layout_editor_absoluteY="89dp" />
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine" />
 
 
     <EditText
         android:id="@+id/editTextTextMultiLine"
-        android:layout_width="275dp"
+        android:layout_width="0dp"
         android:layout_height="112dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="173dp"
+        android:layout_marginEnd="66dp"
         android:background="@color/white"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:text=""
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="173dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="99dp"
+        android:layout_marginBottom="48dp"
         android:text="Next"
-        tools:layout_editor_absoluteX="224dp"
-        tools:layout_editor_absoluteY="770dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/prevButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
         android:text="Cancel"
-        tools:layout_editor_absoluteX="90dp"
-        tools:layout_editor_absoluteY="770dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/nextButton"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
