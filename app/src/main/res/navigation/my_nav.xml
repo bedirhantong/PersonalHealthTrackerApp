@@ -58,25 +58,7 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/navigateTo_FromLogin_ToProfile"
-            app:destination="@id/profileFragment" />
-        <action
             android:id="@+id/navigateTo_FromLogin_ToSignup"
             app:destination="@id/signupUserInfo" />
     </fragment>
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.example.personalhealthtracker.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
-    <fragment
-        android:id="@+id/mainScreenFragment"
-        android:name="com.example.personalhealthtracker.MainScreenFragment"
-        android:label="fragment_main_screen"
-        tools:layout="@layout/fragment_main_screen" />
-    <fragment
-        android:id="@+id/startNewActivityFragment"
-        android:name="com.example.personalhealthtracker.StartNewActivityFragment"
-        android:label="fragment_start_new_activity"
-        tools:layout="@layout/fragment_start_new_activity" />
 </navigation>
