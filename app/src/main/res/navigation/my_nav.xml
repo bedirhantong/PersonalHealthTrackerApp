@@ -58,7 +58,14 @@
         android:id="@+id/loginFragment"
         android:name="com.example.personalhealthtracker.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/navigateTo_FromLogin_ToProfile"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/navigateTo_FromLogin_ToSignup"
+            app:destination="@id/signupUserInfo" />
+    </fragment>
     <fragment
         android:id="@+id/signupResultFragment"
         android:name="com.example.personalhealthtracker.SignupResultFragment"
@@ -71,4 +78,14 @@
             android:id="@+id/navigateTo_signupResultFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.personalhealthtracker.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/mainScreenFragment"
+        android:name="com.example.personalhealthtracker.MainScreenFragment"
+        android:label="fragment_main_screen"
+        tools:layout="@layout/fragment_main_screen" />
 </navigation>
