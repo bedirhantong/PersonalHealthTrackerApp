@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "355962301965",
+    "project_id": "personal-health-tracker-bc3c1",
+    "storage_bucket": "personal-health-tracker-bc3c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355962301965:android:104c1dbedd3ee576072f44",
+        "android_client_info": {
+          "package_name": "com.example.personalhealthtracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJv7ZF6oQ_4Lx-RMkI8Ml7Zv4Xxja68Ww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
