@@ -47,7 +47,8 @@ class LoginFragment : Fragment() {
                         activity?.finish()
                     }else{
                         val errorMessage = task.exception?.message
-                        Toast.makeText(requireContext(), "Wrong password and/or email : $errorMessage", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Wrong password and/or email : $errorMessage",
+                            Toast.LENGTH_SHORT).show()
                     }
                 }
             }

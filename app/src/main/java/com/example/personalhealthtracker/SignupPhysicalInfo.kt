@@ -47,21 +47,29 @@ class SignupPhysicalInfo : Fragment() {
             arguments?.let {
                 val email = SignupPhysicalInfoArgs.fromBundle(it).email
                 val password = SignupPhysicalInfoArgs.fromBundle(it).password
+                val username = SignupPhysicalInfoArgs.fromBundle(it).username
+                val userHeight = binding.heightResult.toString()
+                val userWeight = binding.weightResult.toString()
+                val userAge = binding.ageResult.toString()
+                val userGender = binding.gender.toString()
 
-                mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener{ task ->
-                        if (task.isSuccessful) {
-                            // jump to login screen
-                            Navigation.findNavController(requireView()).navigate(R.id.navigateTo_signupPhysicalInfo_to_loginFragment)
-                        } else {
-                            // give an error
-                            val errorMessage = task.exception?.message
-                            Toast.makeText(requireContext(), "Kayıt işlemi başarısız: $errorMessage", Toast.LENGTH_SHORT).show()
+
+                if(email == "" || password == "" || username == "" || userAge == "" || userGender == ""
+                    || userWeight == "" || userHeight == ""){
+                    Toast.makeText(requireContext(),"Lütfen gerekli her yeri doldurduğunuza emin olun!",Toast.LENGTH_LONG).show()
+                }else{
+                    mAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener{ task ->
+                            if (task.isSuccessful) {
+                                // jump to login screen
+                                Navigation.findNavController(requireView()).navigate(R.id.navigateTo_signupPhysicalInfo_to_loginFragment)
+                            } else {
+                                // give an error
+                                val errorMessage = task.exception?.message
+                                Toast.makeText(requireContext(), "Kayıt işlemi başarısız: $errorMessage", Toast.LENGTH_SHORT).show()
+                            }
                         }
-                    }
-
-
-
+                }
             }
         }
 
