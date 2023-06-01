@@ -34,14 +34,21 @@ class LoginFragment : Fragment() {
         binding.loginButton.setOnClickListener {
             val email = binding.emailViewInLogin.text.toString()
             val password = binding.password.text.toString()
-            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener{task->
-                if (task.isSuccessful){
-                    val intent = Intent(activity,LoginActivity::class.java)
-                    startActivity(intent)
-                    activity?.finish()
-                }else{
-                    val errorMessage = task.exception?.message
-                    Toast.makeText(requireContext(), "Wrong password and/or email : $errorMessage", Toast.LENGTH_SHORT).show()
+
+            if (email == "" || password == ""){
+                Toast.makeText(requireContext(),"Lütfen email ve şifre alanlarını boş bırakmayınız!",
+                    Toast.LENGTH_LONG).show()
+            }
+            else{
+                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener{task->
+                    if (task.isSuccessful){
+                        val intent = Intent(activity,LoginActivity::class.java)
+                        startActivity(intent)
+                        activity?.finish()
+                    }else{
+                        val errorMessage = task.exception?.message
+                        Toast.makeText(requireContext(), "Wrong password and/or email : $errorMessage", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
 
