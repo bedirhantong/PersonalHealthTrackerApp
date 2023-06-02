@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class StartNewActivityFragment : Fragment() {
 
-    private lateinit var chosenOne:String
+    private var chosenOne:String = ""
     private var _binding : FragmentStartNewActivityBinding?= null
     private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,15 +35,14 @@ class StartNewActivityFragment : Fragment() {
 
         changeChosenOne()
 
-
-
         binding.StartButton.setOnClickListener {
             if (chosenOne == "running"){
                 Navigation.findNavController(it).navigate(R.id.action_startNewActivityFragment2_to_trackRunningFragment)
             }
-            else
+            else{
                 Toast.makeText(requireContext(),"Please choose running activity because that is the " +
                         "only feature exist",Toast.LENGTH_LONG).show()
+            }
         }
 
         binding.cancelButton.setOnClickListener {
