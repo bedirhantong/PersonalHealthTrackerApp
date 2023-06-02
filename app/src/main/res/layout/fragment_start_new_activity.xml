@@ -37,9 +37,9 @@
         android:id="@+id/cyclingView"
         android:layout_width="0dp"
         android:layout_height="150dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="54dp"
         android:src="@drawable/cycling_nonselected_icon"
         app:layout_constraintBottom_toBottomOf="@+id/cyclingText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,9 +50,9 @@
         android:id="@+id/divingView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+
         android:layout_marginStart="27dp"
         android:layout_marginEnd="44dp"
-
         android:src="@drawable/diving_nonselected_icon"
         app:layout_constraintBottom_toBottomOf="@+id/cyclingView"
         app:layout_constraintEnd_toStartOf="@+id/cyclingView"
@@ -68,7 +68,6 @@
         android:textColor="#FFFFFF"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
