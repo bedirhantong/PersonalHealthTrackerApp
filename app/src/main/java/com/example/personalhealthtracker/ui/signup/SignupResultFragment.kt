@@ -1,16 +1,19 @@
-package com.example.personalhealthtracker
+package com.example.personalhealthtracker.ui.signup
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.personalhealthtracker.databinding.FragmentMainScreenBinding
-import com.example.personalhealthtracker.databinding.FragmentProfileBinding
+import com.example.personalhealthtracker.databinding.FragmentSignupResultBinding
+import com.google.firebase.auth.FirebaseAuth
 
-class MainScreenFragment : Fragment() {
-    private var _binding : FragmentMainScreenBinding?= null
+class SignupResultFragment : Fragment() {
+    private var _binding : FragmentSignupResultBinding?= null
     private val binding get() = _binding!!
+
+    private lateinit var mAuth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -20,11 +23,14 @@ class MainScreenFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMainScreenBinding.inflate(inflater,container,false)
+        _binding = FragmentSignupResultBinding.inflate(inflater,container,false)
         val view: View = binding.root
+        mAuth = FirebaseAuth.getInstance()
 
         return view
     }
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

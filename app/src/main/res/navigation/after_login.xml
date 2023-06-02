@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/profileFragment2"
-        android:name="com.example.personalhealthtracker.ProfileFragment"
+        android:name="com.example.personalhealthtracker.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainScreenFragment2"
-        android:name="com.example.personalhealthtracker.MainScreenFragment"
+        android:name="com.example.personalhealthtracker.ui.mainPage.MainScreenFragment"
         android:label="fragment_main_screen"
         tools:layout="@layout/fragment_main_screen">
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/startNewActivityFragment2"
-        android:name="com.example.personalhealthtracker.StartNewActivityFragment"
+        android:name="com.example.personalhealthtracker.ui.startNewActivity.StartNewActivityFragment"
         android:label="fragment_start_new_activity"
         tools:layout="@layout/fragment_start_new_activity">
         <action
@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/trackRunningFragment"
-        android:name="com.example.personalhealthtracker.TrackRunningFragment"
+        android:name="com.example.personalhealthtracker.ui.startNewActivity.TrackRunningFragment"
         android:label="fragment_track_running"
         tools:layout="@layout/fragment_track_running">
         <action

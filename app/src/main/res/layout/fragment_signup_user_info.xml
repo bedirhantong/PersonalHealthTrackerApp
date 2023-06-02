@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_background"
-    tools:context=".SignupUserInfo">
+    tools:context=".ui.signup.SignupUserInfo">
 
 
     <LinearLayout
@@ -25,21 +25,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/buttonColour" />
+            android:background="@color/buttonColour"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/BodyMassIndexPageTransition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/white" />
+            android:background="@color/white"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/AddAcitivitesPageTransition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/white" />
+            android:background="@color/white"
+            style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
 
 

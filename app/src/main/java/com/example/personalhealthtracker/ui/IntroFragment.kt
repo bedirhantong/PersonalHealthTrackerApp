@@ -1,4 +1,4 @@
-package com.example.personalhealthtracker
+package com.example.personalhealthtracker.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.databinding.FragmentIntroBinding
 
 class IntroFragment : Fragment() {
@@ -22,7 +23,7 @@ class IntroFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentIntroBinding.inflate(inflater,container,false)
         val view: View = binding.root
 

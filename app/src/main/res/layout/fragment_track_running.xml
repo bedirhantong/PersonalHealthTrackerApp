@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/mainbackground"
-    tools:context=".TrackRunningFragment">
+    tools:context=".ui.startNewActivity.TrackRunningFragment">
 
     <TextView
         android:id="@+id/Header"
@@ -32,5 +32,9 @@
         app:layout_constraintEnd_toStartOf="@+id/Header"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.personalhealthtracker
+package com.example.personalhealthtracker.ui.profile
 
 import android.Manifest
 import android.os.Build
@@ -7,9 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import com.example.personalhealthtracker.databinding.FragmentProfileBinding
-import com.example.personalhealthtracker.databinding.FragmentSignupUserInfoBinding
 import com.example.personalhealthtracker.other.Constants.REQUEST_CODE_LOCATION_PERMISSION
 import com.example.personalhealthtracker.other.TrackingUtility
 import pub.devrel.easypermissions.AppSettingsDialog

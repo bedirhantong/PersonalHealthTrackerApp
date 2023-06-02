@@ -1,4 +1,4 @@
-package com.example.personalhealthtracker
+package com.example.personalhealthtracker.ui.signup
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,8 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import com.example.personalhealthtracker.databinding.FragmentLoginBinding
-import com.example.personalhealthtracker.databinding.FragmentSignupPhysicalInfoBinding
+import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.databinding.FragmentSignupUserInfoBinding
 
 class SignupUserInfo : Fragment() {
@@ -27,7 +26,10 @@ class SignupUserInfo : Fragment() {
         val view: View = binding.root
 
         binding.nextButton.setOnClickListener {
-            val action = SignupUserInfoDirections.navigateToSignupUserInfoToSignupPhysicalInfo(binding.emailViewTextInLogin.text.toString(),binding.password.text.toString())
+            val action = SignupUserInfoDirections.navigateToSignupUserInfoToSignupPhysicalInfo(
+                binding.emailViewTextInLogin.text.toString(),
+                binding.password.text.toString()
+            )
             Navigation.findNavController(it).navigate(action)
         }
 

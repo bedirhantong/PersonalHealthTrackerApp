@@ -1,4 +1,4 @@
-package com.example.personalhealthtracker
+package com.example.personalhealthtracker.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.Navigation
+import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -27,13 +28,14 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View{
         _binding = FragmentLoginBinding.inflate(inflater,container,false)
         val view: View = binding.root
         mAuth = FirebaseAuth.getInstance()
         binding.loginButton.setOnClickListener {
             val email = binding.emailViewInLogin.text.toString()
             val password = binding.password.text.toString()
+
 
             if (email == "" || password == ""){
                 Toast.makeText(requireContext(),"Lütfen email ve şifre alanlarını boş bırakmayınız!",
@@ -42,7 +44,7 @@ class LoginFragment : Fragment() {
             else{
                 mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener{task->
                     if (task.isSuccessful){
-                        val intent = Intent(activity,LoginActivity::class.java)
+                        val intent = Intent(activity, LoginActivity::class.java)
                         startActivity(intent)
                         activity?.finish()
                     }else{

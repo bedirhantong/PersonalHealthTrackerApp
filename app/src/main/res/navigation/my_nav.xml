@@ -7,7 +7,7 @@
     app:startDestination="@id/introFragment5">
     <fragment
         android:id="@+id/signupPhysicalInfo"
-        android:name="com.example.personalhealthtracker.SignupPhysicalInfo"
+        android:name="com.example.personalhealthtracker.ui.signup.SignupPhysicalInfo"
         android:label="fragment_signup_physical_info"
         tools:layout="@layout/fragment_signup_physical_info" >
         <action
@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/signupUserInfo"
-        android:name="com.example.personalhealthtracker.SignupUserInfo"
+        android:name="com.example.personalhealthtracker.ui.signup.SignupUserInfo"
         android:label="fragment_signup_user_info"
         tools:layout="@layout/fragment_signup_user_info" >
         <action
@@ -42,7 +42,7 @@
 
     <fragment
         android:id="@+id/introFragment5"
-        android:name="com.example.personalhealthtracker.IntroFragment"
+        android:name="com.example.personalhealthtracker.ui.IntroFragment"
         android:label="fragment_intro"
         tools:layout="@layout/fragment_intro" >
         <action
@@ -54,7 +54,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.personalhealthtracker.LoginFragment"
+        android:name="com.example.personalhealthtracker.ui.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action

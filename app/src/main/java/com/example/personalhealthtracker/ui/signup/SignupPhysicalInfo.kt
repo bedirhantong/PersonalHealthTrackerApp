@@ -1,16 +1,16 @@
-package com.example.personalhealthtracker
+package com.example.personalhealthtracker.ui.signup
 
 import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RadioGroup
 import android.widget.SeekBar
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.databinding.FragmentSignupPhysicalInfoBinding
 import com.google.firebase.auth.FirebaseAuth
 

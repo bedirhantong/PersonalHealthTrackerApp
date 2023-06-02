@@ -1,14 +1,12 @@
-package com.example.personalhealthtracker
+package com.example.personalhealthtracker.ui.signup
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import com.example.personalhealthtracker.databinding.FragmentSignupChoosingActivitiesBinding
-import com.example.personalhealthtracker.databinding.FragmentSignupPhysicalInfoBinding
-import com.example.personalhealthtracker.databinding.FragmentSignupUserInfoBinding
+
 
 class SignupChoosingActivities : Fragment() {
     private var _binding : FragmentSignupChoosingActivitiesBinding?= null
