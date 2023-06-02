@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/after_login"
@@ -10,7 +9,7 @@
         android:id="@+id/profileFragment2"
         android:name="com.example.personalhealthtracker.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment2_to_mainScreenFragment2"
             app:destination="@id/mainScreenFragment2" />
@@ -19,7 +18,7 @@
         android:id="@+id/mainScreenFragment2"
         android:name="com.example.personalhealthtracker.MainScreenFragment"
         android:label="fragment_main_screen"
-        tools:layout="@layout/fragment_main_screen" >
+        tools:layout="@layout/fragment_main_screen">
         <action
             android:id="@+id/action_mainScreenFragment2_to_startNewActivityFragment2"
             app:destination="@id/startNewActivityFragment2" />
@@ -31,12 +30,24 @@
         android:id="@+id/startNewActivityFragment2"
         android:name="com.example.personalhealthtracker.StartNewActivityFragment"
         android:label="fragment_start_new_activity"
-        tools:layout="@layout/fragment_start_new_activity" >
+        tools:layout="@layout/fragment_start_new_activity">
         <action
             android:id="@+id/action_startNewActivityFragment2_to_profileFragment2"
             app:destination="@id/profileFragment2" />
         <action
             android:id="@+id/action_startNewActivityFragment2_to_mainScreenFragment2"
             app:destination="@id/mainScreenFragment2" />
+        <action
+            android:id="@+id/action_startNewActivityFragment2_to_trackRunningFragment"
+            app:destination="@id/trackRunningFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/trackRunningFragment"
+        android:name="com.example.personalhealthtracker.TrackRunningFragment"
+        android:label="fragment_track_running"
+        tools:layout="@layout/fragment_track_running">
+        <action
+            android:id="@+id/action_trackRunningFragment_to_startNewActivityFragment2"
+            app:destination="@id/startNewActivityFragment2" />
     </fragment>
 </navigation>
