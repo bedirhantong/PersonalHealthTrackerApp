@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_startNewActivityFragment2_to_trackRunningFragment"
             app:destination="@id/trackRunningFragment" />
+        <argument
+            android:name="ActivityType"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/trackRunningFragment"
