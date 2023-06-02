@@ -88,11 +88,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="31dp"
-        android:layout_marginBottom="87dp"
+        android:layout_marginBottom="46dp"
         android:text="Running"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/StartButton"
+        app:layout_constraintBottom_toTopOf="@+id/switch_logging"
         app:layout_constraintEnd_toEndOf="@+id/runningView" />
 
     <TextView
@@ -123,7 +123,7 @@
         android:id="@+id/StartButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="57dp"
+        android:layout_marginEnd="58dp"
         android:background="@drawable/loginbuttonbackground"
         android:text="Start"
         app:layout_constraintBaseline_toBaselineOf="@+id/cancelButton"
@@ -134,12 +134,35 @@
         android:id="@+id/cancelButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="61dp"
+        android:layout_marginStart="60dp"
         android:layout_marginEnd="43dp"
-        android:layout_marginBottom="121dp"
+        android:layout_marginBottom="73dp"
         android:background="@drawable/loginbuttonbackground"
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/StartButton"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/log_activity_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="65dp"
+        android:text="Log this activity when completed"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/StartButton"
+        app:layout_constraintEnd_toStartOf="@+id/switch_logging"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Switch
+        android:id="@+id/switch_logging"
+        android:layout_width="51dp"
+        android:layout_height="37dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/log_activity_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/log_activity_text" />
 </androidx.constraintlayout.widget.ConstraintLayout>
