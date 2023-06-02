@@ -1,23 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartNewActivityFragment"
-    android:background="@drawable/mainbackground">
+    android:background="@drawable/mainbackground"
+    tools:context=".StartNewActivityFragment">
 
+
+    <ImageView
+        android:id="@+id/runningView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/running_nonselected_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/RunningText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/hikingView"
+        app:layout_constraintTop_toBottomOf="@+id/cyclingText" />
+
+    <ImageView
+        android:id="@+id/hikingView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginEnd="49dp"
+        android:src="@drawable/hiking_nonselected_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/runningView"
+        app:layout_constraintEnd_toStartOf="@+id/runningView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/runningView" />
+
+    <ImageView
+        android:id="@+id/cyclingView"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="48dp"
+        android:src="@drawable/cycling_nonselected_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/cyclingText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/divingView"
+        app:layout_constraintTop_toBottomOf="@+id/HeadingNewActivityPage" />
+
+    <ImageView
+        android:id="@+id/divingView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginEnd="44dp"
+
+        android:src="@drawable/diving_nonselected_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/cyclingView"
+        app:layout_constraintEnd_toStartOf="@+id/cyclingView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cyclingView" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/HeadingNewActivityPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start new Activity"
+        android:layout_marginTop="48dp"
+        android:text="Start a New Activity"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cyclingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="322dp"
+        android:layout_marginEnd="33dp"
+        android:text="Cycling"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/cyclingView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/RunningText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="87dp"
+        android:text="Running"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/StartButton"
+        app:layout_constraintEnd_toEndOf="@+id/runningView" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:text="Diving"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/divingView"
+        app:layout_constraintStart_toStartOf="@+id/divingView"
+        app:layout_constraintTop_toBottomOf="@+id/divingView" />
+
+    <TextView
+        android:id="@+id/HikingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="41dp"
+        android:text="Hiking"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/hikingView"
+        app:layout_constraintTop_toBottomOf="@+id/hikingView" />
+
+    <Button
+        android:id="@+id/StartButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="57dp"
+        android:background="@drawable/loginbuttonbackground"
+        android:text="Start"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cancelButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cancelButton" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="61dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="121dp"
+        android:background="@drawable/loginbuttonbackground"
+        android:text="Cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/StartButton"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
