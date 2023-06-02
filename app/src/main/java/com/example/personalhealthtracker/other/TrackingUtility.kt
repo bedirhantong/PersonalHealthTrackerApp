@@ -2,7 +2,6 @@ package com.example.personalhealthtracker.other
 
 import android.content.Context
 import android.os.Build
-import com.example.personalhealthtracker.Manifest
 import pub.devrel.easypermissions.EasyPermissions
 
 object TrackingUtility {
