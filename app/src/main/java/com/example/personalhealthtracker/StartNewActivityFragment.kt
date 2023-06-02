@@ -53,6 +53,15 @@ class StartNewActivityFragment : Fragment() {
 
         return view
     }
+
+
+    override fun onResume() {
+        super.onResume()
+
+        val navigationBar = activity?.findViewById<BottomNavigationView>(R.id.bottomNavigationView2)
+        navigationBar?.visibility = View.GONE
+
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
