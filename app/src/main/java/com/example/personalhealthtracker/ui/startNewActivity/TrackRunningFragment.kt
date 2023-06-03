@@ -1,5 +1,6 @@
 package com.example.personalhealthtracker.ui.startNewActivity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,9 @@ import android.widget.Toast
 import androidx.navigation.Navigation
 import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.databinding.FragmentTrackRunningBinding
+import com.example.personalhealthtracker.other.Constants
+import com.example.personalhealthtracker.other.Constants.ACTION_START_OR_RESUME_SERVICE
+import com.example.personalhealthtracker.services.TrackingService
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -46,7 +50,9 @@ class TrackRunningFragment : Fragment() {
         navigationBar?.visibility = View.GONE
 
         binding.mapView.onCreate(savedInstanceState)
-
+        binding.btnToggleRun.setOnClickListener {
+            sendCommandToService(ACTION_START_OR_RESUME_SERVICE)
+        }
         //this will load our map
         binding.mapView.getMapAsync {
             map = it
@@ -62,7 +68,14 @@ class TrackRunningFragment : Fragment() {
 
     }
 
+    private fun sendCommandToService(action: String){
+        //
+        Intent(requireContext(),TrackingService::class.java).also {
+            it.action = action
+            requireContext().startService(it)
+        }
 
+    }
 
     override fun onStop() {
         super.onStop()
