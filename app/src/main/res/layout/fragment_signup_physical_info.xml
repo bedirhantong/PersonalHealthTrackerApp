@@ -9,14 +9,10 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="0dp"
+        android:layout_width="295dp"
         android:layout_height="11dp"
-        android:layout_marginStart="58dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="58dp"
-        android:layout_marginBottom="37dp"
+        android:layout_marginTop="60dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/header_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -49,17 +45,15 @@
         android:id="@+id/header_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
-        android:layout_marginBottom="94dp"
         android:text="Body Mass Index"
         android:textAlignment="center"
         android:textAllCaps="false"
+        android:layout_marginTop="60dp"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/AgeViewHead2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         tools:ignore="MissingConstraints" />
 
 
@@ -67,13 +61,11 @@
         android:id="@+id/AgeViewHead2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="49dp"
-        android:layout_marginEnd="53dp"
         android:text="How old are you?"
         android:textColor="#FFFFFF"
+        android:layout_marginLeft="50dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/volumeSeekBar"
-        app:layout_constraintEnd_toStartOf="@+id/ageResult"
         app:layout_constraintStart_toStartOf="@+id/volumeSeekBar"
         tools:ignore="MissingConstraints" />
 
@@ -81,10 +73,10 @@
         android:id="@+id/ageResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="22dp"
         android:text="25"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
+        android:layout_marginRight="14dp"
         app:layout_constraintBottom_toTopOf="@+id/volumeSeekBar"
         app:layout_constraintEnd_toEndOf="@+id/volumeSeekBar"
         tools:ignore="MissingConstraints" />
@@ -92,39 +84,35 @@
     <SeekBar
         android:id="@+id/volumeSeekBar"
         style="@style/CustomSeekBar"
-        android:layout_width="0dp"
+        android:layout_width="301dp"
         android:layout_height="40dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="58dp"
         android:max="100"
         android:min="18"
+        android:layout_marginTop="80dp"
         android:progress="25"
         android:thumb="@drawable/seekbar_thumb"
-        app:layout_constraintBottom_toTopOf="@+id/heightResult"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_title" />
 
     <TextView
         android:id="@+id/heightViewHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="49dp"
-        android:layout_marginEnd="49dp"
         android:text="What is your height?"
+        android:layout_marginLeft="60dp"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/heightSeekBar"
-        app:layout_constraintEnd_toEndOf="@+id/ageResult"
         app:layout_constraintStart_toStartOf="@+id/heightSeekBar" />
 
     <TextView
         android:id="@+id/heightResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="11dp"
         android:text="167"
         android:textColor="#FFFFFF"
+        android:layout_marginRight="14dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/heightSeekBar"
         app:layout_constraintEnd_toEndOf="@+id/heightSeekBar" />
@@ -132,55 +120,49 @@
     <SeekBar
         android:id="@+id/heightSeekBar"
         style="@style/CustomSeekBar"
-        android:layout_width="0dp"
+        android:layout_width="301dp"
         android:layout_height="40dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="69dp"
+        android:layout_marginTop="80dp"
         android:max="100"
         android:min="18"
         android:progress="25"
         android:thumb="@drawable/seekbar_thumb"
-        app:layout_constraintBottom_toTopOf="@+id/weightResult"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/volumeSeekBar" />
 
     <SeekBar
         android:id="@+id/weightSeekBar"
         style="@style/CustomSeekBar"
-        android:layout_width="0dp"
+        android:layout_width="301dp"
         android:layout_height="40dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="296dp"
+        android:layout_marginTop="80dp"
         android:max="170"
         android:min="50"
         android:progress="25"
         android:thumb="@drawable/seekbar_thumb"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heightSeekBar" />
 
     <TextView
         android:id="@+id/weightViewHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="49dp"
-        android:layout_marginEnd="45dp"
         android:text="What is your weight?"
+        android:layout_marginLeft="50dp"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/weightSeekBar"
-        app:layout_constraintEnd_toEndOf="@+id/weightResult"
         app:layout_constraintStart_toStartOf="@+id/weightSeekBar" />
 
     <TextView
         android:id="@+id/weightResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="22dp"
         android:text="50"
         android:textColor="#FFFFFF"
+        android:layout_marginRight="12dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/weightSeekBar"
         app:layout_constraintEnd_toEndOf="@+id/weightSeekBar" />
@@ -189,8 +171,8 @@
         android:id="@+id/genderViewHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
         android:text="What is your gender?"
+        android:layout_marginTop="40dp"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -199,15 +181,13 @@
 
     <RadioGroup
         android:id="@+id/gender"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="43dp"
-        android:layout_marginBottom="47dp"
+        android:layout_width="369dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/prevButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/genderViewHead">
+        app:layout_constraintTop_toBottomOf="@+id/genderViewHead">
 
         <RadioButton
             android:id="@+id/maleButton"
@@ -237,23 +217,24 @@
         android:id="@+id/prevButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginEnd="21dp"
+        android:layout_marginTop="44dp"
         android:text="Cancel"
-        app:layout_constraintBaseline_toBaselineOf="@+id/nextButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/nextButton"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/gender"
+        app:layout_constraintTop_toBottomOf="@+id/gender"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="68dp"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/prevButton" />
-
+        app:layout_constraintEnd_toEndOf="@+id/gender"
+        app:layout_constraintTop_toBottomOf="@+id/gender"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
