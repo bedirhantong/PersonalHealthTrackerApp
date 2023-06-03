@@ -9,62 +9,86 @@
 
 
     <ImageView
-        android:id="@+id/runningView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="50dp"
-        android:src="@drawable/running_nonselected_icon"
-        app:layout_constraintBottom_toBottomOf="@+id/RunningText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/hikingView"
-        app:layout_constraintTop_toBottomOf="@+id/cyclingText" />
-
-    <ImageView
         android:id="@+id/hikingView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginEnd="49dp"
-        android:src="@drawable/hiking_nonselected_icon"
-        app:layout_constraintBottom_toBottomOf="@+id/runningView"
-        app:layout_constraintEnd_toStartOf="@+id/runningView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/runningView" />
-
-    <ImageView
-        android:id="@+id/cyclingView"
-        android:layout_width="0dp"
+        android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="54dp"
-        android:src="@drawable/cycling_nonselected_icon"
-        app:layout_constraintBottom_toBottomOf="@+id/cyclingText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/divingView"
-        app:layout_constraintTop_toBottomOf="@+id/HeadingNewActivityPage" />
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/hiking_nonselected_icon"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/divingView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:id="@+id/runningView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="84dp"
+        android:background="@color/white"
+        android:src="@drawable/baseline_directions_run_24"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        tools:ignore="MissingConstraints" />
 
-        android:layout_marginStart="27dp"
-        android:layout_marginEnd="44dp"
-        android:src="@drawable/diving_nonselected_icon"
-        app:layout_constraintBottom_toBottomOf="@+id/cyclingView"
-        app:layout_constraintEnd_toStartOf="@+id/cyclingView"
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cyclingView" />
+        app:layout_constraintTop_toBottomOf="@+id/HikingText">
+
+        <TextView
+            android:id="@+id/log_activity_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log this activity when completed"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            tools:ignore="MissingConstraints" />
+
+        <Switch
+            android:id="@+id/switch_logging"
+            android:layout_width="51dp"
+            android:layout_height="48dp"
+            tools:ignore="MissingConstraints,UseSwitchCompatOrMaterialXml" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="368dp"
+        android:layout_height="149dp"
+        android:layout_marginTop="60dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HeadingNewActivityPage">
+
+        <ImageView
+            android:id="@+id/cyclingView"
+            android:layout_width="187dp"
+            android:layout_height="160dp"
+
+            android:src="@drawable/cycling_nonselected_icon"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/divingView"
+            android:layout_width="193dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/diving_nonselected_icon"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/HeadingNewActivityPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
         android:text="Start a New Activity"
+        android:layout_marginTop="60dp"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,94 +99,81 @@
         android:id="@+id/cyclingText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="322dp"
-        android:layout_marginEnd="33dp"
+        android:layout_marginTop="16dp"
         android:text="Cycling"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/cyclingView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
+        app:layout_constraintHorizontal_bias="0.763"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/RunningText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="46dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="28dp"
         android:text="Running"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/switch_logging"
-        app:layout_constraintEnd_toEndOf="@+id/runningView" />
+        app:layout_constraintEnd_toEndOf="@+id/hikingView"
+        app:layout_constraintTop_toBottomOf="@+id/hikingView"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="16dp"
         android:text="Diving"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/divingView"
-        app:layout_constraintStart_toStartOf="@+id/divingView"
-        app:layout_constraintTop_toBottomOf="@+id/divingView" />
+        app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/HikingText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="41dp"
+        android:layout_marginTop="16dp"
         android:text="Hiking"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/hikingView"
-        app:layout_constraintTop_toBottomOf="@+id/hikingView" />
+        app:layout_constraintEnd_toStartOf="@+id/RunningText"
+        app:layout_constraintHorizontal_bias="0.265"
+        app:layout_constraintStart_toStartOf="@+id/runningView"
+        app:layout_constraintTop_toBottomOf="@+id/runningView"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/StartButton"
-        android:layout_width="0dp"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="58dp"
         android:background="@drawable/loginbuttonbackground"
         android:text="Start"
-        app:layout_constraintBaseline_toBaselineOf="@+id/cancelButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cancelButton" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout6"
+        app:layout_constraintHorizontal_bias="0.774"
+        app:layout_constraintStart_toEndOf="@+id/cancelButton"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+        app:layout_constraintVertical_bias="0.503"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/cancelButton"
-        android:layout_width="0dp"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginEnd="43dp"
-        android:layout_marginBottom="73dp"
+        android:layout_marginStart="8dp"
         android:background="@drawable/loginbuttonbackground"
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/StartButton"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/linearLayout6"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+        app:layout_constraintVertical_bias="0.503"
+        tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/log_activity_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="65dp"
-        android:text="Log this activity when completed"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/StartButton"
-        app:layout_constraintEnd_toStartOf="@+id/switch_logging"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Switch
-        android:id="@+id/switch_logging"
-        android:layout_width="51dp"
-        android:layout_height="37dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/log_activity_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/log_activity_text" />
 </androidx.constraintlayout.widget.ConstraintLayout>
