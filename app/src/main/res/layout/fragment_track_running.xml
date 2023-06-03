@@ -7,34 +7,85 @@
     android:background="@drawable/mainbackground"
     tools:context=".ui.startNewActivity.TrackRunningFragment">
 
-    <TextView
-        android:id="@+id/Header"
-        android:layout_width="0dp"
-        android:layout_height="53dp"
-        android:layout_marginEnd="68dp"
-        android:text="Active Running"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="34sp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clInnerLayout"
+        android:layout_width="410dp"
+        android:layout_height="361dp"
+        android:background="#374C55"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/draw_back_button"
-        app:layout_constraintTop_toTopOf="@+id/draw_back_button" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mapView"
+        tools:ignore="MissingConstraints">
 
-    <ImageButton
-        android:id="@+id/draw_back_button"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="00:00:00:00"
+            android:textSize="50sp"
+            app:layout_constraintBottom_toTopOf="@id/btnToggleRun"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToggleRun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnFinishRun"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTimer"
+            tools:ignore="MissingConstraints" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFinishRun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Finish Run"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnToggleRun"
+            app:layout_constraintTop_toBottomOf="@id/tvTimer"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvLetsGo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="22dp"
-        android:backgroundTint="#14FFFFFF"
-        android:src="@drawable/baseline_arrow_back_24"
-        app:layout_constraintEnd_toStartOf="@+id/Header"
+        android:text="Let's go, USERNAME!"
+        android:textAlignment="center"
+        android:textSize="50sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/clInnerLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
-
-
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/clInnerLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
