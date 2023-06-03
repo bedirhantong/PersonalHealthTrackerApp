@@ -33,7 +33,9 @@
 
 
 ## Prototype
-- [Protoype](https://www.figma.com/proto/4Os1gplcwPt1cogi9XLT4Y/20200808033_EPONA?page-id=0%3A1&type=design&node-id=3-6&viewport=862%2C395%2C0.22&scaling=scale-down&starting-point-node-id=3%3A6)	is the interactive version of EPONA on Figma. 
+- [Protoype](https://www.figma.com/proto/4Os1gplcwPt1cogi9XLT4Y/20200808033_EPONA?page-id=0%3A1&type=design&node-id=3-6&viewport=862%2C395%2C0.22&scaling=scale-down&starting-point-node-id=3%3A6)	is the interactive version of EPONA on Figma.
 
-
+## Can I use Epona now?
+- Of course you can but firstly you need an unique Google Maps API key. You can get it from [this](https://developers.google.com/maps/documentation/javascript/get-api-key?hl=tr) website.
+- If you don't know how to get Google Maps API key for this project then you can also use the same link.
     
