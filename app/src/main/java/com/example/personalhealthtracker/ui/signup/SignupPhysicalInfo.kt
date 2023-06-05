@@ -61,6 +61,7 @@ class SignupPhysicalInfo : Fragment() {
                     mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener{ task ->
                             if (task.isSuccessful) {
+                                Toast.makeText(requireContext(),"Kayıt işlemi başarılı",Toast.LENGTH_LONG).show()
                                 // jump to login screen
                                 Navigation.findNavController(requireView()).navigate(R.id.navigateTo_signupPhysicalInfo_to_loginFragment)
                             } else {

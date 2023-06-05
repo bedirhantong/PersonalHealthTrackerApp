@@ -1,11 +1,15 @@
 package com.example.personalhealthtracker.ui.startNewActivity
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.SharedPreferences
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.databinding.ActivityStepCounterBinding
@@ -38,6 +42,41 @@ class StepCounterActivity : AppCompatActivity(), SensorEventListener {
             sensorManager?.registerListener(this,stepSensor,SensorManager.SENSOR_DELAY_FASTEST)
         }
     }
+
+    private fun resetSteps(){
+        binding.tvStepsTaken.setOnClickListener{
+            Toast.makeText(this,"Long tap to reset the steps",Toast.LENGTH_SHORT).show()
+        }
+
+        binding.tvStepsTaken.setOnLongClickListener {
+            previousTotalSteps = totalSteps
+            binding.tvStepsTaken.text = 0.toString()
+            saveData()
+
+            true
+        }
+    }
+
+    private fun saveData(){
+        val sharedPreferences : SharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        val editor : SharedPreferences.Editor = sharedPreferences.edit()
+        editor.putFloat("key1",previousTotalSteps)
+        editor.apply()
+    }
+
+    @SuppressLint("LogNotTimber")
+    private fun loadData(){
+        val sharedPreferences : SharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        val savedNumber : Float = sharedPreferences.getFloat("key1",0f)
+
+        Log.d("MainActivity","$savedNumber")
+        previousTotalSteps = savedNumber
+
+    }
+
+
+
+
 
     override fun onSensorChanged(p0: SensorEvent?) {
         if (running){
