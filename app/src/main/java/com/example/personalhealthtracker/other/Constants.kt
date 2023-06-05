@@ -10,6 +10,9 @@ object Constants {
 
     const val NOTIFICATION_CHANNEL_ID = "tracking_channel"
     const val NOTIFICATION_CHANNEL_NAME = "Tracking"
+
     // at least NOTIFICATION_ID should be 1 or a higher value
     const val NOTIFICATION_ID = 1
+
+    const val REQUEST_CODE_POST_NOTIFICATIONS_PERMISSION = 1001
 }
