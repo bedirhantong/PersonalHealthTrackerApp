@@ -1,5 +1,6 @@
 package com.example.personalhealthtracker.ui.startNewActivity
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import android.widget.Toast
 import androidx.navigation.Navigation
 import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.databinding.FragmentStartNewActivityBinding
+import com.example.personalhealthtracker.ui.LoginActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import pub.devrel.easypermissions.EasyPermissions
 
@@ -40,7 +42,9 @@ class StartNewActivityFragment : Fragment() {
                 Navigation.findNavController(it).navigate(R.id.action_startNewActivityFragment2_to_trackRunningFragment)
             }
             else if (chosenOne == "stepCounting"){
-//                Navigation.findNavController(it).navigate(R.id.action_startNewActivityFragment2_to_stepCountingFragment)
+                val intent = Intent(activity, StepCounterActivity::class.java)
+                startActivity(intent)
+                activity?.finish()
             }
             else{
                 Toast.makeText(requireContext(),"Please choose running or step counting activity because that is the " +
