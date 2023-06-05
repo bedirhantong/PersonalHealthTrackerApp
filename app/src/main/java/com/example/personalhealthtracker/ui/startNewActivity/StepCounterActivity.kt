@@ -16,6 +16,7 @@ import android.widget.Toast
 import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.databinding.ActivityStepCounterBinding
 
+
 class StepCounterActivity : AppCompatActivity(), SensorEventListener {
     private var sensorManager : SensorManager? = null
 
@@ -38,6 +39,7 @@ class StepCounterActivity : AppCompatActivity(), SensorEventListener {
             binding.chronometer.start()
             binding.btnStart.visibility = View.GONE
             binding.btnPause.visibility = View.VISIBLE
+            binding.btnDone.visibility = View.VISIBLE
             binding.bottomLayout.setBackgroundColor(getColor(R.color.trackColor))
         }
         binding.btnPause.setOnClickListener {
@@ -46,14 +48,17 @@ class StepCounterActivity : AppCompatActivity(), SensorEventListener {
             binding.chronometer.stop()
             binding.btnStart.visibility = View.VISIBLE
             binding.btnPause.visibility = View.GONE
+            binding.btnDone.visibility = View.GONE
             binding.bottomLayout.setBackgroundColor(getColor(R.color.stoptrackColor))
+        }
+
+        binding.btnDone.setOnClickListener {
+            // profile gidilecek
         }
 
         loadData()
         resetSteps()
-
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-
 
     }
 
@@ -65,7 +70,7 @@ class StepCounterActivity : AppCompatActivity(), SensorEventListener {
         if (stepSensor == null){
             Toast.makeText(this, "No sensor detected on this device", Toast.LENGTH_SHORT).show()
         }else{
-            sensorManager?.registerListener(this,stepSensor,SensorManager.SENSOR_DELAY_FASTEST)
+            sensorManager?.registerListener(this,stepSensor,SensorManager.SENSOR_DELAY_UI)
         }
     }
 

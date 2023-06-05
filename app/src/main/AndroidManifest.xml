@@ -8,6 +8,12 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission
+        android:name="android.hardware.sensor.stepcounter"
+        android:required="true" />
+    <uses-permission
+        android:name="android.hardware.sensor.stepdetector"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -18,6 +24,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PersonalHealthTracker"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.startNewActivity.BreathTakingExerciseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.startNewActivity.DivingActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.startNewActivity.StepCounterActivity"
             android:exported="false" />
