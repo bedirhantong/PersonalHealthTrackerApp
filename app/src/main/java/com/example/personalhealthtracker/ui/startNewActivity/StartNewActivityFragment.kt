@@ -1,5 +1,6 @@
 package com.example.personalhealthtracker.ui.startNewActivity
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,9 +11,10 @@ import androidx.navigation.Navigation
 import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.databinding.FragmentStartNewActivityBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import pub.devrel.easypermissions.EasyPermissions
 
 class StartNewActivityFragment : Fragment() {
-
+    private var isWhite : Boolean = true
     private var chosenOne:String = ""
     private var _binding : FragmentStartNewActivityBinding?= null
     private val binding get() = _binding!!
@@ -37,8 +39,11 @@ class StartNewActivityFragment : Fragment() {
             if (chosenOne == "running"){
                 Navigation.findNavController(it).navigate(R.id.action_startNewActivityFragment2_to_trackRunningFragment)
             }
+            else if (chosenOne == "stepCounting"){
+//                Navigation.findNavController(it).navigate(R.id.action_startNewActivityFragment2_to_stepCountingFragment)
+            }
             else{
-                Toast.makeText(requireContext(),"Please choose running activity because that is the " +
+                Toast.makeText(requireContext(),"Please choose running or step counting activity because that is the " +
                         "only feature exist",Toast.LENGTH_LONG).show()
             }
         }
@@ -69,38 +74,32 @@ class StartNewActivityFragment : Fragment() {
 
     private fun changeChosenOne(){
         binding.runningView.setOnClickListener {
-//            binding.divingView.setBackgroundColor(resources.getColor(R.color.black))
-//            if(chosenOne != "running"){
-//                binding.runningView.setImageResource(R.drawable.running_icon_selected)
             chosenOne ="running"
-//            }
-//            else
-//                binding.runningView.setImageResource(R.drawable.running_nonselected_icon)
+            if (isWhite){
+                binding.runningView.setBackgroundColor(Color.CYAN)
+                isWhite = false
+            }else{
+                binding.runningView.setBackgroundColor(Color.WHITE)
+                isWhite = true
+            }
         }
-
         binding.hikingView.setOnClickListener{
-//            if (chosenOne != "hiking"){
-//                binding.hikingView.setImageResource(R.drawable.hiking_icon_selected)
             chosenOne ="hiking"
-//            }else
-//                binding.hikingView.setImageResource(R.drawable.hiking_nonselected_icon)
-
         }
 
-        binding.cyclingView.setOnClickListener{
-//            if (chosenOne != "cycling"){
-//                binding.cyclingView.setImageResource(R.drawable.cycling_icon_selected)
-            chosenOne ="cycling"
-//            } else
-//                binding.cyclingView.setImageResource(R.drawable.cycling_nonselected_icon)
+        binding.stepCounting.setOnClickListener{
+            chosenOne ="stepCounting"
+            if (isWhite){
+                binding.stepCounting.setBackgroundColor(Color.CYAN)
+                isWhite = false
+            }else{
+                binding.stepCounting.setBackgroundColor(Color.WHITE)
+                isWhite = true
+            }
         }
 
         binding.divingView.setOnClickListener{
-//            if (chosenOne != "diving"){
-//                binding.divingView.setImageResource(R.drawable.diving_icon_selected)
             chosenOne ="diving"
-//            }else
-//                binding.divingView.setImageResource(R.drawable.diving_nonselected_icon)
         }
     }
 
