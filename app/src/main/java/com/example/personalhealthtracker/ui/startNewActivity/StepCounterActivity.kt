@@ -9,7 +9,9 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.SystemClock
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.databinding.ActivityStepCounterBinding
@@ -29,6 +31,30 @@ class StepCounterActivity : AppCompatActivity(), SensorEventListener {
         binding = ActivityStepCounterBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        var stopTimer:Long = 0
+        binding.btnStart.setOnClickListener {
+            binding.chronometer.base = SystemClock.elapsedRealtime() + stopTimer
+            binding.chronometer.start()
+            binding.btnStart.visibility = View.GONE
+            binding.btnPause.visibility = View.VISIBLE
+            binding.bottomLayout.setBackgroundColor(getColor(R.color.trackColor))
+        }
+        binding.btnPause.setOnClickListener {
+            stopTimer = binding.chronometer.base- SystemClock.elapsedRealtime()
+            binding.chronometer.base = SystemClock.elapsedRealtime() + stopTimer
+            binding.chronometer.stop()
+            binding.btnStart.visibility = View.VISIBLE
+            binding.btnPause.visibility = View.GONE
+            binding.bottomLayout.setBackgroundColor(getColor(R.color.stoptrackColor))
+        }
+
+        loadData()
+        resetSteps()
+
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+
+
     }
 
     override fun onResume() {
