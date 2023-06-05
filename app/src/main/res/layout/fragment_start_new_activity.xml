@@ -9,11 +9,12 @@
 
 
     <ImageView
-        android:id="@+id/hikingView"
+        android:id="@+id/breathTaking"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="84dp"
         android:layout_marginEnd="12dp"
+        android:onClick="startHiking"
         android:src="@drawable/hiking_nonselected_icon"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
@@ -26,6 +27,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="84dp"
         android:background="@color/white"
+        android:onClick="startRunning"
         android:src="@drawable/baseline_directions_run_24"
         app:layout_constraintStart_toStartOf="@+id/linearLayout5"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
@@ -72,6 +74,7 @@
             android:layout_width="170dp"
             android:layout_height="match_parent"
             android:background="@color/white"
+            android:onClick="startCountingSteps"
             android:src="@drawable/ic_directions_walk_24"
             tools:ignore="MissingConstraints" />
 
@@ -79,6 +82,7 @@
             android:id="@+id/divingView"
             android:layout_width="218dp"
             android:layout_height="150dp"
+            android:onClick="startDiving"
             android:src="@drawable/diving_nonselected_icon"
             tools:ignore="MissingConstraints" />
     </LinearLayout>
@@ -100,11 +104,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Cycling"
+        android:text="Diving"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
-        app:layout_constraintHorizontal_bias="0.763"
+        app:layout_constraintHorizontal_bias="0.671"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
         tools:ignore="MissingConstraints" />
@@ -114,12 +118,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="44dp"
-        android:text="Hiking"
+        android:layout_marginEnd="12dp"
+        android:text="Breath Taking"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/hikingView"
-        app:layout_constraintTop_toBottomOf="@+id/hikingView"
+        app:layout_constraintEnd_toEndOf="@+id/breathTaking"
+        app:layout_constraintTop_toBottomOf="@+id/breathTaking"
         tools:ignore="MissingConstraints" />
 
     <TextView
