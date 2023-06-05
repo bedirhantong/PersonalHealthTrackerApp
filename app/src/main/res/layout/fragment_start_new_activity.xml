@@ -68,17 +68,17 @@
         app:layout_constraintTop_toBottomOf="@+id/HeadingNewActivityPage">
 
         <ImageView
-            android:id="@+id/cyclingView"
-            android:layout_width="187dp"
-            android:layout_height="160dp"
-
-            android:src="@drawable/cycling_nonselected_icon"
+            android:id="@+id/stepCounting"
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:src="@drawable/ic_directions_walk_24"
             tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/divingView"
-            android:layout_width="193dp"
-            android:layout_height="match_parent"
+            android:layout_width="218dp"
+            android:layout_height="150dp"
             android:src="@drawable/diving_nonselected_icon"
             tools:ignore="MissingConstraints" />
     </LinearLayout>
@@ -114,8 +114,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="28dp"
-        android:text="Running"
+        android:layout_marginEnd="44dp"
+        android:text="Hiking"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/hikingView"
@@ -126,9 +126,9 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
-        android:text="Diving"
+        android:text="Counting Steps"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/linearLayout5"
@@ -140,7 +140,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Hiking"
+        android:text="Running"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/RunningText"

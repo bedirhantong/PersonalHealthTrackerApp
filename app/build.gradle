@@ -65,6 +65,7 @@ dependencies {
     // lifecycle
     implementation "androidx.lifecycle:lifecycle-service:2.6.1"
 
-
+    // circular progressbar
+    implementation 'com.mikhaellopez:circularprogressbar:3.1.0'
 
 }

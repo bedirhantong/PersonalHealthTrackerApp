@@ -1,9 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.startNewActivity.StepCounterActivity">
+    tools:context=".ui.startNewActivity.StepCounterActivity"
+    android:background="@drawable/mainbackground">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+        android:id="@+id/circularProgressBar"
+        android:layout_width="323dp"
+        android:layout_height="327dp"
+        android:layout_below="@+id/Header"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="44dp"
+        app:cpb_background_progressbar_color="#FFFFFF"
+        app:cpb_background_progressbar_color_end="#FFFFFF"
+        app:cpb_background_progressbar_color_start="#FFFFFF"
+        app:cpb_background_progressbar_width="20dp"
+        app:cpb_progress_direction="to_right"
+        app:cpb_progress_max="200000"
+        app:cpb_progressbar_color="#8000ff"
+        app:cpb_progressbar_width="15dp"
+        app:cpb_round_border="true" />
+
+    <TextView
+        android:id="@+id/tv_stepsTaken"
+        android:layout_width="56dp"
+        android:layout_height="107dp"
+        android:layout_above="@+id/tv_TotalMax"
+        android:layout_alignStart="@+id/circularProgressBar"
+        android:layout_alignTop="@+id/circularProgressBar"
+        android:layout_alignEnd="@+id/circularProgressBar"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="122dp"
+        android:layout_marginBottom="4dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="70sp" />
+
+    <TextView
+        android:id="@+id/tv_TotalMax"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/circularProgressBar"
+        android:layout_alignEnd="@+id/circularProgressBar"
+        android:layout_alignBottom="@+id/circularProgressBar"
+        android:layout_marginStart="117dp"
+        android:layout_marginEnd="119dp"
+        android:layout_marginBottom="86dp"
+        android:text="/20000"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/Header"
+        android:layout_width="408dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="114dp"
+        android:layout_marginEnd="3dp"
+        android:text="Counting Your Steps"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="321dp"
+        android:layout_below="@+id/circularProgressBar"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="48dp"
+        android:background="@color/trackColor"
+        android:padding="16dp">
+
+        <!-- Ortalama hız -->
+
+        <Chronometer
+            android:id="@+id/chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:format="%s:%s"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.228" />
+
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="16dp"
+            android:background="#9C27B0"
+            android:text="Start Counting"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chronometer" />
+
+        <Button
+            android:id="@+id/btnPause"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="16dp"
+            android:background="#9C27B0"
+            android:text="Pause Counting"
+            android:textAlignment="center"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chronometer" />
+
+        <TextView
+            android:id="@+id/timerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Timer"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/chronometer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+</RelativeLayout>
