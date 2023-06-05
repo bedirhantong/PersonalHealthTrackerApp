@@ -1,17 +1,25 @@
 package com.example.personalhealthtracker.ui.startNewActivity
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation
 import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.databinding.FragmentTrackRunningBinding
 import com.example.personalhealthtracker.other.Constants
 import com.example.personalhealthtracker.other.Constants.ACTION_START_OR_RESUME_SERVICE
+import com.example.personalhealthtracker.other.Constants.REQUEST_CODE_LOCATION_PERMISSION
+import com.example.personalhealthtracker.other.Constants.REQUEST_CODE_POST_NOTIFICATIONS_PERMISSION
 import com.example.personalhealthtracker.services.TrackingService
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -20,10 +28,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class TrackRunningFragment : Fragment() {
     private var _binding: FragmentTrackRunningBinding? = null
     private val binding get() = _binding!!
-
     private var map: GoogleMap? = null
 
-
+//    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+//    val permission = Manifest.permission.POST_NOTIFICATIONS
+//    val granted = PackageManager.PERMISSION_GRANTED
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,11 +43,8 @@ class TrackRunningFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentTrackRunningBinding.inflate(inflater,container,false)
-
-
-
 
 
         return binding.root
@@ -51,25 +57,16 @@ class TrackRunningFragment : Fragment() {
 
         binding.mapView.onCreate(savedInstanceState)
         binding.btnToggleRun.setOnClickListener {
-            sendCommandToService(ACTION_START_OR_RESUME_SERVICE)
+//            sendCommandToService(ACTION_START_OR_RESUME_SERVICE)
         }
         //this will load our map
         binding.mapView.getMapAsync {
             map = it
-            /*
-            If you do not worry about life cycle of mapView when you use it in a blank fragment then
-            your app will crash here
-             */
         }
-//        binding.drawBackButton.setOnClickListener {
-//            Navigation.findNavController(it).navigate(R.id.action_trackRunningFragment_to_startNewActivityFragment2)
-//            Toast.makeText(requireContext(),"You canceled the activity you have just been doing", Toast.LENGTH_SHORT).show()
-//        }
 
     }
 
     private fun sendCommandToService(action: String){
-        //
         Intent(requireContext(),TrackingService::class.java).also {
             it.action = action
             requireContext().startService(it)
