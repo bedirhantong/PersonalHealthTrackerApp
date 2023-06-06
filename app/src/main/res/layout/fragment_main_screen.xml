@@ -8,16 +8,13 @@
     tools:context=".ui.mainPage.MainScreenFragment"
     android:background="@drawable/mainbackground">
 
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+    <SearchView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Main Screen"
-        android:textColor="#FFFFFF"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="#5EFFFFFF"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="54dp"
+        tools:ignore="MissingConstraints" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
