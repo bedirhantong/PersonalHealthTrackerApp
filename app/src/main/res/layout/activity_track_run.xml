@@ -72,17 +72,17 @@
             android:layout_marginTop="12dp"
             android:text="Total Distance : "
             android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/numOfSteps"
+            app:layout_constraintEnd_toEndOf="@+id/energyConsump"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/numOfSteps"
-            app:layout_constraintTop_toBottomOf="@+id/numOfSteps" />
+            app:layout_constraintStart_toStartOf="@+id/energyConsump"
+            app:layout_constraintTop_toBottomOf="@+id/energyConsump" />
 
         <TextView
-            android:id="@+id/numOfSteps"
+            android:id="@+id/energyConsump"
             android:layout_width="260dp"
             android:layout_height="24dp"
             android:layout_marginTop="20dp"
-            android:text="Number of steps : "
+            android:text="Total energy Consumption : "
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/tvTimer"
             app:layout_constraintStart_toStartOf="@+id/tvTimer"

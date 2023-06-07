@@ -1,11 +1,10 @@
-package com.example.personalhealthtracker.ui.startNewActivity
+package com.example.personalhealthtracker.ui.startNewActivity.breathTaking
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
-import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.databinding.ActivityBreathTakingExerciseBinding
 
 

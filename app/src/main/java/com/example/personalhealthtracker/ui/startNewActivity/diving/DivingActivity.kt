@@ -1,4 +1,4 @@
-package com.example.personalhealthtracker.ui.startNewActivity
+package com.example.personalhealthtracker.ui.startNewActivity.diving
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
