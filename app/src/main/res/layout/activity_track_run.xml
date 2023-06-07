@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mainbackground"
+    tools:context=".ui.startNewActivity.TrackRunActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clInnerLayout"
+        android:layout_width="410dp"
+        android:layout_height="361dp"
+        android:background="#00374C55"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mapFragment"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="00:00:00:00"
+            android:textColor="@color/white"
+            android:textSize="50sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToggleRun"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="startTracking"
+            android:text="Start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnFinishRun"
+            app:layout_constraintHorizontal_bias="0.811"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/averagePace"
+            app:layout_constraintVertical_bias="0.4"
+            tools:ignore="MissingConstraints" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFinishRun"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="92dp"
+            android:clickable="true"
+            android:text="Finish"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/averagePace"
+            app:layout_constraintTop_toBottomOf="@+id/averagePace"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/totalDistance"
+            android:layout_width="260dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:text="Total Distance : "
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/numOfSteps"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/numOfSteps"
+            app:layout_constraintTop_toBottomOf="@+id/numOfSteps" />
+
+        <TextView
+            android:id="@+id/numOfSteps"
+            android:layout_width="260dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="20dp"
+            android:text="Number of steps : "
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/tvTimer"
+            app:layout_constraintStart_toStartOf="@+id/tvTimer"
+            app:layout_constraintTop_toBottomOf="@+id/tvTimer" />
+
+        <TextView
+            android:id="@+id/averagePace"
+            android:layout_width="260dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="16dp"
+            android:text="Average pace : "
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/totalDistance"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/totalDistance"
+            app:layout_constraintTop_toBottomOf="@+id/totalDistance" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/clInnerLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
     id("androidx.navigation.safeargs")
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 
 }
 apply plugin: 'com.android.application'
@@ -77,10 +78,13 @@ dependencies {
 
     // Easy permissions
     implementation 'pub.devrel:easypermissions:3.0.0'
+    implementation 'com.vmadalin:easypermissions-ktx:1.0.0'
+
 
     // Google maps location services
     implementation 'com.google.android.gms:play-services-location:21.0.1'
     implementation 'com.google.android.gms:play-services-maps:18.1.0'
+
 
     // Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
@@ -91,7 +95,7 @@ dependencies {
     // circular progressbar
     implementation 'com.mikhaellopez:circularprogressbar:3.1.0'
 
-    //Easy Permission
+//    Easy Permission
     implementation 'com.vmadalin:easypermissions-ktx:1.0.0'
 
 

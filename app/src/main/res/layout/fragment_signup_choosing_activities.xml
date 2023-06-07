@@ -47,7 +47,6 @@
             android:id="@+id/cycling_activity"
             android:layout_width="167dp"
             android:layout_height="wrap_content"
-
             android:src="@drawable/cycling_nonselected_icon"
             android:textAlignment="center" />
 

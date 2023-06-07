@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--ACCESS_COARSE_LOCATION is used when we use network location provider for our Android app.
+        But, ACCESS_FINE_LOCATION is providing permission for both providers.
+        -->
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
@@ -25,13 +28,20 @@
         android:theme="@style/Theme.PersonalHealthTracker"
         tools:targetApi="31">
         <activity
-            android:name=".ui.startNewActivity.BreathTakingExerciseActivity"
+            android:name=".ui.startNewActivity.TrackRunActivity"
+            android:exported="false" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBs-NTW8knFyaphy2g0IZBGj_3kRTEGXhs" />
+
+        <activity
+            android:name=".ui.startNewActivity.breathTaking.BreathTakingExerciseActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.startNewActivity.DivingActivity"
+            android:name=".ui.startNewActivity.diving.DivingActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.startNewActivity.StepCounterActivity"
+            android:name=".ui.startNewActivity.stepCounting.StepCounterActivity"
             android:exported="false" />
         <activity
             android:name=".ui.LoginActivity"
@@ -47,12 +57,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
     </application>
 
 </manifest>

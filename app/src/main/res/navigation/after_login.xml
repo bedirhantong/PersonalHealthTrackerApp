@@ -5,6 +5,11 @@
     android:id="@+id/after_login"
     app:startDestination="@id/profileFragment2">
 
+    <action android:id="@+id/action_global_trackRunningFragment"
+        app:destination="@+id/trackRunningFragment"
+        app:launchSingleTop="true"/>
+
+
     <fragment
         android:id="@+id/profileFragment2"
         android:name="com.example.personalhealthtracker.ui.profile.ProfileFragment"
@@ -46,11 +51,14 @@
     </fragment>
     <fragment
         android:id="@+id/trackRunningFragment"
-        android:name="com.example.personalhealthtracker.ui.startNewActivity.TrackRunningFragment"
+        android:name="com.example.personalhealthtracker.ui.startNewActivity.running.TrackRunningFragment"
         android:label="fragment_track_running"
         tools:layout="@layout/fragment_track_running">
         <action
             android:id="@+id/action_trackRunningFragment_to_startNewActivityFragment2"
             app:destination="@id/startNewActivityFragment2" />
+        <action
+            android:id="@+id/action_trackRunningFragment_to_profileFragment2"
+            app:destination="@id/profileFragment2" />
     </fragment>
 </navigation>
