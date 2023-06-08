@@ -20,29 +20,29 @@
         app:layout_constraintTop_toBottomOf="@id/mapFragment"
         tools:ignore="MissingConstraints">
 
-        <com.google.android.material.textview.MaterialTextView
+        <Chronometer
             android:id="@+id/tvTimer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="00:00:00:00"
             android:textColor="@color/white"
             android:textSize="50sp"
+            android:text="00:00:00"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnToggleRun"
+            android:id="@+id/buttonToggleStart"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:onClick="startTracking"
             android:text="Start"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnFinishRun"
-            app:layout_constraintHorizontal_bias="0.811"
+            app:layout_constraintEnd_toEndOf="@+id/averagePace"
+            app:layout_constraintHorizontal_bias="0.659"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/averagePace"
             app:layout_constraintVertical_bias="0.4"
@@ -56,7 +56,7 @@
             android:layout_marginEnd="92dp"
             android:clickable="true"
             android:text="Finish"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -99,6 +99,19 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/totalDistance"
             app:layout_constraintTop_toBottomOf="@+id/totalDistance" />
+
+        <Button
+            android:id="@+id/btnToggleStop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resume"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnFinishRun"
+            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintStart_toStartOf="@+id/averagePace"
+            app:layout_constraintTop_toBottomOf="@+id/averagePace"
+            app:layout_constraintVertical_bias="0.4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

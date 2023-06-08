@@ -100,5 +100,6 @@ dependencies {
 //    Easy Permission
     implementation 'com.vmadalin:easypermissions-ktx:1.0.0'
 
+    implementation 'com.diogobernardino:williamchart:3.10.1'
 
 }

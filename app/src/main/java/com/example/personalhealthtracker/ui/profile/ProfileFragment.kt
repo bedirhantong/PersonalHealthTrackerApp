@@ -1,6 +1,7 @@
 package com.example.personalhealthtracker.ui.profile
 
 import android.Manifest
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,9 @@ import com.example.personalhealthtracker.databinding.FragmentProfileBinding
 import com.example.personalhealthtracker.other.Constants.PERMISSION_LOCATION_REQUEST_CODE
 import com.vmadalin.easypermissions.EasyPermissions
 import com.vmadalin.easypermissions.dialogs.SettingsDialog
+
+
+
 
 
 class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
@@ -31,8 +35,41 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
         requestLocationPermission()
 
 
+        binding.apply {
+            barChartView.animation.duration = animationDuration
+            barChartView.animate(barSetHorizontal)
+
+
+
+//            lineChartView.gradientFillColors = intArrayOf(
+//                Color.parseColor("#953F8C"),
+//                Color.TRANSPARENT
+//            )
+//            lineChartView.animation.duration = animationDuration
+//            lineChartView.animate(lineSetHorizontal)
+//            lineChartView.onDataPointTouchListener = { index,_,_ ->
+//                chartData.text = lineSetHorizontal.toList()[index].second.toString()
+//            }
+        }
+
+
         return binding.root
     }
+
+
+    companion object {
+        private val barSetHorizontal = listOf(
+            "MON" to 27f,
+            "TUE" to 49f,
+            "WED" to 6f,
+            "THU" to 34f,
+            "FRI" to 46f,
+            "SAT" to 32f,
+            "SUN" to 22f
+        )
+        private const val animationDuration = 500L
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
