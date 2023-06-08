@@ -28,7 +28,7 @@
         android:paddingStart="30dp"
         android:paddingTop="7dp"
         android:paddingBottom="7dp"
-        android:text="Login"
+        android:text="LOGIN"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/white"

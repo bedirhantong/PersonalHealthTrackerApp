@@ -29,6 +29,9 @@ ACCESS_COARSE_LOCATION is used when we use network location provider for our And
         android:theme="@style/Theme.PersonalHealthTracker"
         tools:targetApi="31">
         <activity
+            android:name=".ui.startNewActivity.AddActivitiesAndShowToUser"
+            android:exported="false" />
+        <activity
             android:name=".ui.startNewActivity.running.LineChartActivity"
             android:exported="false"
             android:label="@string/title_activity_line_chart"

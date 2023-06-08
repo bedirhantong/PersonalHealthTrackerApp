@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-
+    android:orientation="vertical"
+    tools:context=".ui.startNewActivity.AddActivitiesAndShowToUser">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/each_activity"
         android:layout_width="match_parent"
-        android:layout_height="144dp"
-        android:background="#AE343434">
+        android:layout_height="206dp"
+        android:background="#AE343434"
+        android:paddingRight="0dp"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        >
 
         <TextView
             android:id="@+id/duration_view"
@@ -27,11 +30,11 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/average_speed_view"
-            app:layout_constraintHorizontal_bias="0.4"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/activity_type"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="@+id/activity_type"
             app:layout_constraintTop_toBottomOf="@+id/activity_type"
-            app:layout_constraintVertical_bias="0.214"
+            app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -45,16 +48,17 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/activity_type"
-            app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toStartOf="@+id/activity_type"
-            app:layout_constraintTop_toBottomOf="@+id/activity_type"
+            app:layout_constraintEnd_toStartOf="@+id/duration_view"
+            app:layout_constraintHorizontal_bias="0.562"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/duration_view"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/kcal_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
             android:fontFamily="sans-serif-light"
             android:padding="18dp"
             android:text="149kcal"
@@ -63,34 +67,67 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.673"
-            app:layout_constraintStart_toEndOf="@+id/average_speed_view"
+            app:layout_constraintHorizontal_bias="0.407"
+            app:layout_constraintStart_toEndOf="@+id/duration_view"
             app:layout_constraintTop_toBottomOf="@+id/activity_type"
-            app:layout_constraintVertical_bias="0.214" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/activity_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-light"
             android:padding="18dp"
             android:text="Running Activity"
             android:textColor="#F6EBEB"
             android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header_of_new_activity" />
+
+        <TextView
+            android:id="@+id/header_of_new_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Save activity to history?"
+            android:textColor="#000000"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"  />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    <View
-        android:id="@+id/view"
-        android:layout_below="@+id/each_activity"
+    <LinearLayout
+        android:id="@+id/buttons_layout"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#72E9E9E9" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/each_activity"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/button_cancel"
+            android:layout_width="212dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="2dp"
+
+            android:layout_marginTop="0dp"
+            android:text="Cancel" />
+
+        <Button
+            android:id="@+id/button_save"
+            android:layout_width="195dp"
+            android:layout_marginLeft="2dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="SAVE" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,7 +1,7 @@
 package com.example.personalhealthtracker.ui.profile
 
 import android.Manifest
-import android.graphics.Color
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,6 +27,7 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
     }
 
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,8 +39,12 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
         binding.apply {
             barChartView.animation.duration = animationDuration
             barChartView.animate(barSetHorizontal)
-
-
+            barChartView.onDataPointTouchListener = { index, _, _ ->
+                statisticsOfChartElements.text =
+                    barSetHorizontal.toList()[index]
+                        .second
+                        .toString() +" minute"
+            }
 
 //            lineChartView.gradientFillColors = intArrayOf(
 //                Color.parseColor("#953F8C"),
@@ -103,11 +108,11 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
     }
 
     override fun onPermissionsGranted(requestCode: Int, perms: List<String>) {
-        Toast.makeText(
-            requireContext(),
-            "Permission Granted",
-            Toast.LENGTH_SHORT
-        ).show()
+//        Toast.makeText(
+//            requireContext(),
+//            "Permission Granted",
+//            Toast.LENGTH_SHORT
+//        ).show()
     }
 
 

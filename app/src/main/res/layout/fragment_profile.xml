@@ -75,6 +75,7 @@
         android:id="@+id/rcyclerView_profile"
         android:layout_width="match_parent"
         android:layout_height="381dp"
+        tools:listitem="@layout/recycler_view_activity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -83,15 +84,26 @@
         android:id="@+id/headerOfStatsOFWeek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:text="Progess of Week"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/barChartView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
-        app:layout_constraintVertical_bias="0.512" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+
+    <TextView
+        android:id="@+id/statisticsOfChartElements"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click the chart elements to see the detail"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/barChartView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerOfStatsOFWeek" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

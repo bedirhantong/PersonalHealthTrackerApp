@@ -170,11 +170,10 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
 
                 val formattedCalories = decimalFormat.format(totalEnergyConsumption)
 
-                println("totalsteps : $totalSteps")
                 averageSpeed = calculateAverageSpeed(totalSteps,elapsedSecond)
 
                 binding.totalDistance.text =  "Total Distance : $formattedDistance km"
-                binding.averagePace.text = "Average speed : 0"
+                binding.averagePace.text = "Average speed : ${calculateAverageSpeed(totalSteps,elapsedSecond)}"
                 binding.energyConsump.text = "Total energy consumption : $formattedCalories"
             }
         }
