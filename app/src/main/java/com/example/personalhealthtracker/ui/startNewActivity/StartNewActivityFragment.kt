@@ -11,9 +11,10 @@ import android.widget.Toast
 import androidx.navigation.Navigation
 import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.databinding.FragmentStartNewActivityBinding
-import com.example.personalhealthtracker.ui.LoginActivity
+import com.example.personalhealthtracker.ui.startNewActivity.breathTaking.BreathTakingExerciseActivity
+import com.example.personalhealthtracker.ui.startNewActivity.diving.DivingActivity
+import com.example.personalhealthtracker.ui.startNewActivity.stepCounting.StepCounterActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import pub.devrel.easypermissions.EasyPermissions
 
 class StartNewActivityFragment : Fragment() {
     private var isWhite : Boolean = true
@@ -35,16 +36,40 @@ class StartNewActivityFragment : Fragment() {
         val navigationBar = activity?.findViewById<BottomNavigationView>(R.id.bottomNavigationView2)
         navigationBar?.visibility = View.GONE
 
-        changeChosenOne()
+
+
+        binding.runningView.setOnClickListener {
+            changeChosenOne("running",binding.runningView)
+        }
+        binding.divingView.setOnClickListener {
+            changeChosenOne("diving",binding.divingView)
+        }
+        binding.breathTaking.setOnClickListener {
+            changeChosenOne("breathTaking",binding.breathTaking)
+        }
+        binding.stepCounting.setOnClickListener {
+            changeChosenOne("stepCounting",binding.stepCounting)
+        }
 
         binding.StartButton.setOnClickListener {
             if (chosenOne == "running"){
-                Navigation.findNavController(it).navigate(R.id.action_startNewActivityFragment2_to_trackRunningFragment)
+                val intent = Intent(activity, TrackRunActivity::class.java)
+                startActivity(intent)
+                //                activity?.finish()
+//                Navigation.findNavController(it).navigate(R.id.action_startNewActivityFragment2_to_trackRunningFragment)
             }
             else if (chosenOne == "stepCounting"){
                 val intent = Intent(activity, StepCounterActivity::class.java)
                 startActivity(intent)
-                activity?.finish()
+//                activity?.finish()
+            }else if (chosenOne == "breathTaking"){
+                val intent = Intent(activity, BreathTakingExerciseActivity::class.java)
+                startActivity(intent)
+//                activity?.finish()
+            }else if(chosenOne == "diving"){
+                val intent = Intent(activity, DivingActivity::class.java )
+                startActivity(intent)
+//                activity?.finish()
             }
             else{
                 Toast.makeText(requireContext(),"Please choose running or step counting activity because that is the " +
@@ -59,7 +84,6 @@ class StartNewActivityFragment : Fragment() {
 
         return view
     }
-
 
     override fun onResume() {
         super.onResume()
@@ -76,34 +100,17 @@ class StartNewActivityFragment : Fragment() {
     }
 
 
-    private fun changeChosenOne(){
-        binding.runningView.setOnClickListener {
-            chosenOne ="running"
-            if (isWhite){
-                binding.runningView.setBackgroundColor(Color.CYAN)
-                isWhite = false
-            }else{
-                binding.runningView.setBackgroundColor(Color.WHITE)
-                isWhite = true
-            }
-        }
-        binding.hikingView.setOnClickListener{
-            chosenOne ="hiking"
-        }
+    private fun changeChosenOne(text : String, view: View){
+        chosenOne = text
 
-        binding.stepCounting.setOnClickListener{
-            chosenOne ="stepCounting"
-            if (isWhite){
-                binding.stepCounting.setBackgroundColor(Color.CYAN)
-                isWhite = false
+        view.setOnClickListener {
+            isWhite = if (isWhite){
+                view.setBackgroundColor(Color.CYAN)
+                false
             }else{
-                binding.stepCounting.setBackgroundColor(Color.WHITE)
-                isWhite = true
+                view.setBackgroundColor(Color.WHITE)
+                true
             }
-        }
-
-        binding.divingView.setOnClickListener{
-            chosenOne ="diving"
         }
     }
 

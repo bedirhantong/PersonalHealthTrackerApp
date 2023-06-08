@@ -5,7 +5,7 @@
         <item name="android:progressTint">@android:color/white</item>
     </style>
 
-    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
         <!-- Original AppCompat attributes. -->
         <item name="colorPrimary">@color/buttonColour</item>
         <item name="colorSecondary">@color/md_blue_500</item>

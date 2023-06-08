@@ -10,8 +10,10 @@ import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.view.View
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -32,11 +34,14 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
 
     lateinit var binding: ActivityTrackRunBinding
     private var myMap: GoogleMap? = null
-    lateinit var currentLocation : LatLng
-    lateinit var lastKnowLatLng : LatLng
 
     private lateinit var locationManager: LocationManager
     private lateinit var locationListener : LocationListener
+
+    var currentLocation : LatLng ?= null
+    var prevLocation : LatLng? = null
+    var totalDistance = 0.0
+
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     @SuppressLint("MissingPermission", "SetTextI18n")
@@ -55,7 +60,6 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
 
         binding.btnToggleRun.setOnClickListener {
 
-
         }
 
         binding.btnFinishRun.setOnClickListener {
@@ -63,7 +67,7 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
             startActivity(intent)
             this.finish()
         }
-
+        supportActionBar?.hide()
     }
 
 
@@ -73,37 +77,59 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
         // Latitude -> Enlem
         // Longtideu -> Boylam
         myMap?.mapType = GoogleMap.MAP_TYPE_TERRAIN
-
-
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         locationListener  = object : LocationListener {
+            override fun onProviderDisabled(provider: String) {
+                super.onProviderDisabled(provider)
+                if (provider == LocationManager.GPS_PROVIDER) {
+                    // GPS devre dışı bırakıldığında yapılacak işlemler
+                    showEnableGPSDialog()
+                }
+            }
+
+            private fun showEnableGPSDialog() {
+                // Kullanıcıya GPS'i etkinleştirmesi için bir uyarı mesajı gösterme
+                val builder = AlertDialog.Builder(this@TrackRunActivity)
+                builder.setTitle("GPS is Disabled")
+                builder.setMessage("Please enable GPS to use this feature.")
+                builder.setPositiveButton("Enable GPS") { dialog, which ->
+                    // GPS ayarlarına yönlendirme yapma
+                    startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
+                }
+                builder.setNegativeButton("Cancel") { dialog, which ->
+                    // İptal işlemi
+                    dialog.dismiss()
+                }
+                val dialog = builder.create()
+                dialog.show()
+            }
+
             @SuppressLint("MissingPermission")
             override fun onLocationChanged(p0: Location) {
                 myMap?.clear()
-                currentLocation = LatLng(p0.latitude,p0.longitude)
-
-                myMap?.addMarker(MarkerOptions().position(currentLocation).title("Current Location"))
-                myMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation,15f))
-
-                var newDistance = 0.0
-
-
-                val lastlat = lastKnowLatLng.latitude
-                val lastlong = lastKnowLatLng.longitude
-                val curLat = currentLocation.latitude
-                val curLong = currentLocation.longitude
-
-                newDistance += calculateDistance(lastlat,lastlong,curLat,curLong)
 
                 val decimalFormat = DecimalFormat("#.###")
-                val formattedDistance = decimalFormat.format(newDistance)
+                var formattedDistance = ""
 
+                currentLocation = LatLng(p0.latitude,p0.longitude)
+                currentLocation?.let { MarkerOptions().position(it).title("Current Location") }
+                    ?.let { myMap?.addMarker(it) }
+                currentLocation?.let { CameraUpdateFactory.newLatLngZoom(it,15f) }
+                    ?.let { myMap?.moveCamera(it) }
+
+                var dist = 0.0
+                if (prevLocation != null){
+                    dist = calculateDistance()
+                    prevLocation = currentLocation
+                } else{
+                    prevLocation = currentLocation
+                    dist = calculateDistance()
+                }
+                totalDistance += dist
+                formattedDistance = decimalFormat.format(totalDistance)
                 binding.totalDistance.text = "Total Distance : $formattedDistance km"
                 binding.averagePace.text = "Average speed : 0"
                 binding.energyConsump.text = "Total energy consumption : 0"
-
-
-
             }
         }
 
@@ -113,20 +139,16 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
         }else{
             // izin verilmiş
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2, 1f, locationListener)
-
-            val lastLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
-            lastKnowLatLng = if (lastLocation != null){
-                LatLng(lastLocation.latitude,lastLocation.longitude)
-        //                myMap?.addMarker(MarkerOptions().position(lastKnowLatLng).title("Last known Location"))
-        //                myMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(lastKnowLatLng,15f))
-            }else{
-                currentLocation // Güncellenmiş satır
-            }
-
-
         }
+    }
 
+    private fun calculateDistance(): Double {
+        val lastlat = prevLocation?.latitude ?: 0.0
+        val lastlong = prevLocation?.longitude ?: 0.0
+        val curLat = currentLocation?.latitude ?: 0.0
+        val curLong = currentLocation?.longitude ?: 0.0
 
+        return calculateDistance(curLat, curLong,lastlat , lastlong)
     }
 
     private fun calculateDistance(lat1: Double, lon1: Double, lat2: Double, lon2: Double): Double {
