@@ -2,6 +2,7 @@ package com.example.personalhealthtracker.ui.startNewActivity
 
 import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
@@ -18,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.personalhealthtracker.R
+import com.example.personalhealthtracker.data.AddActivitiesAndShowToUser
 import com.example.personalhealthtracker.databinding.ActivityTrackRunBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -44,10 +46,16 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
     var currentLocation : LatLng ?= null
     var prevLocation : LatLng? = null
     var totalDistance = 0.0
+
     var totalEnergyConsumption = 0.0
     var totalSteps = 0
     private var stopTimer:Long = 0
     var averageSpeed = 0.0
+
+    var elapsedSecond = 0
+    var formattedCalories = "0"
+    var formattedDistance = ""
+
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     @SuppressLint("MissingPermission", "SetTextI18n")
@@ -74,9 +82,6 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
             binding.btnToggleStop.visibility = View.VISIBLE
 
 
-
-
-
         }
 
 
@@ -89,12 +94,11 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
         }
 
         binding.btnFinishRun.setOnClickListener {
+            startActivity(Intent(this@TrackRunActivity, AddActivitiesAndShowToUser::class.java))
 
 
 
-
-
-            this.finish()
+//            this.finish()
         }
 
 
@@ -163,18 +167,31 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
                 // TotalSteps (I will handle it)
                 totalSteps += (totalDistance/1000).toInt()
 
-                val formattedDistance: String = decimalFormat.format(totalDistance)
+                formattedDistance = decimalFormat.format(totalDistance)
 
-                val elapsedSecond = ((SystemClock.elapsedRealtime()-(binding.tvTimer).base)/1000).toInt()
+                elapsedSecond = ((SystemClock.elapsedRealtime()-(binding.tvTimer).base)/1000).toInt()
                 totalEnergyConsumption += calculateCaloriesBurned(totalSteps,elapsedSecond,25)
 
-                val formattedCalories = decimalFormat.format(totalEnergyConsumption)
-
+                formattedCalories = decimalFormat.format(totalEnergyConsumption)
                 averageSpeed = calculateAverageSpeed(totalSteps,elapsedSecond)
 
+
                 binding.totalDistance.text =  "Total Distance : $formattedDistance km"
-                binding.averagePace.text = "Average speed : ${calculateAverageSpeed(totalSteps,elapsedSecond)}"
+                binding.averagePace.text = "Average speed : $averageSpeed"
                 binding.energyConsump.text = "Total energy consumption : $formattedCalories"
+
+
+
+                val sharedPreferences = getSharedPreferences("Bilgiler", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+
+
+                editor.putString("activityType", "Running Activity")
+                editor.putString("roadTravelled", formattedDistance)
+                editor.putString("timeElapsed", elapsedSecond.toString())
+                editor.putString("caloriesBurned", formattedCalories)
+                editor.apply()
+
             }
         }
 
@@ -274,6 +291,20 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
             }
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+
+
+//        currentLocation = null
+//        prevLocation = null
+//        totalDistance = 0.0
+//        totalEnergyConsumption = 0.0
+//        totalSteps = 0
+//        stopTimer = 0
+//        averageSpeed = 0.0
     }
 
 }

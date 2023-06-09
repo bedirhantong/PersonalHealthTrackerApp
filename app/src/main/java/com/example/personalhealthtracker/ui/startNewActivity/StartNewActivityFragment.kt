@@ -55,21 +55,21 @@ class StartNewActivityFragment : Fragment() {
             if (chosenOne == "running"){
                 val intent = Intent(activity, TrackRunActivity::class.java)
                 startActivity(intent)
-                //                activity?.finish()
+                activity?.finish()
 //                Navigation.findNavController(it).navigate(R.id.action_startNewActivityFragment2_to_trackRunningFragment)
             }
             else if (chosenOne == "stepCounting"){
                 val intent = Intent(activity, StepCounterActivity::class.java)
                 startActivity(intent)
-//                activity?.finish()
+                activity?.finish()
             }else if (chosenOne == "breathTaking"){
                 val intent = Intent(activity, BreathTakingExerciseActivity::class.java)
                 startActivity(intent)
-//                activity?.finish()
+                activity?.finish()
             }else if(chosenOne == "diving"){
                 val intent = Intent(activity, DivingActivity::class.java )
                 startActivity(intent)
-//                activity?.finish()
+                activity?.finish()
             }
             else{
                 Toast.makeText(requireContext(),"Please choose running or step counting activity because that is the " +

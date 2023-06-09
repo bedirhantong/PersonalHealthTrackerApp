@@ -27,7 +27,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/average_speed_view"
+            app:layout_constraintEnd_toStartOf="@+id/road_travelled_view"
             app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_type"
@@ -35,7 +35,7 @@
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/average_speed_view"
+            android:id="@+id/road_travelled_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-light"
@@ -64,7 +64,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.673"
-            app:layout_constraintStart_toEndOf="@+id/average_speed_view"
+            app:layout_constraintStart_toEndOf="@+id/road_travelled_view"
             app:layout_constraintTop_toBottomOf="@+id/activity_type"
             app:layout_constraintVertical_bias="0.214" />
 
