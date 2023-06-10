@@ -1,11 +1,13 @@
 package com.example.personalhealthtracker.ui.startNewActivity.breathTaking
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
 import com.example.personalhealthtracker.databinding.ActivityBreathTakingExerciseBinding
+import com.example.personalhealthtracker.ui.LoginActivity
 
 
 @SuppressLint("StaticFieldLeak")
@@ -60,12 +62,13 @@ class BreathTakingExerciseActivity : AppCompatActivity() {
                 binding.buttonStopInBreathTaking.visibility = View.GONE
                 binding.buttonFinish.visibility = View.VISIBLE
 
-//                binding.buttonFinish.setOnClickListener {
-//
-//
-//
-//                    startActivity(Intent(this@BreathTakingExerciseActivity, LoginActivity::class.java))
-//                }
+                binding.buttonFinish.setOnClickListener {
+
+
+
+
+                    startActivity(Intent(this@BreathTakingExerciseActivity, LoginActivity::class.java))
+                }
             }
         }.start()
 

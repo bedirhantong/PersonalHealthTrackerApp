@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.personalhealthtracker.adapter.HealthyActivityAdapter
 import com.example.personalhealthtracker.data.HealthyActivity
 import com.example.personalhealthtracker.databinding.FragmentMainScreenBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -21,6 +22,8 @@ class MainScreenFragment : Fragment() {
     // to get instance of DB
     val db = Firebase.firestore
 
+    private lateinit var mAuth: FirebaseAuth
+
     // tüm aktiviteleri tutabilmek için
     var healthyActivityList = ArrayList<HealthyActivity>()
 
@@ -30,11 +33,13 @@ class MainScreenFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mAuth = FirebaseAuth.getInstance()
     }
 
     @SuppressLint("NotifyDataSetChanged")
     fun firebaseGetData(){
-        db.collection("HealthyActivities").addSnapshotListener { snapshot, error ->
+        db.collection("HealthyActivities").whereEqualTo("userEmail",
+            mAuth.currentUser?.email).addSnapshotListener { snapshot, error ->
             if (error!=null){
                 Toast.makeText(this.requireContext(),error.localizedMessage,Toast.LENGTH_SHORT).show()
             }else{
@@ -46,7 +51,6 @@ class MainScreenFragment : Fragment() {
                         healthyActivityList.clear()
                         for (document in documents){
                             val actName = document.get("activityName") as String
-//                            val userEmail = document.get("userEmail") as String
                             val elapsedTime = document.get("elapsedTime") as String
                             val energyConsump = document.get("energyConsump") as String
                             val kmTravelled = document.get("kmTravelled") as String
@@ -73,6 +77,7 @@ class MainScreenFragment : Fragment() {
         _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
 
         firebaseGetData()
+
 
         // recycleView elemanları alt alta gösterilsin istiyoruz
         val layoutManager = LinearLayoutManager(this.requireContext())

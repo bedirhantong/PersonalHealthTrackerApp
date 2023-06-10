@@ -8,8 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.db.williamchart.ExperimentalFeature
+import com.example.personalhealthtracker.adapter.HealthyActivityAdapter
+import com.example.personalhealthtracker.data.HealthyActivity
 import com.example.personalhealthtracker.databinding.FragmentProfileBinding
 import com.example.personalhealthtracker.other.Constants.PERMISSION_LOCATION_REQUEST_CODE
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.vmadalin.easypermissions.EasyPermissions
@@ -26,12 +31,20 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
 
     val db = Firebase.firestore
 
+    // tüm aktiviteleri tutabilmek için
+    var healthyActivityList = ArrayList<HealthyActivity>()
+
+    private lateinit var mAuth: FirebaseAuth
+
+    private lateinit var recyclerViewAdapter : HealthyActivityAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mAuth = FirebaseAuth.getInstance()
     }
 
 
+    @OptIn(ExperimentalFeature::class)
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +52,20 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         requestLocationPermission()
+
+        binding.headerProfile.text = "\nWelcome Back ${mAuth.currentUser?.displayName}"
+
+        firebaseGetData()
+
+
+        // recycleView elemanları alt alta gösterilsin istiyoruz
+        val layoutManager = LinearLayoutManager(this.requireContext())
+        binding.rcyclerViewProfile.layoutManager = layoutManager
+
+        recyclerViewAdapter = HealthyActivityAdapter(healthyActivityList)
+        binding.rcyclerViewProfile.adapter = recyclerViewAdapter
+
+
 
 
         binding.apply {
@@ -55,6 +82,46 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
 
         return binding.root
     }
+
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun firebaseGetData(){
+        db.collection("HealthyActivities").whereEqualTo("userEmail",
+            mAuth.currentUser?.email
+        ).addSnapshotListener { snapshot, error ->
+            if (error!=null){
+                Toast.makeText(this.requireContext(),error.localizedMessage,Toast.LENGTH_SHORT).show()
+            }else{
+                if (snapshot != null){
+
+                    // eğer snapshot içinde doküman yoksa?
+                    if (!snapshot.isEmpty){
+                        val documents = snapshot.documents
+                        healthyActivityList.clear()
+                        for (document in documents){
+                            val actName = document.get("activityName") as String
+//                            val userEmail = document.get("userEmail") as String
+                            val elapsedTime = document.get("elapsedTime") as String
+                            val energyConsump = document.get("energyConsump") as String
+                            val kmTravelled = document.get("kmTravelled") as String
+                            val imageUrl = document.get("imageUrl") as String?
+
+                            val healthyActivity = HealthyActivity(actName, elapsedTime,kmTravelled,energyConsump,imageUrl)
+                            healthyActivityList.add(healthyActivity)
+
+                        }
+                        // recyclerView adapteri yeni veri için uyarıyoruz böylece yeni verileri de ekleyecek
+                        recyclerViewAdapter.notifyDataSetChanged()
+
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
 
 
     companion object {

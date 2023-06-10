@@ -33,14 +33,14 @@
         android:layout_height="150dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="500dp"
         app:chart_axis="x"
         app:chart_barsColor="#9900FF"
         app:chart_barsRadius="4dp"
         app:chart_labelsColor="#FFFFFF"
         app:chart_labelsSize="10sp"
         app:chart_spacing="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/rcyclerView_profile"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -48,63 +48,53 @@
         android:id="@+id/linearLayout5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="32dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/ic_profile_user"
-            android:layout_width="124dp"
-            android:layout_height="124dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/ic_profile_user" />
 
         <TextView
             android:id="@+id/header_profile"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="\nWelcome Back"
+            android:layout_height="wrap_content"
+            android:text="\nWelcome Back New User"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="34sp" />
+            android:textSize="24sp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcyclerView_profile"
-        android:layout_width="match_parent"
-        android:layout_height="381dp"
-        tools:listitem="@layout/recycler_view_activity"
+        android:layout_width="410dp"
+        android:layout_height="488dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/headerOfStatsOFWeek"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Progess of Week"
-        android:textColor="#FFFFFF"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+        app:layout_constraintEnd_toEndOf="@+id/barChartView"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="@+id/barChartView"
+        app:layout_constraintTop_toBottomOf="@+id/barChartView"
+        app:layout_constraintVertical_bias="1.0"
+        tools:listitem="@layout/recycler_view_activity" />
 
     <TextView
         android:id="@+id/statisticsOfChartElements"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
         android:text="Click the chart elements to see the detail"
         android:textColor="@color/white"
+        android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/barChartView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerOfStatsOFWeek"
-        app:layout_constraintVertical_bias="0.592" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

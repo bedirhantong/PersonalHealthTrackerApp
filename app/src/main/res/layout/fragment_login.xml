@@ -83,7 +83,7 @@
         android:layout_below="@id/password"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="112dp"
-        android:background="@drawable/loginbuttonbackground"
+        android:background="@drawable/search_bar_view"
         android:text="@string/login"
         android:textAllCaps="false"
         android:textColor="@color/white"
