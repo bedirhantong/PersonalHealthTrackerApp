@@ -58,7 +58,7 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
 
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-    @SuppressLint("MissingPermission", "SetTextI18n")
+    @SuppressLint("MissingPermission", "SetTextI18n", "CommitTransaction")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTrackRunBinding.inflate(layoutInflater)
@@ -94,11 +94,11 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
         }
 
         binding.btnFinishRun.setOnClickListener {
+
             startActivity(Intent(this@TrackRunActivity, AddActivitiesAndShowToUser::class.java))
 
 
-
-//            this.finish()
+            this.finish()
         }
 
 
@@ -184,7 +184,6 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
 
                 val sharedPreferences = getSharedPreferences("Bilgiler", Context.MODE_PRIVATE)
                 val editor = sharedPreferences.edit()
-
 
                 editor.putString("activityType", "Running Activity")
                 editor.putString("roadTravelled", formattedDistance)

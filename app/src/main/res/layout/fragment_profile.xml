@@ -33,7 +33,7 @@
         android:layout_height="150dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="28dp"
         app:chart_axis="x"
         app:chart_barsColor="#9900FF"
         app:chart_barsRadius="4dp"
@@ -84,7 +84,7 @@
         android:id="@+id/headerOfStatsOFWeek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="12dp"
         android:text="Progess of Week"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
@@ -101,9 +101,10 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/barChartView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerOfStatsOFWeek" />
+        app:layout_constraintTop_toBottomOf="@+id/headerOfStatsOFWeek"
+        app:layout_constraintVertical_bias="0.592" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

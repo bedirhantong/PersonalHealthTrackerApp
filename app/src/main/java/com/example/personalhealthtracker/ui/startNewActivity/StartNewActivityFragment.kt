@@ -12,7 +12,6 @@ import androidx.navigation.Navigation
 import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.databinding.FragmentStartNewActivityBinding
 import com.example.personalhealthtracker.ui.startNewActivity.breathTaking.BreathTakingExerciseActivity
-import com.example.personalhealthtracker.ui.startNewActivity.diving.DivingActivity
 import com.example.personalhealthtracker.ui.startNewActivity.stepCounting.StepCounterActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -67,9 +66,11 @@ class StartNewActivityFragment : Fragment() {
                 startActivity(intent)
                 activity?.finish()
             }else if(chosenOne == "diving"){
-                val intent = Intent(activity, DivingActivity::class.java )
-                startActivity(intent)
-                activity?.finish()
+                Toast.makeText(context,"This Healthy Activity is not avaliable now",Toast.LENGTH_LONG).show()
+//
+//                val intent = Intent(activity, DivingActivity::class.java )
+//                startActivity(intent)
+//                activity?.finish()
             }
             else{
                 Toast.makeText(requireContext(),"Please choose running or step counting activity because that is the " +
@@ -104,13 +105,19 @@ class StartNewActivityFragment : Fragment() {
         chosenOne = text
 
         view.setOnClickListener {
+
+
             isWhite = if (isWhite){
                 view.setBackgroundColor(Color.CYAN)
+
                 false
             }else{
                 view.setBackgroundColor(Color.WHITE)
                 true
             }
+
+
+
         }
     }
 

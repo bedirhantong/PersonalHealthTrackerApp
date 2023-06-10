@@ -8,12 +8,12 @@
     android:orientation="vertical">
 
 
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/each_activity"
-        android:layout_width="match_parent"
+        android:layout_width="352dp"
         android:layout_height="144dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="29dp"
         android:background="#AE343434">
 
         <TextView
@@ -28,10 +28,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/road_travelled_view"
-            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_type"
-            app:layout_constraintVertical_bias="0.214"
+            app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -63,10 +63,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.673"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/road_travelled_view"
             app:layout_constraintTop_toBottomOf="@+id/activity_type"
-            app:layout_constraintVertical_bias="0.214" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/activity_type"
@@ -85,12 +85,15 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     <View
         android:id="@+id/view"
+        android:layout_width="352dp"
+        android:layout_height="0dp"
         android:layout_below="@+id/each_activity"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_alignStart="@+id/each_activity"
+        android:layout_alignEnd="@+id/each_activity"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="1dp"
         android:background="#72E9E9E9" />
 
 </RelativeLayout>

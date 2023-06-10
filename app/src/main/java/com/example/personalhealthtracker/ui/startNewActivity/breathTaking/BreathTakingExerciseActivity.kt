@@ -12,6 +12,9 @@ import com.example.personalhealthtracker.databinding.ActivityBreathTakingExercis
 lateinit var binding: ActivityBreathTakingExerciseBinding
 
 class BreathTakingExerciseActivity : AppCompatActivity() {
+    private val actType = "Breath Taking Activity"
+    private var actDuration = "30"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_breath_taking_exercise)
@@ -19,11 +22,19 @@ class BreathTakingExerciseActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-
+        binding.buttonStartInBreathTaking.setOnClickListener {
+            startBreathing()
+            binding.buttonStartInBreathTaking.visibility = View.GONE
+            binding.buttonStopInBreathTaking.visibility = View.VISIBLE
+        }
+        binding.buttonStopInBreathTaking.setOnClickListener {
+            binding.buttonStartInBreathTaking.visibility = View.VISIBLE
+            binding.buttonStopInBreathTaking.visibility = View.GONE
+        }
 
     }
 
-    fun startBreathing(view: View){
+    private fun startBreathing(){
         var count = 30
         var time  = 30000
 
@@ -45,6 +56,16 @@ class BreathTakingExerciseActivity : AppCompatActivity() {
             @SuppressLint("SetTextI18n")
             override fun onFinish() {
                 binding.headerOfBreathTaking.text = "YOU DID A GREAT JOB!"
+                binding.buttonStartInBreathTaking.visibility = View.GONE
+                binding.buttonStopInBreathTaking.visibility = View.GONE
+                binding.buttonFinish.visibility = View.VISIBLE
+
+//                binding.buttonFinish.setOnClickListener {
+//
+//
+//
+//                    startActivity(Intent(this@BreathTakingExerciseActivity, LoginActivity::class.java))
+//                }
             }
         }.start()
 

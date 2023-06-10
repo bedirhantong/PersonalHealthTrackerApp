@@ -45,16 +45,6 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
                         .second
                         .toString() +" minute"
             }
-
-//            lineChartView.gradientFillColors = intArrayOf(
-//                Color.parseColor("#953F8C"),
-//                Color.TRANSPARENT
-//            )
-//            lineChartView.animation.duration = animationDuration
-//            lineChartView.animate(lineSetHorizontal)
-//            lineChartView.onDataPointTouchListener = { index,_,_ ->
-//                chartData.text = lineSetHorizontal.toList()[index].second.toString()
-//            }
         }
 
 

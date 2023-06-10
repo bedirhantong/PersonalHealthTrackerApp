@@ -8,13 +8,15 @@
     tools:context=".ui.mainPage.MainScreenFragment"
     android:background="@drawable/mainbackground">
 
-    <SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
         android:layout_width="352dp"
         android:layout_height="44dp"
         android:layout_marginTop="56dp"
-        android:background="#5EFFFFFF"
+        android:background="@drawable/search_bar_view"
         android:queryHint="Activity Search "
+        app:queryHint = "Search Here ..."
+        app:iconifiedByDefault="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +28,7 @@
         android:layout_width="352dp"
         android:layout_height="108dp"
         android:layout_marginTop="28dp"
-        android:background="#918CBC"
+        android:background="@drawable/search_bar_view"
         android:text="\n    Information \n    You are viewing your activities for today \n    because you have not set any filters.\n"
         android:textColor="#3C374C"
         android:textSize="16sp"

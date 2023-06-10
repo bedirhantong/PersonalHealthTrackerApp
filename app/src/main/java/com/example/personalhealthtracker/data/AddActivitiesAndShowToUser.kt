@@ -1,75 +1,90 @@
 package com.example.personalhealthtracker.data
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.databinding.ActivityAddActivitiesAndShowToUserBinding
 import com.example.personalhealthtracker.ui.LoginActivity
+import com.google.firebase.Timestamp
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+
 
 class AddActivitiesAndShowToUser : AppCompatActivity() {
     private var _binding: ActivityAddActivitiesAndShowToUserBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var viewModel: HealthyActivitiesViewModel
+    //Access a Cloud Firestore instance from your Activity
+    val db = Firebase.firestore
+    // to get user email... to add db
+    private lateinit var auth : FirebaseAuth
 
 
-    @SuppressLint("CommitTransaction")
+    private lateinit var actType : String
+    private lateinit var actKcal : String
+    private lateinit var actTimeElapsed : String
+    private lateinit var actRoadTravelled : String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         _binding = ActivityAddActivitiesAndShowToUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        viewModel = ViewModelProvider(this).get(HealthyActivitiesViewModel::class.java)
+        auth = Firebase.auth
 
         val sharedPreferences: SharedPreferences = getSharedPreferences("Bilgiler", Context.MODE_PRIVATE) // Initialize sharedPreferences
-        var message = ""
-        viewModel.result.observe(this, Observer  {
-            message = if (it == null){
-                getString(R.string.activity_added)
-            }else{
-                getString(R.string.error, it.message)
-            }
-
-            Toast.makeText(this@AddActivitiesAndShowToUser,
-            message,Toast.LENGTH_SHORT).show()
-
-        })
-        Toast.makeText(this@AddActivitiesAndShowToUser,
-            message,Toast.LENGTH_SHORT).show()
-
         binding.activityType.text = sharedPreferences.getString("activityType","0")
         binding.kcalView.text = sharedPreferences.getString("caloriesBurned","0")
         binding.durationView.text = sharedPreferences.getString("timeElapsed","0")
         binding.roadTravelledView.text = sharedPreferences.getString("roadTravelled","0")
 
+
+
         binding.buttonSave.setOnClickListener {
-            val healthyActivity = HealthyActivity()
-
-            healthyActivity.activityName = sharedPreferences.getString("activityType","0")
-            healthyActivity.roadTravelled = sharedPreferences.getString("roadTravelled","0")
-            healthyActivity.timeElapsed = sharedPreferences.getString("timeElapsed","0")
-            healthyActivity.energyCons = sharedPreferences.getString("caloriesBurned","0")
-
-
-            viewModel.addActivity(healthyActivity)
-
+            saveToHistory()
             startActivity(Intent(this@AddActivitiesAndShowToUser,
                 LoginActivity::class.java))
         }
         binding.buttonCancel.setOnClickListener {
             startActivity(Intent(this@AddActivitiesAndShowToUser,
                 LoginActivity::class.java))
-
         }
     }
 
+    private fun saveToHistory(){
+        val sharedPreferences: SharedPreferences = getSharedPreferences("Bilgiler", Context.MODE_PRIVATE) // Initialize sharedPreferences
+        val activityName = sharedPreferences.getString("activityType","0")!!
+        val energyConsump = sharedPreferences.getString("caloriesBurned","0")!!
+        val elapsedTime = sharedPreferences.getString("timeElapsed","0")!!
+        val kmTravelled = sharedPreferences.getString("roadTravelled","0")!!
+        val userEmail = auth.currentUser!!.email!!.toString()
+        val dateOfAct = Timestamp.now()
+
+
+        val healthyActMap = hashMapOf<String,Any>()
+        healthyActMap.put("activityName",activityName)
+        healthyActMap.put("energyConsump",energyConsump)
+        healthyActMap.put("elapsedTime",elapsedTime)
+        healthyActMap.put("kmTravelled",kmTravelled)
+        healthyActMap.put("userEmail",userEmail)
+        healthyActMap.put("dateOfAct",dateOfAct)
+
+
+        db.collection("HealthyActivities").add(healthyActMap).addOnCompleteListener { task->
+            if (task.isSuccessful){
+                Toast.makeText(this,"Saved successfully",Toast.LENGTH_SHORT).show()
+            }
+        }.addOnFailureListener { exception ->
+            Toast.makeText(this,exception.localizedMessage,Toast.LENGTH_LONG).show()
+        }
+
+    }
 
     override fun onDestroy() {
         super.onDestroy()
