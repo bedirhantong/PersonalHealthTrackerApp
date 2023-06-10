@@ -1,12 +1,14 @@
 package com.example.personalhealthtracker.ui.mainPage
 
-import android.content.Context
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.personalhealthtracker.adapter.HealthyActivityAdapter
 import com.example.personalhealthtracker.data.HealthyActivity
 import com.example.personalhealthtracker.databinding.FragmentMainScreenBinding
 import com.google.firebase.firestore.ktx.firestore
@@ -19,15 +21,18 @@ class MainScreenFragment : Fragment() {
     // to get instance of DB
     val db = Firebase.firestore
 
+    // tüm aktiviteleri tutabilmek için
     var healthyActivityList = ArrayList<HealthyActivity>()
+
+    private lateinit var recyclerViewAdapter : HealthyActivityAdapter
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        firebaseGetData()
-
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun firebaseGetData(){
         db.collection("HealthyActivities").addSnapshotListener { snapshot, error ->
             if (error!=null){
@@ -41,7 +46,7 @@ class MainScreenFragment : Fragment() {
                         healthyActivityList.clear()
                         for (document in documents){
                             val actName = document.get("activityName") as String
-                            val userEmail = document.get("userEmail") as String
+//                            val userEmail = document.get("userEmail") as String
                             val elapsedTime = document.get("elapsedTime") as String
                             val energyConsump = document.get("energyConsump") as String
                             val kmTravelled = document.get("kmTravelled") as String
@@ -50,14 +55,9 @@ class MainScreenFragment : Fragment() {
                             val healthyActivity = HealthyActivity(actName, elapsedTime,kmTravelled,energyConsump,imageUrl)
                             healthyActivityList.add(healthyActivity)
 
-//                            println("actname: $actName\n" +
-//                                    "userEmail: $userEmail\n" +
-//                                    "elapsedTime : $elapsedTime\n" +
-//                                    "energyConsump: $energyConsump\n" +
-//                                    "kmTravelled : $kmTravelled\n" +
-//                                    "--------------------")
-
                         }
+                        // recyclerView adapteri yeni veri için uyarıyoruz böylece yeni verileri de ekleyecek
+                        recyclerViewAdapter.notifyDataSetChanged()
 
                     }
                 }
@@ -70,10 +70,21 @@ class MainScreenFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMainScreenBinding.inflate(inflater,container,false)
-        val view: View = binding.root
+        _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
 
-        return view
+        firebaseGetData()
+
+        // recycleView elemanları alt alta gösterilsin istiyoruz
+        val layoutManager = LinearLayoutManager(this.requireContext())
+        binding.recyclerViewMainScreen.layoutManager = layoutManager
+
+        recyclerViewAdapter = HealthyActivityAdapter(healthyActivityList)
+        binding.recyclerViewMainScreen.adapter = recyclerViewAdapter
+
+
+
+
+        return binding.root
     }
     override fun onDestroyView() {
         super.onDestroyView()

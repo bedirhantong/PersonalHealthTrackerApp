@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import com.example.personalhealthtracker.databinding.ActivityAddActivitiesAndShowToUserBinding
 import com.example.personalhealthtracker.ui.LoginActivity
@@ -25,11 +24,6 @@ class AddActivitiesAndShowToUser : AppCompatActivity() {
     // to get user email... to add db
     private lateinit var auth : FirebaseAuth
 
-
-    private lateinit var actType : String
-    private lateinit var actKcal : String
-    private lateinit var actTimeElapsed : String
-    private lateinit var actRoadTravelled : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

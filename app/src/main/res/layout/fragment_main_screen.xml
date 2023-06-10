@@ -23,32 +23,16 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/info_mainPage"
-        android:layout_width="352dp"
-        android:layout_height="108dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/search_bar_view"
-        android:text="\n    Information \n    You are viewing your activities for today \n    because you have not set any filters.\n"
-        android:textColor="#3C374C"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_mainScreen"
-        android:layout_width="match_parent"
-        android:layout_height="627dp"
-        tools:listitem="@layout/recycler_view_activity"
+        android:layout_width="411dp"
+        android:layout_height="698dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info_mainPage"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        tools:listitem="@layout/recycler_view_activity" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
