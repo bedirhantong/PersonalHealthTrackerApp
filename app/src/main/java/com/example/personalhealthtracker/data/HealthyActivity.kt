@@ -1,9 +1,11 @@
 package com.example.personalhealthtracker.data
 
 
+class HealthyActivity (var activityName:String?, var timeElapsed:String?,
+                       var roadTravelled:String?,
+                       var energyCons: String?,
+                       var imageUrl: String?
+                        ){
 
-data class HealthyActivity(
-    var activityName:String = "0",
-    var timeElapsed:String = "0",
-    var roadTravelled:String = "0",
-    var energyCons: String = "0")
+
+}

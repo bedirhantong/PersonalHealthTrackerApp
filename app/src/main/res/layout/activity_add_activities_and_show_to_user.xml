@@ -1,24 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/mainbackground"
+    android:orientation="vertical"
     tools:context=".data.AddActivitiesAndShowToUser">
 
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="422dp"
+        android:text="SAVE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_cancel"
+        app:layout_constraintTop_toBottomOf="@+id/each_activity" />
+
+    <Button
+        android:id="@+id/button_cancel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginEnd="26dp"
+        android:text="Cancel"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_save"
+        app:layout_constraintEnd_toStartOf="@+id/button_save"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/each_activity"
         android:layout_width="match_parent"
-        android:layout_height="206dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="196dp"
+        android:layout_marginBottom="19dp"
         android:background="#AE343434"
         android:paddingLeft="0dp"
         android:paddingTop="0dp"
         android:paddingRight="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,11 +59,9 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/activity_type"
-            app:layout_constraintHorizontal_bias="0.507"
-            app:layout_constraintStart_toStartOf="@+id/activity_type"
-            app:layout_constraintTop_toBottomOf="@+id/activity_type"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintEnd_toEndOf="@+id/elapsedTimeText"
+            app:layout_constraintStart_toStartOf="@+id/elapsedTimeText"
+            app:layout_constraintTop_toBottomOf="@+id/elapsedTimeText"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -52,36 +74,30 @@
             android:textColor="#F8C06D"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/duration_view"
-            app:layout_constraintHorizontal_bias="0.562"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/duration_view"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintBottom_toBottomOf="@+id/duration_view"
+            app:layout_constraintEnd_toEndOf="@+id/roadTravelledText"
+            app:layout_constraintStart_toStartOf="@+id/roadTravelledText"
+            app:layout_constraintTop_toBottomOf="@+id/roadTravelledText" />
 
         <TextView
             android:id="@+id/kcal_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
             android:fontFamily="sans-serif-light"
             android:padding="18dp"
             android:text="149kcal"
             android:textColor="#F8C06D"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.407"
-            app:layout_constraintStart_toEndOf="@+id/duration_view"
-            app:layout_constraintTop_toBottomOf="@+id/activity_type"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintBottom_toBottomOf="@+id/duration_view"
+            app:layout_constraintEnd_toEndOf="@+id/energyConsumpText"
+            app:layout_constraintStart_toStartOf="@+id/energyConsumpText"
+            app:layout_constraintTop_toBottomOf="@+id/energyConsumpText" />
 
         <TextView
             android:id="@+id/activity_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-light"
             android:padding="18dp"
             android:text="Running Activity"
@@ -96,49 +112,55 @@
             android:id="@+id/header_of_new_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="92dp"
             android:text="Save activity to history?"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/energyConsumpText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <LinearLayout
-        android:id="@+id/buttons_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/each_activity"
-        android:layout_alignParentStart="true"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/each_activity"
-        app:layout_constraintVertical_bias="0.002">
-
-        <Button
-            android:id="@+id/button_cancel"
-            android:layout_width="202dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="0dp"
-
-            android:layout_marginEnd="2dp"
-            android:text="Cancel" />
-
-        <Button
-            android:id="@+id/button_save"
-            android:layout_width="212dp"
+        <TextView
+            android:id="@+id/roadTravelledText"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="0dp"
-            android:text="SAVE" />
-    </LinearLayout>
+            android:text="Road Travelled"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/duration_view"
+            app:layout_constraintEnd_toStartOf="@+id/elapsedTimeText"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/elapsedTimeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="63dp"
+            android:text="Elapsed Time"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/activity_type"
+            app:layout_constraintStart_toStartOf="@+id/activity_type"
+            app:layout_constraintTop_toBottomOf="@+id/energyConsumpText"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/energyConsumpText"
+            android:layout_width="120dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="33dp"
+            android:text="Consumed Energy"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/elapsedTimeText"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="124dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

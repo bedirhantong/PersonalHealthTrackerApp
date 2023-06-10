@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.personalhealthtracker.databinding.FragmentProfileBinding
 import com.example.personalhealthtracker.other.Constants.PERMISSION_LOCATION_REQUEST_CODE
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.vmadalin.easypermissions.EasyPermissions
 import com.vmadalin.easypermissions.dialogs.SettingsDialog
 
@@ -21,6 +23,9 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
 
     private var _binding : FragmentProfileBinding?= null
     private val binding get() = _binding!!
+
+    val db = Firebase.firestore
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
