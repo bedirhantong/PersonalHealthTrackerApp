@@ -15,6 +15,7 @@ import com.example.personalhealthtracker.data.HealthyActivity
 import com.example.personalhealthtracker.databinding.FragmentProfileBinding
 import com.example.personalhealthtracker.other.Constants.PERMISSION_LOCATION_REQUEST_CODE
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.vmadalin.easypermissions.EasyPermissions
@@ -88,8 +89,10 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
     fun firebaseGetData(){
         db.collection("HealthyActivities").whereEqualTo("userEmail",
             mAuth.currentUser?.email
-        ).addSnapshotListener { snapshot, error ->
+        ).orderBy("dateOfAct",
+            Query.Direction.DESCENDING).addSnapshotListener { snapshot, error ->
             if (error!=null){
+                println(error.localizedMessage)
                 Toast.makeText(this.requireContext(),error.localizedMessage,Toast.LENGTH_SHORT).show()
             }else{
                 if (snapshot != null){

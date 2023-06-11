@@ -12,10 +12,11 @@ import com.example.personalhealthtracker.adapter.HealthyActivityAdapter
 import com.example.personalhealthtracker.data.HealthyActivity
 import com.example.personalhealthtracker.databinding.FragmentMainScreenBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class MainScreenFragment : Fragment() {
+class MainScreenFragment : Fragment(){
     private var _binding : FragmentMainScreenBinding?= null
     private val binding get() = _binding!!
 
@@ -31,16 +32,21 @@ class MainScreenFragment : Fragment() {
 
 
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mAuth = FirebaseAuth.getInstance()
+
     }
 
     @SuppressLint("NotifyDataSetChanged")
     fun firebaseGetData(){
         db.collection("HealthyActivities").whereEqualTo("userEmail",
-            mAuth.currentUser?.email).addSnapshotListener { snapshot, error ->
+            mAuth.currentUser?.email).orderBy("dateOfAct",
+            Query.Direction.DESCENDING).addSnapshotListener { snapshot, error ->
             if (error!=null){
+                println(error.localizedMessage)
                 Toast.makeText(this.requireContext(),error.localizedMessage,Toast.LENGTH_SHORT).show()
             }else{
                 if (snapshot != null){
