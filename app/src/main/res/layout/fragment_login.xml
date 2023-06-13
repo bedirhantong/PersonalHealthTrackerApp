@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_background"
+    android:background="@drawable/mainbackground"
     tools:context=".ui.LoginFragment">
 
 
@@ -44,6 +44,8 @@
         android:paddingStart="14dp"
         android:textColor="#000000"
         android:textColorHint="#757575"
+        android:singleLine="true"
+        android:ellipsize="end"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/app_logo"
@@ -70,6 +72,8 @@
         android:hint="Please enter your password"
         android:paddingStart="14dp"
         android:textColor="#000000"
+        android:singleLine="true"
+        android:ellipsize="end"
         android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -119,7 +123,7 @@
             android:background="?android:attr/selectableItemBackground"
             android:text="@string/sign_up"
             android:textAllCaps="false"
-            android:textColor="@color/signuplogincolor"
+            android:textColor="@color/grey"
             android:textSize="16sp" />
     </LinearLayout>
 

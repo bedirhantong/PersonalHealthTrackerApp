@@ -44,7 +44,7 @@ class LoginFragment : Fragment() {
             else{
                 mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener{task->
                     if (task.isSuccessful){
-                        val intent = Intent(activity, LoginActivity::class.java)
+                        val intent = Intent(requireContext(), LoginActivity::class.java)
                         startActivity(intent)
                         activity?.finish()
                     }else{
