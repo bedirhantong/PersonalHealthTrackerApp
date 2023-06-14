@@ -38,7 +38,7 @@ class AddActivitiesAndShowToUser : AppCompatActivity() {
         binding.durationView.text = sharedPreferences.getString("timeElapsed","0")
         binding.roadTravelledView.text = sharedPreferences.getString("roadTravelled","0")
 
-
+        supportActionBar?.hide()
 
         binding.buttonSave.setOnClickListener {
             saveToHistory()

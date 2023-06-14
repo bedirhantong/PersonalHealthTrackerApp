@@ -65,6 +65,12 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
         val view = binding.root
         setContentView(view)
 
+
+        binding.totalDistance.text =  "0 km"
+        binding.averagePace.text = "0"
+        binding.energyConsump.text = "0"
+        binding.totalStepNum.text = "0"
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager.findFragmentById(R.id.mapFragment) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -176,9 +182,10 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
                 averageSpeed = calculateAverageSpeed(totalSteps,elapsedSecond)
 
 
-                binding.totalDistance.text =  "Total Distance : $formattedDistance km"
-                binding.averagePace.text = "Average speed : $averageSpeed"
-                binding.energyConsump.text = "Total energy consumption : $formattedCalories"
+                binding.totalDistance.text =  "$formattedDistance km"
+                binding.averagePace.text = "$averageSpeed"
+                binding.energyConsump.text = formattedCalories
+                binding.totalStepNum.text = totalSteps.toString()
 
 
 
@@ -295,15 +302,6 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
     override fun onDestroy() {
         super.onDestroy()
 
-
-
-//        currentLocation = null
-//        prevLocation = null
-//        totalDistance = 0.0
-//        totalEnergyConsumption = 0.0
-//        totalSteps = 0
-//        stopTimer = 0
-//        averageSpeed = 0.0
     }
 
 }

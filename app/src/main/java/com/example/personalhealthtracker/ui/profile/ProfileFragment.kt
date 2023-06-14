@@ -54,8 +54,17 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         requestLocationPermission()
 
-        binding.headerProfile.text = "\nWelcome Back ${mAuth.currentUser?.displayName}"
-
+        val currentUser = mAuth.currentUser
+        if (currentUser != null) {
+            val displayName = currentUser.displayName
+            if (displayName != null) {
+                binding.headerProfile.text = "\nWelcome Back $displayName"
+            } else {
+                binding.headerProfile.text = "\nWelcome Back Guest"
+            }
+        } else {
+            binding.headerProfile.text = "\nWelcome Back Guest"
+        }
         firebaseGetData()
 
 
