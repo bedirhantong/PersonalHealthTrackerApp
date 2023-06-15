@@ -15,6 +15,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.example.personalhealthtracker.R
+import com.example.personalhealthtracker.data.AddActivitiesAndShowToUser
 import com.example.personalhealthtracker.databinding.ActivityStepCounterBinding
 import com.example.personalhealthtracker.ui.LoginActivity
 import com.example.personalhealthtracker.ui.profile.ProfileFragment
@@ -23,7 +24,6 @@ import kotlin.math.sqrt
 
 class StepCounterActivity : AppCompatActivity(), SensorEventListener {
     private var sensorManager : SensorManager? = null
-    var initialStepCount = 0
     private var running = false
     private var totalSteps = 0
     private var previousTotalSteps =0
@@ -32,18 +32,14 @@ class StepCounterActivity : AppCompatActivity(), SensorEventListener {
     //yeni
     private var isStepCountingInitialized = false
 
-    private lateinit var activityName : String
-    private lateinit var timeElapsed : String
-    private lateinit var roadTravelled : String
+    private val activityName : String = "Step Counting"
+    private var totalDistance : String = ""
+    private var step : String = ""
+    private var caloriesBurned : String = ""
+
     private var countedSteps = 0
     private var times = 1
 
-
-
-    companion object {
-        // Permission
-        private const val REQUEST_CODE_ACTIVITY_RECOGNITION = 2
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_step_counter)
@@ -66,6 +62,12 @@ class StepCounterActivity : AppCompatActivity(), SensorEventListener {
             sensorManager?.registerListener(this, accelerometerSensor, SensorManager.SENSOR_DELAY_NORMAL)
         }
 
+
+
+
+
+
+
         binding.btnStart.setOnClickListener {
             binding.chronometer.base = SystemClock.elapsedRealtime() + stopTimer
             binding.chronometer.start()
@@ -74,8 +76,6 @@ class StepCounterActivity : AppCompatActivity(), SensorEventListener {
             binding.btnPause.visibility = View.VISIBLE
             binding.btnDone.visibility = View.VISIBLE
             binding.bottomLayout.setBackgroundColor(getColor(R.color.trackColor))
-
-
 
         }
         binding.btnPause.setOnClickListener {
@@ -89,7 +89,18 @@ class StepCounterActivity : AppCompatActivity(), SensorEventListener {
         }
 
         binding.btnDone.setOnClickListener {
-            startActivity(Intent(this@StepCounterActivity,LoginActivity::class.java))
+            val sharedPreferences = getSharedPreferences("StepCounter", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putString("activityType", activityName)
+            editor.putString("step", step)
+            editor.putString("roadTravelled", totalDistance)
+            editor.putString("caloriesBurned", caloriesBurned)
+            editor.apply()
+
+            val intent = Intent(this@StepCounterActivity,AddActivitiesAndShowToUser::class.java)
+            intent.putExtra("sourceActivity", "StepCounterActivity")
+            startActivity(intent)
+            this.finish()
         }
 
 
@@ -104,7 +115,6 @@ class StepCounterActivity : AppCompatActivity(), SensorEventListener {
             true
         }
         loadData()
-
 
     }
 
@@ -133,7 +143,6 @@ class StepCounterActivity : AppCompatActivity(), SensorEventListener {
         val savedNumber : Int = sharedPreferences.getInt("key1",0)
         Log.d("MainActivity","$savedNumber")
         previousTotalSteps = savedNumber
-
     }
 
 @SuppressLint("SetTextI18n")
@@ -163,8 +172,10 @@ override fun onSensorChanged(event: SensorEvent?) {
             } else {
                 currentSteps
             }
-
+            totalDistance = (times*(0.69)).toString()
+            caloriesBurned = (times*(0.87)).toString()
             binding.tvStepsTaken.text = times.toString()
+            step = times.toString()
             binding.circularProgressBar.setProgressWithAnimation(times.toFloat())
         }
     }

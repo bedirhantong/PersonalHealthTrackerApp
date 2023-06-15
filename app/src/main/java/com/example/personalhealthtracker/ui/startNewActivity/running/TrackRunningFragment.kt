@@ -34,7 +34,6 @@ class TrackRunningFragment : Fragment() {
         }
 
         binding.btnFinishRun.setOnClickListener {
-            view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_trackRunningFragment_to_profileFragment2) }
         }
 
         return binding.root

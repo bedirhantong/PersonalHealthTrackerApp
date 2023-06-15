@@ -27,6 +27,7 @@ class SignupUserInfo : Fragment() {
 
         binding.nextButton.setOnClickListener {
             val action = SignupUserInfoDirections.navigateToSignupUserInfoToSignupPhysicalInfo(
+                binding.usernameViewTextInLogin.text.toString(),
                 binding.emailViewTextInLogin.text.toString(),
                 binding.password.text.toString()
             )

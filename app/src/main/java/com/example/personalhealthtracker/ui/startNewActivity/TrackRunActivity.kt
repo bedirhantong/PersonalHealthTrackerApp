@@ -100,10 +100,9 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
         }
 
         binding.btnFinishRun.setOnClickListener {
-
-            startActivity(Intent(this@TrackRunActivity, AddActivitiesAndShowToUser::class.java))
-
-
+            val intent = Intent(this@TrackRunActivity, AddActivitiesAndShowToUser::class.java)
+            intent.putExtra("sourceActivity", "Running Activity")
+            startActivity(intent)
             this.finish()
         }
 
@@ -187,11 +186,8 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
                 binding.energyConsump.text = formattedCalories
                 binding.totalStepNum.text = totalSteps.toString()
 
-
-
                 val sharedPreferences = getSharedPreferences("Bilgiler", Context.MODE_PRIVATE)
                 val editor = sharedPreferences.edit()
-
                 editor.putString("activityType", "Running Activity")
                 editor.putString("roadTravelled", formattedDistance)
                 editor.putString("timeElapsed", elapsedSecond.toString())

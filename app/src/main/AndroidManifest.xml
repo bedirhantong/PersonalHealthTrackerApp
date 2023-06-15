@@ -32,17 +32,11 @@ ACCESS_COARSE_LOCATION is used when we use network location provider for our And
             android:name=".data.AddActivitiesAndShowToUser"
             android:exported="false" />
         <activity
-            android:name=".ui.startNewActivity.running.LineChartActivity"
-            android:exported="false"
-            android:label="@string/title_activity_line_chart"
-            android:theme="@style/Theme.PersonalHealthTracker" />
-        <activity
             android:name=".ui.startNewActivity.running.BarChartActivity"
             android:exported="false" />
         <activity
             android:name=".ui.startNewActivity.TrackRunActivity"
             android:exported="false" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBs-NTW8knFyaphy2g0IZBGj_3kRTEGXhs" />

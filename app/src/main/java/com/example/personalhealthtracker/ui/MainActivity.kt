@@ -19,22 +19,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        navigateToTrackRunningFragmentIfNeeded(intent)
         supportActionBar?.hide()
     }
 
 
 
-    override fun onNewIntent(intent: Intent?) {
-        super.onNewIntent(intent)
-        navigateToTrackRunningFragmentIfNeeded(intent)
-
-    }
-    private fun navigateToTrackRunningFragmentIfNeeded(intent: Intent?){
-        if (intent?.action == Constants.ACTION_SHOW_TRACK_RUNNING_FRAGMENT){
-            findNavController(R.id.fragmentContainerView).navigate(R.id.action_global_trackRunningFragment)
-
-        }
-    }
 
 }

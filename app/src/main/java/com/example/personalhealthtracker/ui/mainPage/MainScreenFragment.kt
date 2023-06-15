@@ -92,7 +92,10 @@ class MainScreenFragment : Fragment(){
         recyclerViewAdapter = HealthyActivityAdapter(healthyActivityList)
         binding.recyclerViewMainScreen.adapter = recyclerViewAdapter
 
-
+        binding.searchView.setOnClickListener {
+            Toast.makeText(requireContext(),"This feature is currently unavaliable, wait for new updates.",
+                Toast.LENGTH_SHORT).show()
+        }
 
 
         return binding.root

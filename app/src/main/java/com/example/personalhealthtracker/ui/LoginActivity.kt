@@ -1,13 +1,11 @@
 package com.example.personalhealthtracker.ui
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.databinding.ActivityLoginBinding
-import com.example.personalhealthtracker.other.Constants.ACTION_SHOW_TRACK_RUNNING_FRAGMENT
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -16,7 +14,6 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_login)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)

@@ -62,12 +62,12 @@ class StartNewActivityFragment : Fragment() {
                 startActivity(intent)
                 activity?.finish()
             }else if (chosenOne == "breathTaking"){
+                Toast.makeText(context,"This Healthy Activity is avaliable now but you cannot save to history for now",Toast.LENGTH_LONG).show()
                 val intent = Intent(activity, BreathTakingExerciseActivity::class.java)
                 startActivity(intent)
                 activity?.finish()
             }else if(chosenOne == "diving"){
                 Toast.makeText(context,"This Healthy Activity is not avaliable now",Toast.LENGTH_LONG).show()
-//
 //                val intent = Intent(activity, DivingActivity::class.java )
 //                startActivity(intent)
 //                activity?.finish()

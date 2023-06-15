@@ -6,7 +6,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +18,6 @@ import com.example.personalhealthtracker.adapter.HealthyActivityAdapter
 import com.example.personalhealthtracker.data.HealthyActivity
 import com.example.personalhealthtracker.databinding.FragmentProfileBinding
 import com.example.personalhealthtracker.other.Constants.PERMISSION_LOCATION_REQUEST_CODE
-import com.example.personalhealthtracker.ui.LoginActivity
 import com.example.personalhealthtracker.ui.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.Query
@@ -94,8 +92,6 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
                         .toString() +" minute"
             }
         }
-
-
         return binding.root
     }
 
@@ -118,15 +114,25 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
                         healthyActivityList.clear()
                         for (document in documents){
                             val actName = document.get("activityName") as String
-//                            val userEmail = document.get("userEmail") as String
-                            val elapsedTime = document.get("elapsedTime") as String
-                            val energyConsump = document.get("energyConsump") as String
-                            val kmTravelled = document.get("kmTravelled") as String
-                            val imageUrl = document.get("imageUrl") as String?
+                            if (actName == "Running Activity"){
+                                val elapsedTime = document.get("elapsedTime") as String
+                                val energyConsump = document.get("energyConsump") as String
+                                val kmTravelled = document.get("kmTravelled") as String
+                                val imageUrl = document.get("imageUrl") as String?
 
-                            val healthyActivity = HealthyActivity(actName, elapsedTime,kmTravelled,energyConsump,imageUrl)
-                            healthyActivityList.add(healthyActivity)
+                                val healthyActivity = HealthyActivity(actName, elapsedTime,kmTravelled,energyConsump,imageUrl)
+                                healthyActivityList.add(healthyActivity)
+                            }
+                            else{
+                                // if it is step counting
+                                val elapsedTime = document.get("elapsedTime") as String
+                                val energyConsump = document.get("energyConsump") as String
+                                val kmTravelled = document.get("kmTravelled") as String
+                                val imageUrl = document.get("imageUrl") as String?
 
+                                val healthyActivity = HealthyActivity(actName, elapsedTime,kmTravelled,energyConsump,imageUrl)
+                                healthyActivityList.add(healthyActivity)
+                            }
                         }
                         // recyclerView adapteri yeni veri için uyarıyoruz böylece yeni verileri de ekleyecek
                         recyclerViewAdapter.notifyDataSetChanged()
@@ -161,6 +167,7 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
 
 
         binding.buttonSetting.setOnClickListener { buttonView ->
+//            Navigation.findNavController(view).navigate(R.id.action_profileFragment2_to_settingsFragment)
             val popupMenu = PopupMenu(requireContext(), buttonView)
             val inflater: MenuInflater = popupMenu.menuInflater
             inflater.inflate(R.menu.main_menu, popupMenu.menu)
