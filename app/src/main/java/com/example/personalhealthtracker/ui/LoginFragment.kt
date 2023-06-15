@@ -35,6 +35,12 @@ class LoginFragment : Fragment() {
         binding.loginButton.setOnClickListener {
             val email = binding.emailViewInLogin.text.toString()
             val password = binding.password.text.toString()
+            val userC = mAuth.currentUser
+
+            if(userC != null){
+                startActivity(Intent(requireContext(),LoginActivity::class.java))
+                activity?.finish()
+            }
 
 
             if (email == "" || password == ""){

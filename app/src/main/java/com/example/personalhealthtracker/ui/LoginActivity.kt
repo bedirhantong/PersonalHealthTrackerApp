@@ -22,8 +22,6 @@ class LoginActivity : AppCompatActivity() {
         setContentView(view)
         supportActionBar?.hide()
 
-        navigateToTrackRunningFragmentIfNeeded(intent)
-
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView2)
         val navController = findNavController(R.id.fragmentContainerView2)
@@ -32,18 +30,6 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    override fun onNewIntent(intent: Intent?) {
-        super.onNewIntent(intent)
-        navigateToTrackRunningFragmentIfNeeded(intent)
-
-    }
-
-    private fun navigateToTrackRunningFragmentIfNeeded(intent: Intent?){
-        if (intent?.action == ACTION_SHOW_TRACK_RUNNING_FRAGMENT){
-            findNavController(R.id.fragmentContainerView).navigate(R.id.action_global_trackRunningFragment)
-
-        }
-    }
 
 
 
