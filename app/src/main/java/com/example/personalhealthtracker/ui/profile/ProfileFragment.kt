@@ -2,18 +2,25 @@ package com.example.personalhealthtracker.ui.profile
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.db.williamchart.ExperimentalFeature
+import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.adapter.HealthyActivityAdapter
 import com.example.personalhealthtracker.data.HealthyActivity
 import com.example.personalhealthtracker.databinding.FragmentProfileBinding
 import com.example.personalhealthtracker.other.Constants.PERMISSION_LOCATION_REQUEST_CODE
+import com.example.personalhealthtracker.ui.LoginActivity
+import com.example.personalhealthtracker.ui.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
@@ -30,14 +37,15 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
     private var _binding : FragmentProfileBinding?= null
     private val binding get() = _binding!!
 
-    val db = Firebase.firestore
+    private val db = Firebase.firestore
 
     // tüm aktiviteleri tutabilmek için
-    var healthyActivityList = ArrayList<HealthyActivity>()
+    private var healthyActivityList = ArrayList<HealthyActivity>()
 
     private lateinit var mAuth: FirebaseAuth
 
     private lateinit var recyclerViewAdapter : HealthyActivityAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,8 +82,6 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
 
         recyclerViewAdapter = HealthyActivityAdapter(healthyActivityList)
         binding.rcyclerViewProfile.adapter = recyclerViewAdapter
-
-
 
 
         binding.apply {
@@ -152,10 +158,33 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        binding.buttonSetting.setOnClickListener { buttonView ->
+            val popupMenu = PopupMenu(requireContext(), buttonView)
+            val inflater: MenuInflater = popupMenu.menuInflater
+            inflater.inflate(R.menu.main_menu, popupMenu.menu)
+
+            popupMenu.setOnMenuItemClickListener { item ->
+                when (item.itemId) {
+                    R.id.log_out -> {
+                        mAuth.signOut()
+                        startActivity(Intent(requireContext(),MainActivity::class.java))
+                        activity?.finish()
+                        true
+                    }
+                    else -> false
+                }
+            }
+
+            popupMenu.show()
+        }
+
+
     }
 
 
-    fun requestLocationPermission(){
+    private fun requestLocationPermission(){
         EasyPermissions.requestPermissions(
             this,
             "This application cannot work without Location Permission.",
@@ -182,11 +211,6 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
     }
 
     override fun onPermissionsGranted(requestCode: Int, perms: List<String>) {
-//        Toast.makeText(
-//            requireContext(),
-//            "Permission Granted",
-//            Toast.LENGTH_SHORT
-//        ).show()
     }
 
 
