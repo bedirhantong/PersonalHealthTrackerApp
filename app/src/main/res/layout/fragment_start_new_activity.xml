@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/runningView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_marginTop="56dp"
         android:background="@drawable/search_bar_view"
         android:src="@drawable/baseline_directions_run_24"
@@ -23,8 +23,8 @@
 
     <ImageView
         android:id="@+id/breathTaking"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_marginTop="56dp"
         android:background="@drawable/search_bar_view"
         android:onClick="startHiking"
@@ -39,10 +39,10 @@
         android:id="@+id/linearLayout6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="552dp"
+        android:layout_marginTop="516dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@+id/breathTaking"
-        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="@+id/runningView"
         app:layout_constraintTop_toBottomOf="@+id/HeadingNewActivityPage">
 
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:text="Log this activity when completed"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="16sp"
             tools:ignore="MissingConstraints" />
 
         <Switch
@@ -72,7 +72,7 @@
         android:text="Start a New Activity"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="34sp"
+        android:textSize="27sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -84,7 +84,7 @@
         android:layout_marginTop="28dp"
         android:text="Diving"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/divingView"
         app:layout_constraintStart_toStartOf="@+id/divingView"
         app:layout_constraintTop_toBottomOf="@+id/divingView"
@@ -97,7 +97,7 @@
         android:layout_marginTop="28dp"
         android:text="Breath Taking"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/breathTaking"
         app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="@+id/breathTaking"
@@ -111,7 +111,7 @@
         android:layout_marginTop="28dp"
         android:text="Counting Steps"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/stepCounting"
         app:layout_constraintHorizontal_bias="0.714"
         app:layout_constraintStart_toStartOf="@+id/stepCounting"
@@ -125,7 +125,7 @@
         android:layout_marginTop="28dp"
         android:text="Running"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/runningView"
         app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="@+id/runningView"
@@ -159,23 +159,23 @@
 
     <ImageView
         android:id="@+id/stepCounting"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/search_bar_view"
         android:onClick="startCountingSteps"
         android:src="@drawable/ic_directions_walk_24"
         app:layout_constraintEnd_toStartOf="@+id/divingView"
-        app:layout_constraintHorizontal_bias="0.31"
+        app:layout_constraintHorizontal_bias="0.243"
         app:layout_constraintStart_toStartOf="@+id/HeadingNewActivityPage"
         app:layout_constraintTop_toBottomOf="@+id/HeadingNewActivityPage"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/divingView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/search_bar_view"
         android:onClick="startDiving"

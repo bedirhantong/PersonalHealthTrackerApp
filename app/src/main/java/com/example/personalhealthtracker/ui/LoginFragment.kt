@@ -48,17 +48,29 @@ class LoginFragment : Fragment() {
                     Toast.LENGTH_LONG).show()
             }
             else{
-                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener{task->
-                    if (task.isSuccessful){
-                        val intent = Intent(requireContext(), LoginActivity::class.java)
-                        startActivity(intent)
-                        activity?.finish()
-                    }else{
-                        val errorMessage = task.exception?.message
-                        Toast.makeText(requireContext(), "$errorMessage",
-                            Toast.LENGTH_SHORT).show()
+                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+                    if (isAdded) { // Fragment hala bağlı mı kontrolü
+                        if (task.isSuccessful) {
+                            val intent = Intent(requireContext(), LoginActivity::class.java)
+                            startActivity(intent)
+                            activity?.finish()
+                        } else {
+                            val errorMessage = task.exception?.message
+                            Toast.makeText(requireContext(), "$errorMessage", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
+//                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener{task->
+//                    if (task.isSuccessful){
+//                        val intent = Intent(requireContext(), LoginActivity::class.java)
+//                        startActivity(intent)
+//                        activity?.finish()
+//                    }else{
+//                        val errorMessage = task.exception?.message
+//                        Toast.makeText(requireContext(), "$errorMessage",
+//                            Toast.LENGTH_SHORT).show()
+//                    }
+//                }
             }
 
         }

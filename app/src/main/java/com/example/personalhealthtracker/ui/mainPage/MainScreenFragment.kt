@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.personalhealthtracker.adapter.HealthyActivityAdapter
 import com.example.personalhealthtracker.data.HealthyActivity
@@ -15,8 +16,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.util.Locale
 
 class MainScreenFragment : Fragment(){
+
     private var _binding : FragmentMainScreenBinding?= null
     private val binding get() = _binding!!
 
@@ -29,7 +32,6 @@ class MainScreenFragment : Fragment(){
     var healthyActivityList = ArrayList<HealthyActivity>()
 
     private lateinit var recyclerViewAdapter : HealthyActivityAdapter
-
 
 
 
@@ -98,8 +100,15 @@ class MainScreenFragment : Fragment(){
         }
 
 
+
+
         return binding.root
     }
+
+
+
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
