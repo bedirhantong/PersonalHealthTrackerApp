@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.profile.ProfileFragment"
-    android:background="@drawable/mainbackground">
+    android:background="@drawable/lukechesserdark">
 
 
 
@@ -49,10 +49,10 @@
         android:id="@+id/linearLayout5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="44dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.549"
+        app:layout_constraintHorizontal_bias="0.364"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -99,13 +99,13 @@
         android:id="@+id/button_setting"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="56dp"
         android:background="@drawable/search_bar_view"
         android:src="@drawable/baseline_settings_24"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.574"
         app:layout_constraintStart_toEndOf="@+id/linearLayout5"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/linearLayout5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.mainPage.MainScreenFragment"
-    android:background="@drawable/mainbackground">
+    android:background="@drawable/lukechesserdark">
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
@@ -30,9 +30,10 @@
         android:layout_marginTop="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/searchView"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="@+id/searchView"
         app:layout_constraintTop_toBottomOf="@+id/explanation_of_filtering"
-        app:layout_constraintVertical_bias="0.415"
+        app:layout_constraintVertical_bias="0.275"
         tools:listitem="@layout/recycler_view_activity" />
 
     <TextView
@@ -45,7 +46,6 @@
         android:textAlignment="center"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
