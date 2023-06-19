@@ -8,6 +8,18 @@
     tools:context=".ui.startNewActivity.TrackRunActivity">
 
 
+    <TextView
+        android:id="@+id/TimePastText"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="132dp"
+        android:text="Time Past"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/mapFragment"
+        app:layout_constraintTop_toBottomOf="@+id/mapFragment" />
+
     <Chronometer
         android:id="@+id/tvTimer"
         android:layout_width="wrap_content"
@@ -16,46 +28,9 @@
         android:textColor="@color/white"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="@+id/TimePastText"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/TimePastText"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/TimePastText"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="132dp"
-        android:text="Time Past"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/mapFragment"
-        app:layout_constraintTop_toBottomOf="@+id/mapFragment" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="56dp"
-        app:layout_constraintEnd_toStartOf="@+id/TimePastText"
-        app:layout_constraintHorizontal_bias="0.935"
-        app:layout_constraintStart_toStartOf="@+id/mapFragment"
-        app:layout_constraintTop_toBottomOf="@+id/mapFragment"
-        app:srcCompat="@drawable/img_1" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonToggleStart"
-        android:layout_width="197dp"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:onClick="startTracking"
-        android:text="Start"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/energyConsump"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/totalDistance"
-        app:layout_constraintTop_toBottomOf="@+id/tvTimer"
-        app:layout_constraintVertical_bias="0.764"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -66,6 +41,7 @@
         android:textColor="#F8C06D"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/totalStepsHeader"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="@+id/totalStepsHeader"
         app:layout_constraintTop_toBottomOf="@+id/totalStepsHeader" />
 
@@ -85,13 +61,77 @@
         android:id="@+id/totalDisntanceHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:text="Outdoor Run"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/totalStepsHeader"
+        app:layout_constraintEnd_toStartOf="@+id/tvTimer"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/totalStepsHeader"
         app:layout_constraintTop_toBottomOf="@+id/totalStepNum" />
+
+    <TextView
+        android:id="@+id/averagePace"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:text="14 km/h"
+        android:textColor="#F8C06D"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/averageSpeedHeader"
+        app:layout_constraintStart_toStartOf="@+id/averageSpeedHeader"
+        app:layout_constraintTop_toBottomOf="@+id/averageSpeedHeader" />
+
+    <TextView
+        android:id="@+id/energyConsHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Energy"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/averageSpeedHeader"
+        app:layout_constraintHorizontal_bias="0.636"
+        app:layout_constraintStart_toEndOf="@+id/tvTimer"
+        app:layout_constraintTop_toBottomOf="@+id/averagePace" />
+
+    <TextView
+        android:id="@+id/averageSpeedHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Average Speed"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/mapFragment"
+        app:layout_constraintHorizontal_bias="0.696"
+        app:layout_constraintStart_toEndOf="@+id/tvTimer"
+        app:layout_constraintTop_toTopOf="@+id/TimePastText" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toStartOf="@+id/TimePastText"
+        app:layout_constraintHorizontal_bias="0.935"
+        app:layout_constraintStart_toStartOf="@+id/mapFragment"
+        app:layout_constraintTop_toBottomOf="@+id/mapFragment"
+        app:srcCompat="@drawable/img_1" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonToggleStart"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="startTracking"
+        android:text="Start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/energyConsump"
+        app:layout_constraintHorizontal_bias="0.633"
+        app:layout_constraintStart_toEndOf="@+id/totalDistance"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimer"
+        app:layout_constraintVertical_bias="0.551"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/totalDistance"
@@ -112,45 +152,10 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvTimer"
-        app:layout_constraintHorizontal_bias="0.257"
+        app:layout_constraintHorizontal_bias="0.41"
         app:layout_constraintStart_toStartOf="@+id/totalDistance"
-        app:layout_constraintTop_toBottomOf="@+id/totalDistance" />
-
-    <TextView
-        android:id="@+id/averagePace"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:text="14 km/h"
-        android:textColor="#F8C06D"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/averageSpeedHeader"
-        app:layout_constraintStart_toStartOf="@+id/averageSpeedHeader"
-        app:layout_constraintTop_toBottomOf="@+id/averageSpeedHeader" />
-
-    <TextView
-        android:id="@+id/energyConsHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Energy"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/averageSpeedHeader"
-        app:layout_constraintStart_toStartOf="@+id/averageSpeedHeader"
-        app:layout_constraintTop_toBottomOf="@+id/averagePace" />
-
-    <TextView
-        android:id="@+id/averageSpeedHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Average Speed"
-        android:textColor="#FFFFFF"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/mapFragment"
-        app:layout_constraintHorizontal_bias="0.696"
-        app:layout_constraintStart_toEndOf="@+id/tvTimer"
-        app:layout_constraintTop_toTopOf="@+id/TimePastText" />
+        app:layout_constraintTop_toBottomOf="@+id/totalDistance"
+        app:layout_constraintVertical_bias="0.444" />
 
     <TextView
         android:id="@+id/energyConsump"
@@ -173,10 +178,10 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/energyConsump"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.433"
         app:layout_constraintStart_toEndOf="@+id/tvTimer"
         app:layout_constraintTop_toBottomOf="@+id/energyConsump"
-        app:layout_constraintVertical_bias="0.506"
+        app:layout_constraintVertical_bias="0.447"
         tools:ignore="MissingConstraints" />
 
     <fragment
@@ -184,9 +189,9 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="378dp"
         android:layout_height="507dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
