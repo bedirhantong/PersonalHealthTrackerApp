@@ -87,13 +87,13 @@ class MainScreenFragment : Fragment(){
     fun firebaseGetDataFilter(dateOfAct:String, filterList:String){
 
         val calendar = Calendar.getInstance()
-        calendar.set(Calendar.DAY_OF_MONTH, binding.firstRowLayout.text.toString().toInt()-1)
+        calendar.set(Calendar.DAY_OF_MONTH, dateOfAct.toInt()-1)
         calendar.set(Calendar.HOUR_OF_DAY, 0)
         calendar.set(Calendar.MINUTE, 0)
         calendar.set(Calendar.SECOND, 0)
         calendar.set(Calendar.MILLISECOND, 0)
         val startDate = calendar.time
-        calendar.set(Calendar.DAY_OF_MONTH, binding.firstRowLayout.text.toString().toInt()+1)
+        calendar.set(Calendar.DAY_OF_MONTH,dateOfAct.toInt()+1)
         calendar.set(Calendar.HOUR_OF_DAY, 0)
         calendar.set(Calendar.MINUTE, 0)
         calendar.set(Calendar.SECOND, 0)
@@ -127,7 +127,6 @@ class MainScreenFragment : Fragment(){
 
                                     val healthyActivity = HealthyActivity(actName, elapsedTime,kmTravelled,energyConsump,imageUrl)
                                     healthyActivityList.add(healthyActivity)
-
                                 }
                                 // recyclerView adapteri yeni veri için uyarıyoruz böylece yeni verileri de ekleyecek
                                 recyclerViewAdapter.notifyDataSetChanged()
@@ -139,13 +138,15 @@ class MainScreenFragment : Fragment(){
 
         }else{
             db.collection("HealthyActivities")
-                .orderBy("dateOfAct",Query.Direction.ASCENDING).addSnapshotListener { snapshot, error ->
+                .whereGreaterThan("dateOfAct",startDate)
+                .whereLessThan("dateOfAct",endDate)
+                .orderBy("dateOfAct",Query.Direction.ASCENDING).
+                addSnapshotListener { snapshot, error ->
                     if (error!=null){
                         println(error.localizedMessage)
                         Toast.makeText(this.requireContext(),error.localizedMessage,Toast.LENGTH_SHORT).show()
                     }else{
                         if (snapshot != null){
-
                             // eğer snapshot içinde doküman yoksa?
                             if (!snapshot.isEmpty){
                                 val documents = snapshot.documents
@@ -159,16 +160,13 @@ class MainScreenFragment : Fragment(){
 
                                     val healthyActivity = HealthyActivity(actName, elapsedTime,kmTravelled,energyConsump,imageUrl)
                                     healthyActivityList.add(healthyActivity)
-
                                 }
                                 // recyclerView adapteri yeni veri için uyarıyoruz böylece yeni verileri de ekleyecek
                                 recyclerViewAdapter.notifyDataSetChanged()
-
                             }
                         }
                     }
                 }
-
         }
     }
 
@@ -210,6 +208,14 @@ class MainScreenFragment : Fragment(){
 
             binding.descendingRadioButton.setOnClickListener {
                 filterList = "DESCENDING"
+            }
+
+            binding.resetRadioButton.setOnClickListener {
+                firebaseGetData()
+                saveButton.visibility = View.GONE
+                sortOptionsLayout.visibility = View.GONE
+                secondRowLayout.visibility = View.GONE
+                description.text =  "You have reseted the results"
             }
 
             binding.saveFilter.setOnClickListener {
