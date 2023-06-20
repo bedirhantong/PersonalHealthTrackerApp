@@ -1,7 +1,6 @@
 package com.example.personalhealthtracker.ui.mainPage
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -88,7 +87,7 @@ class MainScreenFragment : Fragment(){
     fun firebaseGetDataFilter(dateOfAct:String, filterList:String){
 
         val calendar = Calendar.getInstance()
-        calendar.set(Calendar.DAY_OF_MONTH, binding.firstRowLayout.text.toString().toInt())
+        calendar.set(Calendar.DAY_OF_MONTH, binding.firstRowLayout.text.toString().toInt()-1)
         calendar.set(Calendar.HOUR_OF_DAY, 0)
         calendar.set(Calendar.MINUTE, 0)
         calendar.set(Calendar.SECOND, 0)
@@ -101,13 +100,14 @@ class MainScreenFragment : Fragment(){
         calendar.set(Calendar.MILLISECOND, 0)
         val endDate = calendar.time
 
-//            .whereGreaterThanOrEqualTo("dateOfAct", startDate)
-//            .whereLessThan("dateOfAct",endDate )
 
         if (filterList == "DESCENDING"){
             db.collection("HealthyActivities")
                 .whereEqualTo("userEmail", mAuth.currentUser?.email)
-                .orderBy("dateOfAct",Query.Direction.DESCENDING).addSnapshotListener { snapshot, error ->
+                .whereGreaterThan("dateOfAct",startDate)
+                .whereLessThan("dateOfAct",endDate)
+                .orderBy("dateOfAct",Query.Direction.DESCENDING)
+                .addSnapshotListener { snapshot, error ->
                     if (error!=null){
                         println(error.localizedMessage)
                         Toast.makeText(this.requireContext(),error.localizedMessage,Toast.LENGTH_SHORT).show()
@@ -179,7 +179,6 @@ class MainScreenFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
-
         firebaseGetData()
 
         // recycleView elemanları alt alta gösterilsin istiyoruz
@@ -188,7 +187,6 @@ class MainScreenFragment : Fragment(){
 
         recyclerViewAdapter = HealthyActivityAdapter(healthyActivityList)
         binding.recyclerViewMainScreen.adapter = recyclerViewAdapter
-
 
         binding.imageButton.setOnClickListener {
             val secondRowLayout = binding.firstRowLayout
@@ -215,6 +213,7 @@ class MainScreenFragment : Fragment(){
             }
 
             binding.saveFilter.setOnClickListener {
+
                 if (date == ""  || filterList == ""){
                     Toast.makeText(this.requireContext(),"Please choose the options to save filter",Toast.LENGTH_SHORT).show()
                 }else{
