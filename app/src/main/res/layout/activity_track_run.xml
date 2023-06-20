@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="132dp"
+        android:layout_marginEnd="124dp"
         android:text="Time Past"
         android:textColor="@color/white"
         android:textSize="18sp"
@@ -113,7 +113,7 @@
         android:layout_height="25dp"
         android:layout_marginTop="48dp"
         app:layout_constraintEnd_toStartOf="@+id/TimePastText"
-        app:layout_constraintHorizontal_bias="0.935"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/mapFragment"
         app:layout_constraintTop_toBottomOf="@+id/mapFragment"
         app:srcCompat="@drawable/img_1" />
@@ -130,7 +130,7 @@
         app:layout_constraintHorizontal_bias="0.633"
         app:layout_constraintStart_toEndOf="@+id/totalDistance"
         app:layout_constraintTop_toBottomOf="@+id/tvTimer"
-        app:layout_constraintVertical_bias="0.551"
+        app:layout_constraintVertical_bias="0.547"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -187,14 +187,27 @@
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="378dp"
+        android:layout_width="350dp"
         android:layout_height="450dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/head"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="Active Running"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

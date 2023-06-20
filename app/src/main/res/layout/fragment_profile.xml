@@ -49,10 +49,10 @@
         android:id="@+id/linearLayout5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="45dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.364"
+        app:layout_constraintHorizontal_bias="0.381"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -80,7 +80,7 @@
         app:layout_constraintEnd_toEndOf="@+id/barChartView"
         app:layout_constraintStart_toStartOf="@+id/barChartView"
         app:layout_constraintTop_toBottomOf="@+id/barChartView"
-        app:layout_constraintVertical_bias="0.321"
+        app:layout_constraintVertical_bias="0.4"
         tools:listitem="@layout/recycler_view_activity" />
 
     <TextView
