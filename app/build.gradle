@@ -50,6 +50,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
 
     implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.core:core-ktx:+'
 
 
     testImplementation 'junit:junit:4.13.2'

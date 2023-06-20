@@ -9,7 +9,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.google.gms:google-services:4.3.15'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0-RC"
         var nav_version = "2.5.3"
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
     }

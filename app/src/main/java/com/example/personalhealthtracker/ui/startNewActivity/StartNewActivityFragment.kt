@@ -105,8 +105,6 @@ class StartNewActivityFragment : Fragment() {
         chosenOne = text
 
         view.setOnClickListener {
-
-
             isWhite = if (isWhite){
                 view.setBackgroundColor(Color.CYAN)
 

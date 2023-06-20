@@ -12,20 +12,20 @@
         android:id="@+id/recyclerView_mainScreen"
         android:layout_width="wrap_content"
         android:layout_height="679dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/header"
-        app:layout_constraintHorizontal_bias="0.355"
-        app:layout_constraintStart_toStartOf="@+id/header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/saveFilter"
-        app:layout_constraintVertical_bias="0.029"
+        app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/recycler_view_activity" />
 
     <TextView
         android:id="@+id/header"
         android:layout_width="195dp"
         android:layout_height="52dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="66dp"
         android:text="Your activities"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -47,25 +47,25 @@
         app:layout_constraintTop_toTopOf="@+id/header"
         app:layout_constraintVertical_bias="0.0" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <Button
         android:id="@+id/firstRowLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:orientation="horizontal"
-        android:visibility="visible"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_date_shape"
+        android:text="20"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header"
-        tools:listitem="@layout/recycler_view_date" />
+        app:layout_constraintTop_toBottomOf="@+id/text_description_filtering" />
 
     <RadioGroup
         android:id="@+id/filterRadioButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/firstRowLayout"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/firstRowLayout"
@@ -96,11 +96,26 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/search_bar_view"
         android:text="save"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/filterRadioButton"
-        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/filterRadioButton"
         app:layout_constraintTop_toBottomOf="@+id/filterRadioButton" />
+
+    <TextView
+        android:id="@+id/text_description_filtering"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/search_bar_view"
+        android:text="If you want you can filter you results by clicking the button on the right top"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/header"
+        app:layout_constraintHorizontal_bias="0.348"
+        app:layout_constraintStart_toStartOf="@+id/header"
+        app:layout_constraintTop_toBottomOf="@+id/header" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
