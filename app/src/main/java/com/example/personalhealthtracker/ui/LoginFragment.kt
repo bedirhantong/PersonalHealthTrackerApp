@@ -34,7 +34,7 @@ class LoginFragment : Fragment() {
         mAuth = FirebaseAuth.getInstance()
         binding.loginButton.setOnClickListener {
             val email = binding.emailViewInLogin.text.toString()
-            val password = binding.password.text.toString()
+            val password = binding.password1.text.toString()
 //            val userC = mAuth.currentUser
 
 //            if(userC != null){

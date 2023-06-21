@@ -35,8 +35,8 @@
 
     <EditText
         android:id="@+id/emailViewInLogin"
-        android:layout_width="331dp"
-        android:layout_height="45dp"
+        android:layout_width="340dp"
+        android:layout_height="55dp"
         android:layout_below="@id/emailViewHead"
         android:layout_marginTop="108dp"
         android:background="@drawable/textviewbackground"
@@ -62,23 +62,32 @@
         app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintStart_toStartOf="@+id/password" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password"
-        android:layout_width="331dp"
-        android:layout_height="45dp"
+        android:layout_width="340dp"
+        android:layout_height="55dp"
         android:layout_below="@+id/passwordViewHead"
         android:layout_marginTop="50dp"
-        android:background="@drawable/textviewbackground"
-        android:hint="Please enter your password"
-        android:paddingStart="14dp"
-        android:textColor="#000000"
-        android:singleLine="true"
-        android:ellipsize="end"
-        android:textColorHint="#757575"
+        app:passwordToggleEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
+        android:hint="Please enter your password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailViewInLogin"
-        tools:ignore="RtlSymmetry" />
+        tools:ignore="RtlSymmetry" >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/password1"
+            android:background="@drawable/textviewbackground"
+            android:inputType="textPassword"
+            android:ems="15"
+            android:textColor="#000000"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColorHint="#757575"/>
+
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/login_button"

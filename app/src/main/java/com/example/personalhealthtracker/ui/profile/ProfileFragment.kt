@@ -173,6 +173,7 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
                     R.id.log_out -> {
                         mAuth.signOut()
                         startActivity(Intent(requireContext(),MainActivity::class.java))
+                        Toast.makeText(requireContext(),"You have been logged out of your account!",Toast.LENGTH_SHORT).show()
                         activity?.finish()
                         true
                     }
