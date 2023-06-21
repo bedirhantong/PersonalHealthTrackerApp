@@ -12,6 +12,7 @@ import com.example.personalhealthtracker.ui.LoginActivity
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -105,15 +106,69 @@ class AddActivitiesAndShowToUser : AppCompatActivity() {
         healthyActMap.put("elapsedTime",elapsedTime)
 
 
-        db.collection("HealthyActivities").add(healthyActMap).addOnCompleteListener { task->
-            if (task.isSuccessful){
-                Toast.makeText(this,"Saved successfully",Toast.LENGTH_SHORT).show()
+        val userId = FirebaseAuth.getInstance().currentUser?.uid
+
+
+
+        // Aktiviteyi "HealthyActivities" koleksiyonuna ekle
+        db.collection("HealthyActivities")
+            .add(healthyActMap)
+            .addOnSuccessListener { documentReference ->
+                val activityId = documentReference.id
+
+                // Kullanıcının "user" belgesini güncelle
+                if (userId != null) {
+                    db.collection("user")
+                        .document(userId)
+                        .update("healthyActivities", FieldValue.arrayUnion(activityId))
+                        .addOnSuccessListener {
+                            Toast.makeText(this, "Saved successfully", Toast.LENGTH_SHORT).show()
+                        }
+                        .addOnFailureListener { exception ->
+                            Toast.makeText(this, exception.localizedMessage, Toast.LENGTH_LONG).show()
+                        }
+                }
             }
-        }.addOnFailureListener { exception ->
-            Toast.makeText(this,exception.localizedMessage,Toast.LENGTH_LONG).show()
-        }
+            .addOnFailureListener { exception ->
+                Toast.makeText(this, exception.localizedMessage, Toast.LENGTH_LONG).show()
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+//
+//        db.collection("HealthyActivities").add(healthyActMap).addOnCompleteListener { task->
+//            if (task.isSuccessful){
+//
+//                Toast.makeText(this,"Saved successfully",Toast.LENGTH_SHORT).show()
+//            }
+//        }.addOnFailureListener { exception ->
+//            Toast.makeText(this,exception.localizedMessage,Toast.LENGTH_LONG).show()
+//        }
 
     }
+
+
+
+
 
     override fun onDestroy() {
         super.onDestroy()

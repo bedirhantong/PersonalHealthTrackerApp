@@ -13,6 +13,8 @@ import androidx.navigation.Navigation
 import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.databinding.FragmentSignupPhysicalInfoBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class SignupPhysicalInfo : Fragment() {
 
@@ -21,6 +23,10 @@ class SignupPhysicalInfo : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var mAuth: FirebaseAuth
+
+    private val db = Firebase.firestore
+
+    private lateinit var gender : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,13 +51,25 @@ class SignupPhysicalInfo : Fragment() {
 
         binding.nextButton.setOnClickListener {
             arguments?.let {
+
                 val email = SignupPhysicalInfoArgs.fromBundle(it).email
                 val password = SignupPhysicalInfoArgs.fromBundle(it).password
                 val username = SignupPhysicalInfoArgs.fromBundle(it).username
-                val userHeight = binding.heightResult.toString()
-                val userWeight = binding.weightResult.toString()
-                val userAge = binding.ageResult.toString()
-                val userGender = binding.gender.toString()
+                val userHeight = binding.heightResult.text.toString()
+                val userWeight = binding.weightResult.text.toString()
+                val userAge = binding.ageResult.text.toString()
+                val userGender = gender
+
+                val healthyActivities = ArrayList<Any>()
+
+                val userMap = hashMapOf<String,Any>()
+                userMap.put("userEmail",email)
+                userMap.put("username",username)
+                userMap.put("userHeight",userHeight)
+                userMap.put("userWeight",userWeight)
+                userMap.put("userAge",userAge)
+                userMap.put("userGender",userGender)
+                userMap.put("healthyActivities",healthyActivities)
 
 
                 if(email == "" || password == "" || username == "" || userAge == "" || userGender == ""
@@ -59,17 +77,47 @@ class SignupPhysicalInfo : Fragment() {
                     Toast.makeText(requireContext(),"Lütfen gerekli her yeri doldurduğunuza emin olun!",Toast.LENGTH_LONG).show()
                 }else{
                     mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener{ task ->
+                        .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
-                                Toast.makeText(requireContext(),"Kayıt işlemi başarılı",Toast.LENGTH_LONG).show()
-                                // jump to login screen
-                                Navigation.findNavController(requireView()).navigate(R.id.navigateTo_signupPhysicalInfo_to_loginFragment)
+                                val userId = FirebaseAuth.getInstance().currentUser!!.uid
+                                userMap.put("userId", userId)
+
+                                db.collection("user").document(userId).set(userMap)
+                                    .addOnSuccessListener {
+                                        Toast.makeText(requireContext(), "Kayıt işlemi başarılı", Toast.LENGTH_LONG).show()
+                                        // jump to login screen
+                                        Navigation.findNavController(requireView()).navigate(R.id.navigateTo_signupPhysicalInfo_to_loginFragment)
+                                    }
+                                    .addOnFailureListener { exception ->
+                                        Toast.makeText(requireContext(), "Kayıt işlemi başarısız: ${exception.localizedMessage}", Toast.LENGTH_SHORT).show()
+                                    }
                             } else {
                                 // give an error
                                 val errorMessage = task.exception?.message
                                 Toast.makeText(requireContext(), "Kayıt işlemi başarısız: $errorMessage", Toast.LENGTH_SHORT).show()
                             }
                         }
+
+
+                    //kullanıcıya bağlı olmayan query kısmı.
+//                    mAuth.createUserWithEmailAndPassword(email, password)
+//                        .addOnCompleteListener{ task ->
+//                            if (task.isSuccessful) {
+//                                val userId = FirebaseAuth.getInstance().currentUser!!.uid
+//                                userMap.put("userId", userId)
+//
+//                                db.collection("user").document().set(userMap).addOnSuccessListener {
+//                                    Toast.makeText(requireContext(),"Kayıt işlemi başarılı",Toast.LENGTH_LONG).show()
+//                                    // jump to login screen
+//                                    Navigation.findNavController(requireView()).navigate(R.id.navigateTo_signupPhysicalInfo_to_loginFragment)
+//                                }
+//                                Toast.makeText(requireContext(),"Kayıt işlemi başarısız",Toast.LENGTH_LONG).show()
+//                            } else {
+//                                // give an error
+//                                val errorMessage = task.exception?.message
+//                                Toast.makeText(requireContext(), "Kayıt işlemi başarısız: $errorMessage", Toast.LENGTH_SHORT).show()
+//                            }
+//                        }
                 }
             }
         }
@@ -88,13 +136,13 @@ class SignupPhysicalInfo : Fragment() {
         genderGroup.setOnCheckedChangeListener { radioGroup, checkedId ->
             when(checkedId){
                 R.id.maleButton -> {
-
+                    gender = "male"
                 }
                 R.id.femaleButton -> {
-
+                    gender = "female"
                 }
                 R.id.notToSayButton -> {
-
+                    gender = "not say"
                 }
             }
         }

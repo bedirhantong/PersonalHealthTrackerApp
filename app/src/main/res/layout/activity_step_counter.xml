@@ -119,7 +119,7 @@
         <Button
             android:id="@+id/btnPause"
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
+            android:layout_height="47dp"
             android:layout_centerInParent="true"
             android:layout_margin="16dp"
             android:background="#9C27B0"
@@ -148,7 +148,7 @@
             app:layout_constraintHorizontal_bias="0.977"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/chronometer"
-            app:layout_constraintVertical_bias="0.447" />
+            app:layout_constraintVertical_bias="0.425" />
 
         <TextView
             android:id="@+id/timerText"
