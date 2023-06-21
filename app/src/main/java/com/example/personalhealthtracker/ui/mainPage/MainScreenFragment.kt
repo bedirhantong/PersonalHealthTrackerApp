@@ -1,6 +1,7 @@
 package com.example.personalhealthtracker.ui.mainPage
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -84,28 +85,11 @@ class MainScreenFragment : Fragment(){
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun firebaseGetDataFilter(dateOfAct:String, filterList:String){
-
-        val calendar = Calendar.getInstance()
-        calendar.set(Calendar.DAY_OF_MONTH, dateOfAct.toInt()-1)
-        calendar.set(Calendar.HOUR_OF_DAY, 0)
-        calendar.set(Calendar.MINUTE, 0)
-        calendar.set(Calendar.SECOND, 0)
-        calendar.set(Calendar.MILLISECOND, 0)
-        val startDate = calendar.time
-        calendar.set(Calendar.DAY_OF_MONTH,dateOfAct.toInt()+1)
-        calendar.set(Calendar.HOUR_OF_DAY, 0)
-        calendar.set(Calendar.MINUTE, 0)
-        calendar.set(Calendar.SECOND, 0)
-        calendar.set(Calendar.MILLISECOND, 0)
-        val endDate = calendar.time
-
+    fun firebaseGetDataFilter(filterList:String){
 
         if (filterList == "DESCENDING"){
             db.collection("HealthyActivities")
                 .whereEqualTo("userEmail", mAuth.currentUser?.email)
-                .whereGreaterThan("dateOfAct",startDate)
-                .whereLessThan("dateOfAct",endDate)
                 .orderBy("dateOfAct",Query.Direction.DESCENDING)
                 .addSnapshotListener { snapshot, error ->
                     if (error!=null){
@@ -133,13 +117,13 @@ class MainScreenFragment : Fragment(){
 
                             }
                         }
+                        binding.textDescriptionFiltering.text = "You have filtered the results as DESCENDING"
                     }
                 }
 
         }else{
             db.collection("HealthyActivities")
-                .whereGreaterThan("dateOfAct",startDate)
-                .whereLessThan("dateOfAct",endDate)
+                .whereEqualTo("userEmail", mAuth.currentUser?.email)
                 .orderBy("dateOfAct",Query.Direction.ASCENDING).
                 addSnapshotListener { snapshot, error ->
                     if (error!=null){
@@ -165,6 +149,7 @@ class MainScreenFragment : Fragment(){
                                 recyclerViewAdapter.notifyDataSetChanged()
                             }
                         }
+                        binding.textDescriptionFiltering.text = "You have filtered the results as ASCENDING"
                     }
                 }
         }
@@ -187,19 +172,14 @@ class MainScreenFragment : Fragment(){
         binding.recyclerViewMainScreen.adapter = recyclerViewAdapter
 
         binding.imageButton.setOnClickListener {
-            val secondRowLayout = binding.firstRowLayout
+            binding.imageButton.background =  ContextCompat.getDrawable(requireContext(), R.drawable.filterbuttonbackground)
             val sortOptionsLayout = binding.filterRadioButton
             val saveButton = binding.saveFilter
             val description = binding.textDescriptionFiltering
 
             saveButton.visibility = View.VISIBLE
             sortOptionsLayout.visibility = View.VISIBLE
-            secondRowLayout.visibility = View.VISIBLE
 
-            binding.firstRowLayout.setOnClickListener {
-                date = binding.firstRowLayout.text.toString()
-                binding.firstRowLayout.background  = ContextCompat.getDrawable(requireContext(), R.drawable.choosenelementshape)
-            }
 
             // Radio düğmelerinin tıklanma durumunu dinleyen olay dinleyicisi
             binding.ascendingRadioButton.setOnClickListener {
@@ -214,20 +194,19 @@ class MainScreenFragment : Fragment(){
                 firebaseGetData()
                 saveButton.visibility = View.GONE
                 sortOptionsLayout.visibility = View.GONE
-                secondRowLayout.visibility = View.GONE
+                binding.imageButton.background =  ContextCompat.getDrawable(requireContext(),R.drawable.nonfilterbuttonbackground)
                 description.text =  "You have reseted the results"
             }
 
             binding.saveFilter.setOnClickListener {
 
-                if (date == ""  || filterList == ""){
+                if (filterList == ""){
                     Toast.makeText(this.requireContext(),"Please choose the options to save filter",Toast.LENGTH_SHORT).show()
                 }else{
-                    firebaseGetDataFilter(date,filterList)
+                    firebaseGetDataFilter(filterList)
                     saveButton.visibility = View.GONE
                     sortOptionsLayout.visibility = View.GONE
-                    secondRowLayout.visibility = View.GONE
-                    description.text =  "You have filtered the results"
+//                    description.text = "You have filtered the results"
                 }
             }
         }

@@ -105,10 +105,6 @@ class TrackRunActivity : AppCompatActivity(), OnMapReadyCallback{
             startActivity(intent)
             this.finish()
         }
-
-
-
-
         supportActionBar?.hide()
     }
 

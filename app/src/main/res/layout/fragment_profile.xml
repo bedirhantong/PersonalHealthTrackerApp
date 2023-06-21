@@ -36,7 +36,7 @@
         android:layout_marginRight="20dp"
         app:chart_axis="x"
         app:chart_barsColor="#9900FF"
-        app:chart_barsRadius="4dp"
+        app:chart_barsRadius="10dp"
         app:chart_labelsColor="#FFFFFF"
         app:chart_labelsSize="10sp"
         app:chart_spacing="15dp"
@@ -74,13 +74,14 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcyclerView_profile"
-        android:layout_width="match_parent"
-        android:layout_height="457dp"
+        android:layout_width="wrap_content"
+        android:layout_height="442dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/barChartView"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="@+id/barChartView"
         app:layout_constraintTop_toBottomOf="@+id/barChartView"
-        app:layout_constraintVertical_bias="0.4"
+        app:layout_constraintVertical_bias="0.266"
         tools:listitem="@layout/recycler_view_activity" />
 
     <TextView

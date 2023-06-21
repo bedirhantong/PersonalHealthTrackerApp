@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="124dp"
+        android:layout_marginEnd="136dp"
         android:text="Time Past"
         android:textColor="@color/white"
         android:textSize="18sp"
@@ -27,9 +27,9 @@
         android:text="00:00:00"
         android:textColor="@color/white"
         android:textSize="35sp"
-        app:layout_constraintEnd_toEndOf="@+id/TimePastText"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/mapFragment"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/mapFragment"
         app:layout_constraintTop_toBottomOf="@+id/TimePastText"
         tools:ignore="MissingConstraints" />
 
@@ -65,7 +65,7 @@
         android:text="Outdoor Run"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
-        app:layout_constraintEnd_toStartOf="@+id/tvTimer"
+        app:layout_constraintEnd_toEndOf="@+id/totalStepsHeader"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/totalStepsHeader"
         app:layout_constraintTop_toBottomOf="@+id/totalStepNum" />
@@ -92,7 +92,7 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/averageSpeedHeader"
         app:layout_constraintHorizontal_bias="0.636"
-        app:layout_constraintStart_toEndOf="@+id/tvTimer"
+        app:layout_constraintStart_toStartOf="@+id/averageSpeedHeader"
         app:layout_constraintTop_toBottomOf="@+id/averagePace" />
 
     <TextView
@@ -112,8 +112,9 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginTop="48dp"
+
         app:layout_constraintEnd_toStartOf="@+id/TimePastText"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.984"
         app:layout_constraintStart_toStartOf="@+id/mapFragment"
         app:layout_constraintTop_toBottomOf="@+id/mapFragment"
         app:srcCompat="@drawable/img_1" />
@@ -126,11 +127,11 @@
         android:onClick="startTracking"
         android:text="Start"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/energyConsump"
-        app:layout_constraintHorizontal_bias="0.633"
-        app:layout_constraintStart_toEndOf="@+id/totalDistance"
+        app:layout_constraintEnd_toEndOf="@+id/mapFragment"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/mapFragment"
         app:layout_constraintTop_toBottomOf="@+id/tvTimer"
-        app:layout_constraintVertical_bias="0.547"
+        app:layout_constraintVertical_bias="0.57"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -152,10 +153,10 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvTimer"
-        app:layout_constraintHorizontal_bias="0.41"
+        app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintStart_toStartOf="@+id/totalDistance"
         app:layout_constraintTop_toBottomOf="@+id/totalDistance"
-        app:layout_constraintVertical_bias="0.444" />
+        app:layout_constraintVertical_bias="0.44" />
 
     <TextView
         android:id="@+id/energyConsump"
@@ -178,20 +179,19 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/energyConsump"
-        app:layout_constraintHorizontal_bias="0.433"
+        app:layout_constraintHorizontal_bias="0.558"
         app:layout_constraintStart_toEndOf="@+id/tvTimer"
         app:layout_constraintTop_toBottomOf="@+id/energyConsump"
-        app:layout_constraintVertical_bias="0.447"
+        app:layout_constraintVertical_bias="0.444"
         tools:ignore="MissingConstraints" />
 
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="350dp"
-        android:layout_height="450dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="371dp"
+        android:layout_height="452dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/head"
         tools:ignore="MissingConstraints" />
@@ -200,7 +200,7 @@
         android:id="@+id/head"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="54dp"
         android:text="Active Running"
         android:textColor="@color/white"
         android:textSize="24sp"

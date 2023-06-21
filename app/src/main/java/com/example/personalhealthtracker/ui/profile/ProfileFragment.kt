@@ -144,10 +144,6 @@ class ProfileFragment : Fragment(),EasyPermissions.PermissionCallbacks {
     }
 
 
-
-
-
-
     companion object {
         private val barSetHorizontal = listOf(
             "MON" to 27f,
