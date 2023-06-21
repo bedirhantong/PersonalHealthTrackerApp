@@ -40,8 +40,8 @@
 
 
 ## Presentation
-- You can access the presentation video of EPONA from [here](https://youtu.be/-CcyrmyBTVE)
-
+- You can access the presentation video of EPONA from [here](https://www.canva.com/design/DAFmfO0lvMI/yiyRrkEo4jl820y_KGG1yg/edit?utm_content=DAFmfO0lvMI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton) in the Canva.
+- You can access the presentation video of EPONA from [here](https://youtu.be/DVZbw3AoaQU) in the Youtube.
 
 ## Managing
 - When you finish any healthy activity and save it to the history, you will skipping to the [`AddActivitiesAndShowToUser.kt`](https://github.com/bedirhantong/PersonalHealthTrackerApp/blob/master/app/src/main/java/com/example/personalhealthtracker/data/AddActivitiesAndShowToUser.kt) to see the statistics of your healthy activity and has an option to save it to the history.
