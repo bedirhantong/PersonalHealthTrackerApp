@@ -13,3 +13,8 @@
 .externalNativeBuild
 .cxx
 local.properties
+# AndroidManifest.xml
+AndroidManifest.xml
+
+# values.xml
+values.xml
