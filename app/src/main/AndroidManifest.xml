@@ -39,7 +39,7 @@ ACCESS_COARSE_LOCATION is used when we use network location provider for our And
             android:exported="false" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBs-NTW8knFyaphy2g0IZBGj_3kRTEGXhs" />
+            android:value="YourAPIKeyHere" />
 
         <activity
             android:name=".ui.startNewActivity.breathTaking.BreathTakingExerciseActivity"
