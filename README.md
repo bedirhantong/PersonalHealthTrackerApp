@@ -64,6 +64,6 @@
 - The first thing you need to do is open the project in Android Studio on your own computer using the project's Github link.
 - Then you need an unique Google Maps API key. You can get it from [this](https://developers.google.com/maps/documentation/javascript/get-api-key?hl=tr) website.
 - If you don't know how to get **Google Maps API key** for this project then you can also use the same link.
-   - If you get your unique Google Maps API key then you should change the value of **google_maps_key** on ___string.xml___ file.
+   - If you get your unique Google Maps API key then you should change the value of **google_maps_key** on ___values.xml___ and ___AndroidManifest.xml___ file.
 - If you are all set then you can run the EPONA on your device.
 - But you have to restrict your **Google Maps API key** from Google Cloud Platform. [Here](https://developers.google.com/maps/api-security-best-practices?hl=tr) you can learn how to restrict your Map API key for android applications.
