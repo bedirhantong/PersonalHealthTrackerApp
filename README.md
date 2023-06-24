@@ -4,6 +4,7 @@
 
 * [About](#about)
 * [Features](#features)
+* [Screenshots](#screenshots)
 * [Managing](#managing)
 * [Libraries](#libraries)
 * [Installing Epona](#setup)
@@ -29,6 +30,12 @@
     - Before you start any activity in EPONA, EPONA asks you whether you want to keep a record of the activity for history. You can access the statistical data of the activities you have saved days, weeks or even months later.
 5. `Detailed user profile with activity statistics.`
     - The profile includes a table of the number of steps taken in the current day by hours and a brief summary of the different activities performed during the day.
+
+## Screenshots
+
+<a href='https://www.linkpicture.com/view.php?img=LPic6497471845659975571296'><img src='https://www.linkpicture.com/q/5_10.jpg' type='image'></a>
+<a href='https://www.linkpicture.com/view.php?img=LPic6497471845659975571296'><img src='https://www.linkpicture.com/q/6_634.jpg' type='image'></a>
+
 
 ## Managing
 - When you finish any healthy activity and save it to the history, you will skipping to the [`AddActivitiesAndShowToUser.kt`](https://github.com/bedirhantong/PersonalHealthTrackerApp/blob/master/app/src/main/java/com/example/personalhealthtracker/data/AddActivitiesAndShowToUser.kt) to see the statistics of your healthy activity and has an option to save it to the history.
