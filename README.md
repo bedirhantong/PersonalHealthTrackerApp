@@ -6,7 +6,7 @@
 * [Features](#features)
 * [Screenshots](#screenshots)
 * [Managing](#managing)
-* [Libraries](#libraries)
+* [Technologies](#technologies)
 * [Installing Epona](#setup)
 
 
@@ -46,13 +46,17 @@
 
 
 
-## Libraries
+## Technologies
 
 1. `WilliamChart` : is an Android Library to rapidly implement attractive and insightful charts in android applications. You can see its details [here](https://github.com/diogobernardino/williamchart)
 2. `Firebase-firestore` : Implemented it so that I can manage Epona's database without any complex query and database implementation.
-3. `Easy Permission` : is a wrapper library to simplify basic system permissions logic when targeting Android M or higher. You can see its details [here](https://github.com/googlesamples/easypermissions)
-4. `Circular Progress Bar` : allowing to realize a circular ProgressBar in the simplest way possible. You can see the details [here](https://github.com/lopspower/CircularProgressBar)
-5. `Google maps location servies` : To get the current user's current location on the map on live.
+3. `Firebase Authentication` :
+4. `Material Design Components` : 
+5. `Easy Permission` : is a wrapper library to simplify basic system permissions logic when targeting Android M or higher. You can see its details [here](https://github.com/googlesamples/easypermissions)
+6. `Circular Progress Bar` : allowing to realize a circular ProgressBar in the simplest way possible. You can see the details [here](https://github.com/lopspower/CircularProgressBar)
+7. `Shared Preferences` :
+8. `Google maps location servies` : To get the current user's current location on the map on live.
+9. `Navigation Component` :
 
 ## Setup
 - The first thing you need to do is open the project in Android Studio on your own computer using the project's Github link.
