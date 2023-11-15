@@ -33,9 +33,9 @@
 ## Screenshots
 - You can follow [here](https://www.canva.com/design/DAFmfO0lvMI/yiyRrkEo4jl820y_KGG1yg/edit) to access presentation of project.
 
-|                   0000                    |                   0001                   |
-|:-----------------------------------------:|:------------------------------------------:|
-|<img src="assets\giris.png" width="300" height="600">  | <img src="assets\actvy.png" width="300" height="600"> | 
+|                0000                    |   0001                   |       0010                   |
+|:-----------------------------------------:|:------------------------------------------:|:------------------------------------------:|
+|<img src="assets\giris.png" width="300" height="600">  | <img src="assets\actvy.png" width="300" height="600"> |  <img src="assets\main.png" width="320" height="600"> |  
 
 
 
