@@ -11,8 +11,7 @@
 
 
 
-<a href='https://www.linkpicture.com/view.php?img=LPic645b73f12ea98836219032'><img src='https://www.linkpicture.com/q/Epona_Temp.png' type='image'></a>
-
+![](app/src/main/res/drawable/image.png)
 ## About
 - EPONA is a personal health tracker Android application. The application allows the user to monitor the performance for various activities such as running, step counting, diving, breath taking.
 
@@ -32,9 +31,16 @@
     - The profile includes a table of the number of steps taken in the current day by hours and a brief summary of the different activities performed during the day.
 
 ## Screenshots
+- You can follow [here](https://www.canva.com/design/DAFmfO0lvMI/yiyRrkEo4jl820y_KGG1yg/edit) to access presentation of project.
 
-<a href='https://www.linkpicture.com/view.php?img=LPic6497471845659975571296'><img src='https://www.linkpicture.com/q/5_10.jpg' type='image'></a>
-<a href='https://www.linkpicture.com/view.php?img=LPic6497471845659975571296'><img src='https://www.linkpicture.com/q/6_634.jpg' type='image'></a>
+|                   0000                    |                   0001                   |
+|:-----------------------------------------:|:----------------------------------------:|
+| ![](assets\smartmockups_lmry18zd.png) |  ![](assets\smartmockups_lmry18zd.png) |
+
+
+
+
+
 
 
 ## Managing
@@ -51,7 +57,7 @@
 1. `WilliamChart` : is an Android Library to rapidly implement attractive and insightful charts in android applications. You can see its details [here](https://github.com/diogobernardino/williamchart)
 2. `Firebase-firestore` : Implemented it so that I can manage Epona's database without any complex query and database implementation.
 3. `Firebase Authentication` :
-4. `Material Design Components` : 
+4. `Material Design Components` :
 5. `Easy Permission` : is a wrapper library to simplify basic system permissions logic when targeting Android M or higher. You can see its details [here](https://github.com/googlesamples/easypermissions)
 6. `Circular Progress Bar` : allowing to realize a circular ProgressBar in the simplest way possible. You can see the details [here](https://github.com/lopspower/CircularProgressBar)
 7. `Shared Preferences` :
