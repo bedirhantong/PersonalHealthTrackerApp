@@ -35,7 +35,7 @@
 
 |                   0000                    |                   0001                   |
 |:-----------------------------------------:|:------------------------------------------:|
-|<img src="assets\giris.png" width="280" height="460">  | <img src="assets\actvy.png" width="280" height="460"> |   
+|<img src="assets\giris.png" width="300" height="600">  | <img src="assets\actvy.png" width="300" height="600"> | 
 
 
 
