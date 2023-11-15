@@ -34,8 +34,8 @@
 - You can follow [here](https://www.canva.com/design/DAFmfO0lvMI/yiyRrkEo4jl820y_KGG1yg/edit) to access presentation of project.
 
 |                   0000                    |                   0001                   |
-|:-----------------------------------------:|:----------------------------------------:|
-| ![](assets\smartmockups_lmry18zd.png) |  ![](assets\smartmockups_lmry18zd.png) |
+|:-----------------------------------------:|:------------------------------------------:|
+|<img src="assets\giris.png" width="280" height="460">  | <img src="assets\actvy.png" width="280" height="460"> |   
 
 
 
