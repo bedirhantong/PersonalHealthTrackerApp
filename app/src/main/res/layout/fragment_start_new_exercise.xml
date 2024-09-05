@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/lukechesserdark"
+    tools:context=".feature.startnewactivity.StartNewExerciseFragment">
+
+
+    <ImageView
+        android:id="@+id/runningView"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/search_bar_view"
+        android:src="@drawable/baseline_directions_run_24"
+        app:layout_constraintEnd_toEndOf="@+id/stepCounting"
+        app:layout_constraintStart_toStartOf="@+id/stepCounting"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/breathTaking"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/search_bar_view"
+        android:onClick="startHiking"
+        android:src="@drawable/lungs"
+        app:layout_constraintEnd_toEndOf="@+id/divingView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/divingView"
+        app:layout_constraintTop_toBottomOf="@+id/cyclingText"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/HeadingNewActivityPage"
+        android:layout_width="374dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="45dp"
+        android:text="Start a New Activity"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="27sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cyclingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Diving"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/divingView"
+        app:layout_constraintStart_toStartOf="@+id/divingView"
+        app:layout_constraintTop_toBottomOf="@+id/divingView" />
+
+    <TextView
+        android:id="@+id/RunningText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Breath Taking"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/breathTaking"
+        app:layout_constraintStart_toStartOf="@+id/breathTaking"
+        app:layout_constraintTop_toBottomOf="@+id/breathTaking" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Counting Steps"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/stepCounting"
+        app:layout_constraintStart_toStartOf="@+id/stepCounting"
+        app:layout_constraintTop_toBottomOf="@+id/stepCounting"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/HikingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Running"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/runningView"
+        app:layout_constraintStart_toStartOf="@+id/runningView"
+        app:layout_constraintTop_toBottomOf="@+id/runningView"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/StartButton"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_view"
+        android:text="Start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/RunningText"
+        app:layout_constraintStart_toStartOf="@+id/RunningText"
+        app:layout_constraintTop_toBottomOf="@+id/RunningText"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_view"
+        android:text="Cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/HikingText"
+        app:layout_constraintStart_toStartOf="@+id/HikingText"
+        app:layout_constraintTop_toBottomOf="@+id/HikingText"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/stepCounting"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/search_bar_view"
+        android:onClick="startCountingSteps"
+        android:src="@drawable/ic_directions_walk_24"
+        app:layout_constraintEnd_toStartOf="@+id/divingView"
+        app:layout_constraintHorizontal_bias="0.243"
+        app:layout_constraintStart_toStartOf="@+id/HeadingNewActivityPage"
+        app:layout_constraintTop_toBottomOf="@+id/HeadingNewActivityPage"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/divingView"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/search_bar_view"
+        android:onClick="startDiving"
+        android:src="@drawable/icon_diving"
+        app:layout_constraintEnd_toEndOf="@+id/HeadingNewActivityPage"
+        app:layout_constraintTop_toBottomOf="@+id/HeadingNewActivityPage"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

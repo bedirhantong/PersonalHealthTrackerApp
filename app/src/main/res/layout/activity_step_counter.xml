@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.startNewActivity.stepCounting.StepCounterActivity"
+    tools:context=".feature.startnewactivity.stepCounting.StepCounterActivity"
     android:background="@drawable/mainbackground">
 
 
@@ -168,7 +168,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerViewForStepTrackToProfile"
-        android:name="com.example.personalhealthtracker.ui.profile.ProfileFragment"
+        android:name="com.example.personalhealthtracker.feature.profile.ProfileFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

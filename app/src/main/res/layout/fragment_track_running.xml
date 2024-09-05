@@ -1,135 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainbackground"
-    tools:context=".ui.startNewActivity.running.TrackRunningFragment">
+    android:background="@drawable/mainbackground">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clInnerLayout"
-        android:layout_width="410dp"
-        android:layout_height="361dp"
-        android:background="#00374C55"
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/llTimePast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/mapFragment"
+        app:layout_constraintStart_toStartOf="@+id/mapFragment"
+        app:layout_constraintTop_toBottomOf="@+id/mapFragment">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            app:srcCompat="@drawable/img_1" />
+
+        <TextView
+            android:id="@+id/TimePastText"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:text="@string/time_past"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+
+    <Chronometer
+        android:id="@+id/tvTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00:00"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="@+id/llTimePast"
+        app:layout_constraintStart_toStartOf="@+id/llTimePast"
+        app:layout_constraintTop_toBottomOf="@+id/llTimePast"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/totalStepNum"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        tools:text="4365"
+        android:textColor="#F8C06D"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/totalStepsHeader"
+        app:layout_constraintStart_toStartOf="@+id/totalStepsHeader"
+        app:layout_constraintTop_toBottomOf="@+id/totalStepsHeader" />
+
+    <TextView
+        android:id="@+id/totalStepsHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_steps"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvTimer"
+        app:layout_constraintStart_toStartOf="@+id/mapFragment"
+        app:layout_constraintTop_toBottomOf="@+id/llTimePast" />
+
+    <TextView
+        android:id="@+id/totalDisntanceHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/outdoor_run"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="50dp"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/totalStepNum"
+        app:layout_constraintStart_toStartOf="@+id/totalStepNum"
+        app:layout_constraintTop_toBottomOf="@+id/totalStepNum" />
+
+    <TextView
+        android:id="@+id/averagePace"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        tools:text="14 km/h"
+        android:textColor="#F8C06D"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/averageSpeedHeader"
+        app:layout_constraintStart_toStartOf="@+id/averageSpeedHeader"
+        app:layout_constraintTop_toBottomOf="@+id/averageSpeedHeader" />
+
+    <TextView
+        android:id="@+id/energyConsHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/energy_consumption"
+        android:textAlignment="center"
+        android:layout_marginTop="50dp"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/averagePace"
+        app:layout_constraintStart_toStartOf="@+id/averagePace"
+        app:layout_constraintTop_toBottomOf="@+id/averagePace" />
+
+    <TextView
+        android:id="@+id/averageSpeedHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/average_speed"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvTimer"
+        app:layout_constraintTop_toBottomOf="@+id/llTimePast" />
+
+
+
+
+    <TextView
+        android:id="@+id/totalDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        tools:text="1,31 km"
+        android:textColor="#F8C06D"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/totalDisntanceHeader"
+        app:layout_constraintStart_toStartOf="@+id/totalDisntanceHeader"
+        app:layout_constraintTop_toBottomOf="@+id/totalDisntanceHeader" />
+
+
+
+    <TextView
+        android:id="@+id/energyConsump"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="140 kcal"
+        android:textColor="#F8C06D"
+        android:textSize="15sp"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/energyConsHeader"
+        app:layout_constraintStart_toStartOf="@+id/energyConsHeader"
+        app:layout_constraintTop_toBottomOf="@+id/energyConsHeader" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonToggleStart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/start"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/llButtons"
+        app:layout_constraintEnd_toEndOf="@+id/llButtons"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/llButtons"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/map"
-        tools:ignore="MissingConstraints">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvTimer"
-            android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btnToggleStop"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="00:00:00:00"
-            android:textColor="@color/white"
-            android:textSize="50sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnToggleRun"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:onClick="startTracking"
-            android:text="Start"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnFinishRun"
-            app:layout_constraintHorizontal_bias="0.811"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/averagePace"
-            app:layout_constraintVertical_bias="0.4"
-            tools:ignore="MissingConstraints" />
+            android:text="@string/stop"
+            android:visibility="gone" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnFinishRun"
-            android:layout_width="100dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="92dp"
-            android:clickable="true"
-            android:text="Finish"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/averagePace"
-            app:layout_constraintTop_toBottomOf="@+id/averagePace"
-            app:layout_constraintVertical_bias="0.0"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:id="@+id/totalDistance"
-            android:layout_width="260dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="12dp"
-            android:text="Total Distance : "
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/energyConsump"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/energyConsump"
-            app:layout_constraintTop_toBottomOf="@+id/energyConsump" />
-
-        <TextView
-            android:id="@+id/energyConsump"
-            android:layout_width="260dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="20dp"
-            android:text="Number of steps : "
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/tvTimer"
-            app:layout_constraintStart_toStartOf="@+id/tvTimer"
-            app:layout_constraintTop_toBottomOf="@+id/tvTimer" />
-
-        <TextView
-            android:id="@+id/averagePace"
-            android:layout_width="260dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="16dp"
-            android:text="Average pace : "
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/totalDistance"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/totalDistance"
-            app:layout_constraintTop_toBottomOf="@+id/totalDistance" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:text="@string/finish"
+            android:visibility="gone"/>
+    </LinearLayout>
 
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvLetsGo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Let's go, USERNAME!"
-        android:textAlignment="center"
-        android:textSize="50sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/clInnerLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/clInnerLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

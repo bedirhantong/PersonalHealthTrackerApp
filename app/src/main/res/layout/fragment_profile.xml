@@ -1,112 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.profile.ProfileFragment"
-    android:background="@drawable/lukechesserdark">
-
-
-
-<!--    <com.db.williamchart.view.LineChartView-->
-<!--        android:id="@+id/lineChartView"-->
-<!--        android:layout_width="413dp"-->
-<!--        android:layout_height="221dp"-->
-<!--        app:chart_axis="none"-->
-<!--        app:chart_gridEffect="dotted"-->
-<!--        app:chart_lineColor="#953F8C"-->
-<!--        app:chart_lineThickness="3dp"-->
-<!--        app:chart_smoothLine="true"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/rcyclerView_profile"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/chartData"-->
-<!--        app:layout_constraintVertical_bias="1.0" />-->
-
-
-    <com.db.williamchart.view.BarChartView
-        android:id="@+id/barChartView"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="20dp"
-        app:chart_axis="x"
-        app:chart_barsColor="#9900FF"
-        app:chart_barsRadius="10dp"
-        app:chart_labelsColor="#FFFFFF"
-        app:chart_labelsSize="10sp"
-        app:chart_spacing="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/statisticsOfChartElements" />
+    android:background="@drawable/lukechesserdark"
+    tools:context=".feature.profile.ProfileFragment">
 
     <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="54dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.381"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <ImageView
-            android:id="@+id/ic_profile_user"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/ic_profile_user" />
-
-        <TextView
-            android:id="@+id/header_profile"
+        <LinearLayout
+            android:id="@+id/linearLayout5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="\nWelcome Back"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp" />
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginVertical="16dp" >
+
+            <ImageView
+                android:id="@+id/ic_profile_user"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_profile_user" />
+
+            <TextView
+                android:id="@+id/header_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome_back"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <com.db.williamchart.view.BarChartView
+            android:id="@+id/barChartView"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:chart_axis="x"
+            app:chart_barsColor="#9900FF"
+            app:chart_barsRadius="10dp"
+            app:chart_labelsColor="#FFFFFF"
+            app:chart_labelsSize="10sp"
+            app:chart_spacing="15dp"
+            android:layout_marginVertical="16dp" />
+
+        <TextView
+            android:id="@+id/statisticsOfChartElements"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/click_the_chart_elements_to_see_the_detail"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            tools:listitem="@layout/recycler_view_activity" />
+
+        <ImageButton
+            android:id="@+id/button_setting"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/search_bar_view"
+            android:src="@drawable/baseline_settings_24"
+            android:layout_gravity="end" />
+
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcyclerView_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="442dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/barChartView"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="@+id/barChartView"
-        app:layout_constraintTop_toBottomOf="@+id/barChartView"
-        app:layout_constraintVertical_bias="0.266"
-        tools:listitem="@layout/recycler_view_activity" />
-
-    <TextView
-        android:id="@+id/statisticsOfChartElements"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Click the chart elements to see the detail"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
-
-    <ImageButton
-        android:id="@+id/button_setting"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/search_bar_view"
-        android:src="@drawable/baseline_settings_24"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.574"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout5"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout5" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
