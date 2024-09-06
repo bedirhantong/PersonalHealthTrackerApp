@@ -9,7 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.personalhealthtracker.R
+import com.example.personalhealthtracker.data.SerializableLatLng
 import com.example.personalhealthtracker.databinding.FragmentAddExerciseBinding
+import java.io.Serializable
 
 class AddExerciseFragment : Fragment() {
     private var _binding: FragmentAddExerciseBinding? = null
@@ -41,12 +43,15 @@ class AddExerciseFragment : Fragment() {
 
     private fun setupUI() {
         val bundle = arguments
+        val polylinePoints = bundle?.getSerializable("polylinePoints") as? ArrayList<SerializableLatLng>
+
         viewModel.setExerciseData(
             activityName = bundle?.getString("activityType", "0") ?: "",
             kmTravelled = bundle?.getString("roadTravelled", "0") ?: "",
             energyConsump = bundle?.getString("caloriesBurned", "0") ?: "",
             elapsedTime = bundle?.getString("timeElapsed", "0") ?: "",
-            sourceActivity = bundle?.getString("sourceActivity")
+            sourceActivity = bundle?.getString("sourceActivity"),
+            polylinePoints = polylinePoints
         )
 
         val uiState = viewModel.uiState.value

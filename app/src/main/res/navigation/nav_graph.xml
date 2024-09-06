@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_profileFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_exerciseDetailFragment"
+            app:destination="@id/exerciseDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -65,7 +68,12 @@
         android:id="@+id/mainScreenFragment"
         android:name="com.example.personalhealthtracker.feature.listactivities.MainScreenFragment"
         android:label="fragment_main_screen"
-        tools:layout="@layout/fragment_main_screen" />
+        tools:layout="@layout/fragment_main_screen" >
+        <action
+            android:id="@+id/action_mainScreenFragment_to_exerciseDetailFragment"
+            app:destination="@id/exerciseDetailFragment">
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/trackRunningFragment"
         android:name="com.example.personalhealthtracker.feature.startnewactivity.running.TrackRunningFragment"
@@ -82,5 +90,10 @@
         <action
             android:id="@+id/action_addExerciseFragment_to_mainScreenFragment"
             app:destination="@id/mainScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exerciseDetailFragment"
+        android:name="com.example.personalhealthtracker.feature.exercisedetail.ExerciseDetailFragment"
+        android:label="ExerciseDetailFragment">
     </fragment>
 </navigation>

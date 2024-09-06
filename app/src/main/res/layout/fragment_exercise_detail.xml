@@ -1,0 +1,182 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- MapView placed at the top -->
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:clipToPadding="true"
+        android:elevation="4dp"
+        android:background="@android:color/white"
+        android:layout_gravity="center" />
+
+    <!-- Trip Details Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/tripId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#JLHB"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/tripDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24/04/2024"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="fill_horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tripDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="06:32"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tripDurationLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sürüş Süresi"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tripDistance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1663 m"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tripDistanceLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sürüş Mesafesi"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tripCost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="44,13 TL"
+                    android:textStyle="bold"
+                    android:textColor="@color/buttonColour"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tripCostLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Energy"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/filterbuttonbackground"
+            android:orientation="vertical">
+
+            <!-- Feedback Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Yolculuğun Nasıl Geçti?"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/sadFace"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/happy"
+                    android:layout_marginEnd="16dp"/>
+
+                <ImageView
+                    android:id="@+id/neutralFace"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/normal"
+                    android:layout_marginEnd="16dp"/>
+
+                <ImageView
+                    android:id="@+id/happyFace"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/unhappy"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/viewInvoiceButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Animate"
+            android:layout_marginTop="20dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:textColor="@android:color/holo_blue_light"/>
+    </LinearLayout>
+</LinearLayout>

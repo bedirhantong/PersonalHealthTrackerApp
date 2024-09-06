@@ -7,7 +7,9 @@ import androidx.navigation.fragment.NavHostFragment
 import com.example.personalhealthtracker.databinding.ActivityMainBinding
 import com.example.personalhealthtracker.utils.extension.hide
 import com.example.personalhealthtracker.utils.extension.show
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val navController: NavController by lazy {
         val navHostFragment =
@@ -27,7 +29,6 @@ class MainActivity : AppCompatActivity() {
             bottomNavigationView.background = null
             bottomNavigationView.menu.getItem(1).isEnabled = false
 
-            // Yeni yöntemle tıklama dinleyici ekleme
             bottomNavigationView.setOnItemSelectedListener { item ->
                 when (item.itemId) {
                     R.id.mainScreenFragment -> {
@@ -44,7 +45,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            // FloatingActionButton için tıklama dinleyici ekleme
             fab.setOnClickListener {
                 navController.navigate(R.id.startNewActivityFragment)
             }
@@ -58,6 +58,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.trackRunningFragment,
                 R.id.addExerciseFragment,
                 R.id.startNewActivityFragment,
+                R.id.exerciseDetailFragment,
                 R.id.loginFragment -> {
                     binding.bottomNavigationView.hide()
                     binding.fab.hide()

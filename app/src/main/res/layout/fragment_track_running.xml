@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainbackground">
+    android:background="@drawable/page_bg">
 
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="500dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:text="00:00:00"
         android:textColor="@color/white"
-        android:textSize="35sp"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="@+id/llTimePast"
         app:layout_constraintStart_toStartOf="@+id/llTimePast"
         app:layout_constraintTop_toBottomOf="@+id/llTimePast"
@@ -70,11 +70,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/total_steps"
+        android:layout_marginTop="50dp"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintEnd_toStartOf="@+id/tvTimer"
         app:layout_constraintStart_toStartOf="@+id/mapFragment"
-        app:layout_constraintTop_toBottomOf="@+id/llTimePast" />
+        app:layout_constraintTop_toBottomOf="@+id/mapFragment" />
 
     <TextView
         android:id="@+id/totalDisntanceHeader"
@@ -82,7 +83,7 @@
         android:layout_height="wrap_content"
         android:text="@string/outdoor_run"
         android:textColor="#FFFFFF"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/totalStepNum"
         app:layout_constraintStart_toStartOf="@+id/totalStepNum"
@@ -106,7 +107,7 @@
         android:layout_height="wrap_content"
         android:text="@string/energy_consumption"
         android:textAlignment="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/averagePace"
@@ -119,10 +120,11 @@
         android:layout_height="wrap_content"
         android:text="@string/average_speed"
         android:textColor="#FFFFFF"
+        android:layout_marginTop="50dp"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvTimer"
-        app:layout_constraintTop_toBottomOf="@+id/llTimePast" />
+        app:layout_constraintTop_toBottomOf="@+id/mapFragment" />
 
 
 
@@ -157,13 +159,14 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonToggleStart"
-        android:layout_width="0dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/intro_button_background"
         android:text="@string/start"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/llButtons"
         app:layout_constraintEnd_toEndOf="@+id/llButtons"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimer" />
 
     <LinearLayout
         android:id="@+id/llButtons"
@@ -177,17 +180,23 @@
             android:id="@+id/btnToggleStop"
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/intro_button_background"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="@string/stop"
-            android:visibility="gone" />
+           />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnFinishRun"
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:layout_marginHorizontal="20dp"
+            android:visibility="gone"
+            android:background="@drawable/intro_button_background"
             android:layout_height="wrap_content"
             android:text="@string/finish"
-            android:visibility="gone"/>
+            />
     </LinearLayout>
 
 

@@ -8,109 +8,33 @@
     tools:context=".feature.listactivities.MainScreenFragment">
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_mainScreen"
-        android:layout_width="wrap_content"
-        android:layout_height="636dp"
-        android:layout_marginTop="22dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/saveFilter"
-        app:layout_constraintVertical_bias="0.0"
-        tools:listitem="@layout/recycler_view_activity" />
 
-    <TextView
-        android:id="@+id/header"
-        android:layout_width="195dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="64dp"
-        android:text="Your activities"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
-        app:layout_constraintHorizontal_bias="0.947"
+    <!-- Add RecyclerView for the week calendar -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_week"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
+        android:orientation="horizontal"
+        android:paddingVertical="50dp"
+        android:layout_marginVertical="10dp"
+        tools:listitem="@layout/item_day_of_week"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="52dp"
-        android:background="@drawable/nonfilterbuttonbackground"
-        android:src="@drawable/baseline_filter_list_24"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_mainScreen"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <RadioGroup
-        android:id="@+id/filterRadioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/text_description_filtering"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="@+id/text_description_filtering"
-        app:layout_constraintTop_toBottomOf="@+id/text_description_filtering"
-        tools:ignore="UselessParent">
-
-        <RadioButton
-            android:id="@+id/ascendingRadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ascending"
-            android:textColor="@color/white" />
-
-        <RadioButton
-            android:id="@+id/descendingRadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Descending"
-            android:textColor="@color/white" />
-
-        <RadioButton
-            android:id="@+id/resetRadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Reset"
-            android:textColor="@color/white" />
-
-
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/saveFilter"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/search_bar_view"
-        android:text="save"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/filterRadioButton"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="@+id/filterRadioButton"
-        app:layout_constraintTop_toBottomOf="@+id/filterRadioButton" />
-
-    <TextView
-        android:id="@+id/text_description_filtering"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/search_bar_view"
-        android:text="If you want you can filter you results by clicking the button on the right top"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="@+id/header"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="@+id/header"
-        app:layout_constraintTop_toBottomOf="@+id/header" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView_week"
+        tools:listitem="@layout/recycler_view_activity" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

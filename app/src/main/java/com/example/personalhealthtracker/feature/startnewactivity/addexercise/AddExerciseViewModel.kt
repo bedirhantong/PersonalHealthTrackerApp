@@ -3,6 +3,7 @@ package com.example.personalhealthtracker.feature.startnewactivity.addexercise
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.personalhealthtracker.data.SerializableLatLng
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
@@ -22,14 +23,16 @@ class AddExerciseViewModel : ViewModel() {
         kmTravelled: String,
         energyConsump: String,
         elapsedTime: String,
-        sourceActivity: String?
+        sourceActivity: String?,
+        polylinePoints: ArrayList<SerializableLatLng>? = null // Yeni parametre
     ) {
         _uiState.value = UiState(
             activityName = activityName,
             kmTravelled = kmTravelled,
             energyConsump = energyConsump,
             elapsedTime = elapsedTime,
-            sourceActivity = sourceActivity
+            sourceActivity = sourceActivity,
+            polylinePoints = polylinePoints
         )
     }
 
@@ -43,7 +46,8 @@ class AddExerciseViewModel : ViewModel() {
             "activityName" to _uiState.value?.activityName,
             "userEmail" to userEmail,
             "dateOfAct" to Timestamp.now(),
-            "elapsedTime" to _uiState.value?.elapsedTime
+            "elapsedTime" to _uiState.value?.elapsedTime,
+            "polylinePoints" to _uiState.value?.polylinePoints
         )
 
         if (userId != null) {
@@ -84,6 +88,7 @@ class AddExerciseViewModel : ViewModel() {
         val energyConsump: String = "",
         val elapsedTime: String = "",
         val sourceActivity: String? = null,
+        val polylinePoints: ArrayList<SerializableLatLng>? = null, // Yeni property
         val message: String? = null,
         val navigateToMainScreen: Boolean = false
     )

@@ -4,6 +4,9 @@ import android.os.SystemClock
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.personalhealthtracker.data.SerializableLatLng
+import com.google.android.gms.maps.model.Dash
+import com.google.android.gms.maps.model.Gap
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Polyline
 import com.google.android.gms.maps.model.PolylineOptions
@@ -30,8 +33,13 @@ class TrackRunningViewModel : ViewModel() {
 
     var currentLocation: LatLng? = null
     var polyline: Polyline? = null
-    val polylinePoints = mutableListOf<LatLng>()
-    val polylineOptions = PolylineOptions().color(android.graphics.Color.BLUE).width(9f)
+    val polylinePoints = mutableListOf<SerializableLatLng>()
+    val polylineOptions = PolylineOptions().color(android.graphics.Color.BLUE).width(10f).pattern(
+        listOf(
+            Dash(30f), Gap(20f)
+        )
+    ).geodesic(true).zIndex(1f)
+
 
     fun startTimer() {
         // Start the timer logic and notify UI state
@@ -54,14 +62,16 @@ class TrackRunningViewModel : ViewModel() {
             averageSpeed = calculateAverageSpeed(totalSteps, elapsedSecond)
         }
 
-        polylinePoints.add(prevLocation!!)
-        _uiState.value = UiState(formattedDistance, formattedCalories, averageSpeed.toString(), totalSteps)
+        polylinePoints.add(SerializableLatLng(prevLocation!!.latitude, prevLocation!!.longitude))
+        _uiState.value =
+            UiState(formattedDistance, formattedCalories, averageSpeed.toString(), totalSteps)
         prevLocation = location
     }
 
     fun setInitialLocation(location: LatLng) {
         prevLocation = location
         currentLocation = location
+        polylinePoints.add(SerializableLatLng(location.latitude, location.longitude))
     }
 
     private fun calculateDistance(): Double {

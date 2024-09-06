@@ -5,15 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/lukechesserdark"
+    android:background="@drawable/page_bg"
     tools:context=".feature.startnewactivity.StartNewExerciseFragment">
 
 
     <ImageView
         android:id="@+id/runningView"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginTop="56dp"
+        android:padding="10dp"
         android:background="@drawable/search_bar_view"
         android:src="@drawable/baseline_directions_run_24"
         app:layout_constraintEnd_toEndOf="@+id/stepCounting"
@@ -23,12 +24,13 @@
 
     <ImageView
         android:id="@+id/breathTaking"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginTop="56dp"
         android:background="@drawable/search_bar_view"
         android:onClick="startHiking"
         android:src="@drawable/lungs"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="@+id/divingView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/divingView"
@@ -124,11 +126,12 @@
 
     <ImageView
         android:id="@+id/stepCounting"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginTop="36dp"
         android:background="@drawable/search_bar_view"
         android:onClick="startCountingSteps"
+        android:padding="10dp"
         android:src="@drawable/ic_directions_walk_24"
         app:layout_constraintEnd_toStartOf="@+id/divingView"
         app:layout_constraintHorizontal_bias="0.243"
@@ -138,10 +141,11 @@
 
     <ImageView
         android:id="@+id/divingView"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="16dp"
+        android:padding="10dp"
         android:background="@drawable/search_bar_view"
         android:onClick="startDiving"
         android:src="@drawable/icon_diving"

@@ -67,7 +67,7 @@
     <string name="profile">Profile</string>
     <string name="time_past">Time Past</string>
     <string name="total_steps">Total Steps</string>
-    <string name="energy_consumption">Energy Consumption</string>
+    <string name="energy_consumption">Energy</string>
     <string name="start">Start</string>
     <string name="outdoor_run">Outdoor Run</string>
     <string name="average_speed">Average Speed</string>
