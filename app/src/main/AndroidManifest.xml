@@ -4,10 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!--
-ACCESS_COARSE_LOCATION is used when we use network location provider for our Android app.
-        But, ACCESS_FINE_LOCATION is providing permission for both providers.
-    -->
+
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
@@ -26,41 +23,15 @@ ACCESS_COARSE_LOCATION is used when we use network location provider for our And
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:name=".core.MyApplication"
         android:theme="@style/Theme.PersonalHealthTracker"
         tools:targetApi="31">
         <activity
-            android:name=".data.AddActivitiesAndShowToUser"
-            android:exported="false" />
-        <activity
-            android:name=".ui.startNewActivity.running.BarChartActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.startNewActivity.TrackRunActivity"
-            android:exported="false" />
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="YourAPIKeyHere" />
-
-        <activity
-            android:name=".ui.startNewActivity.breathTaking.BreathTakingExerciseActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.startNewActivity.diving.DivingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.startNewActivity.stepCounting.StepCounterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.LoginActivity"
-            android:exported="false"
-            android:launchMode="singleTask" />
-        <activity
-            android:name=".ui.MainActivity"
+            android:name=".MainActivity"
             android:exported="true"
-            android:launchMode="singleTask">
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -68,6 +39,9 @@ ACCESS_COARSE_LOCATION is used when we use network location provider for our And
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="API_KEY_HERE" />
     </application>
 
 </manifest>

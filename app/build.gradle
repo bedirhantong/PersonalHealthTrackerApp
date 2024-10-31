@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id("com.google.gms.google-services")
     id("androidx.navigation.safeargs")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 
 }
@@ -21,6 +23,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildFeatures {
+        buildConfig = true
         viewBinding = true
     }
     buildTypes {
@@ -35,6 +38,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    viewBinding {
+        enabled = true
     }
 }
 
@@ -55,6 +61,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 
+    //Dagger Hilt
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-compiler:2.51.1")
 
     implementation 'com.google.android.gms:play-services-maps:19.0.0'
     implementation 'com.google.android.gms:play-services-location:21.3.0'
@@ -65,7 +74,7 @@ dependencies {
     implementation 'com.google.maps.android:maps-utils-ktx:3.2.0'
 
     implementation 'androidx.annotation:annotation:1.8.2'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.8.4'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.8.5'
 
     // Import the Firebase BoM
     implementation platform('com.google.firebase:firebase-bom:33.2.0')
@@ -76,8 +85,6 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-appcheck-ktx:18.0.0'
     implementation 'com.google.firebase:firebase-config-ktx:22.0.0'
-
-
 
     // Easy permissions
     implementation 'pub.devrel:easypermissions:3.0.0'
@@ -92,8 +99,13 @@ dependencies {
     // Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
+    //Lottie Animations
+    implementation("com.airbnb.android:lottie:6.4.0")
+
     // lifecycle
-    implementation "androidx.lifecycle:lifecycle-service:2.8.4"
+    implementation "androidx.lifecycle:lifecycle-service:2.8.5"
+    
+
 
     // circular progressbar
     implementation 'com.mikhaellopez:circularprogressbar:3.1.0'

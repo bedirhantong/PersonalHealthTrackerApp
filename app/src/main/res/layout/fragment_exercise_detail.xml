@@ -171,10 +171,31 @@
 
         </LinearLayout>
         <Button
+            android:id="@+id/stopButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Stop"
+            android:visibility="gone"
+            android:layout_marginTop="20dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:textColor="@android:color/holo_red_light"/>
+
+        <Button
+            android:id="@+id/continueButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Continue"
+            android:visibility="gone"
+            android:layout_marginTop="20dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:textColor="@android:color/holo_blue_light"/>
+
+        <Button
             android:id="@+id/viewInvoiceButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Animate"
+            android:visibility="visible"
             android:layout_marginTop="20dp"
             android:background="?android:attr/selectableItemBackground"
             android:textColor="@android:color/holo_blue_light"/>
