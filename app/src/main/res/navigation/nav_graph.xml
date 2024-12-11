@@ -25,6 +25,12 @@
         <action
             android:id="@+id/action_loginFragment_to_mainScreenFragment"
             app:destination="@id/mainScreenFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_signupUserInfo"
+            app:destination="@id/signupUserInfo" />
+        <action
+            android:id="@+id/action_loginFragment_to_introFragment"
+            app:destination="@id/introFragment" />
     </fragment>
     <fragment
         android:id="@+id/signupUserInfo"

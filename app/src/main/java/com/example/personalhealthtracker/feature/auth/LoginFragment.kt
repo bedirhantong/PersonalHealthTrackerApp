@@ -48,7 +48,6 @@ class LoginFragment : Fragment() {
                 mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
                     if (isAdded) {
                         if (task.isSuccessful) {
-                            // NavOptions ile backstack'i temizleyerek yönlendirme
                             val navOptions = NavOptions.Builder()
                                 .setPopUpTo(
                                     R.id.loginFragment,
