@@ -61,7 +61,7 @@ class TrackRunningFragment : Fragment(), OnMapReadyCallback {
     }
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-    @SuppressLint("MissingPermission")
+    @SuppressLint("MissingPermission", "SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -89,17 +89,18 @@ class TrackRunningFragment : Fragment(), OnMapReadyCallback {
 
         binding.btnFinishRun.setOnClickListener {
             val bundle = Bundle().apply {
-                putString("activityType", "Running Activity")
+                putString("activityType", "Running")
                 putString("roadTravelled", viewModel.formattedDistance)
                 putString("timeElapsed", viewModel.elapsedSecond.toString())
                 putString("caloriesBurned", viewModel.formattedCalories)
+                putString("totalSteps", viewModel.totalSteps.toString())
                 putSerializable("polylinePoints", ArrayList(viewModel.polylinePoints))
             }
             findNavController().navigate(R.id.action_trackRunningFragment_to_addExerciseFragment, bundle)
         }
 
         viewModel.uiState.observe(viewLifecycleOwner) { state ->
-            binding.totalDistance.text = "${state.formattedDistance} km"
+            binding.totalDistance.text = state.formattedDistance
             binding.averagePace.text = state.averageSpeed
             binding.energyConsump.text = state.formattedCalories
             binding.totalStepNum.text = state.totalSteps.toString()

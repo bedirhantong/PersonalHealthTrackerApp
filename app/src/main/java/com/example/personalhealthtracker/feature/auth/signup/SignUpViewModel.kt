@@ -98,6 +98,13 @@ class SignUpViewModel : ViewModel() {
                         "dateOfBirth" to dateOfBirth.value,
                         "gender" to gender.value,
                         "isAccountActive" to true,
+                        "isEmailVerified" to false,
+                        "description" to "",
+                        "profileImageUrl" to "",
+                        "coverImageUrl" to "",
+                        "activityCount" to 0,
+                        "followerCount" to 0,
+                        "followingCount" to 0,
                         "createdAt" to SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())
                     )
                     db.collection("users").document(firebaseUser.uid).set(userDocument).await()

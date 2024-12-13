@@ -24,7 +24,7 @@ class TrackRunningViewModel : ViewModel() {
     private var prevLocation: LatLng? = null
     private var totalDistance = 0.0
     private var totalEnergyConsumption = 0.0
-    private var totalSteps = 0
+    var totalSteps = 0
     private var stopTimer: Long = 0
     private var averageSpeed = 0.0
     var elapsedSecond = 0
@@ -47,6 +47,7 @@ class TrackRunningViewModel : ViewModel() {
 
     fun stopTimer() {
         // Stop the timer logic and notify UI state
+
     }
 
     fun updateLocation(location: LatLng) {
@@ -60,13 +61,21 @@ class TrackRunningViewModel : ViewModel() {
             totalEnergyConsumption += calculateCaloriesBurned(totalSteps, elapsedSecond, 25)
             formattedCalories = DecimalFormat("#.###").format(totalEnergyConsumption)
             averageSpeed = calculateAverageSpeed(totalSteps, elapsedSecond)
+
+            // Add to polyline only after prevLocation is not null
+            polylinePoints.add(SerializableLatLng(prevLocation!!.latitude, prevLocation!!.longitude))
+        } else {
+            // Handle the case when prevLocation is null, maybe initialize it or return early
+            setInitialLocation(location)
         }
 
-        polylinePoints.add(SerializableLatLng(prevLocation!!.latitude, prevLocation!!.longitude))
         _uiState.value =
             UiState(formattedDistance, formattedCalories, averageSpeed.toString(), totalSteps)
+
+        // Update prevLocation after the logic
         prevLocation = location
     }
+
 
     fun setInitialLocation(location: LatLng) {
         prevLocation = location

@@ -6,12 +6,14 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.adapter.HealthyActivityAdapter
 import com.example.personalhealthtracker.databinding.FragmentMainScreenBinding
 import com.example.personalhealthtracker.feature.listactivities.presentation.MainScreenViewModel
 import com.example.personalhealthtracker.feature.listactivities.presentation.WeekDay
+import com.example.personalhealthtracker.feature.profile.ProfileFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -36,10 +38,21 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
     }
 
     private fun setupActivityRecyclerView() {
-        activityAdapter = HealthyActivityAdapter {
-            // Handle activity item click
-        }
 
+        activityAdapter = HealthyActivityAdapter(
+            onItemClick = { healthyActivity ->
+                val bundle = Bundle().apply {
+                    putString("activityType", healthyActivity.activityName)
+                    putString("roadTravelled", healthyActivity.kmTravelled)
+                    putString("timeElapsed", healthyActivity.elapsedTime)
+                    putString("caloriesBurned", healthyActivity.energyConsump)
+                    putSerializable("polylinePoints", ArrayList(healthyActivity.polylinePoints))
+                }
+
+                val action = ProfileFragmentDirections.actionProfileFragmentToExerciseDetailFragment().actionId
+                findNavController().navigate(action,bundle)
+            }
+        )
         binding.recyclerViewActivities.layoutManager = LinearLayoutManager(context)
         binding.recyclerViewActivities.adapter = activityAdapter
     }

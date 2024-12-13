@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.data.HealthyActivity
 import com.example.personalhealthtracker.databinding.RecyclerViewActivityBinding
 
@@ -19,13 +20,21 @@ class HealthyActivityAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(healthyActivity: HealthyActivity) {
             binding.activityType.text = healthyActivity.activityName
-//            binding.tvDuration.text = healthyActivity.elapsedTime
-            binding.tvRunKm.text = healthyActivity.kmTravelled+" km"
-            binding.tvCalories.text = healthyActivity.energyConsump + " kcal"
+            binding.tvDistance.text = healthyActivity.kmFormatted
+            binding.tvKcal.text = healthyActivity.kcalFormatted
+
+            binding.ivActivityIcon.setImageResource(healthyActivity.activityIconResId)
+
+            binding.tvDuration.text = healthyActivity.timeElapsedFormatted
+            binding.tvTotalSteps.text = "22,353"
+            binding.tvAvgHeartRate.text = "120 bpm"
+
             binding.root.setOnClickListener {
                 onItemClick(healthyActivity)
             }
         }
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HealthyActivityHolder {
