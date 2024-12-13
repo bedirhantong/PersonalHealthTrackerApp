@@ -1,18 +1,22 @@
 package com.example.personalhealthtracker.feature.startnewactivity.addexercise
 
 import android.os.Bundle
-import android.widget.Toast
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.data.SerializableLatLng
 import com.example.personalhealthtracker.databinding.FragmentAddExerciseBinding
-import java.io.Serializable
+import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class AddExerciseFragment : Fragment() {
     private var _binding: FragmentAddExerciseBinding? = null
     private val binding get() = _binding!!
@@ -32,13 +36,7 @@ class AddExerciseFragment : Fragment() {
 
         setupUI()
         setupListeners()
-
-        viewModel.uiState.observe(viewLifecycleOwner) { uiState ->
-            uiState.message?.let { showToast(it) }
-            if (uiState.navigateToMainScreen) {
-                navigateToMainScreen()
-            }
-        }
+        observeUiState()
     }
 
     private fun setupUI() {
@@ -46,20 +44,13 @@ class AddExerciseFragment : Fragment() {
         val polylinePoints = bundle?.getSerializable("polylinePoints") as? ArrayList<SerializableLatLng>
 
         viewModel.setExerciseData(
-            activityName = bundle?.getString("activityType", "0") ?: "",
+            activityName = bundle?.getString("activityType", "") ?: "",
             kmTravelled = bundle?.getString("roadTravelled", "0") ?: "",
             energyConsump = bundle?.getString("caloriesBurned", "0") ?: "",
             elapsedTime = bundle?.getString("timeElapsed", "0") ?: "",
             sourceActivity = bundle?.getString("sourceActivity"),
             polylinePoints = polylinePoints
         )
-
-        val uiState = viewModel.uiState.value
-        binding.activityType.text = uiState?.activityName
-        binding.kcalView.text = uiState?.energyConsump
-        binding.roadTravelledView.text = uiState?.kmTravelled
-        binding.durationView.text = uiState?.elapsedTime
-        binding.elapsedTimeText.text = if (uiState?.sourceActivity == "Running Activity") "Running" else "Step"
     }
 
     private fun setupListeners() {
@@ -71,12 +62,29 @@ class AddExerciseFragment : Fragment() {
         }
     }
 
+    private fun observeUiState() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.uiState.collectLatest { uiState ->
+                binding.activityType.text = uiState.activityName
+                binding.kcalView.text = uiState.energyConsump
+                binding.roadTravelledView.text = uiState.kmTravelled
+                binding.durationView.text = uiState.elapsedTime
+                binding.elapsedTimeText.text = if (uiState.sourceActivity == "Running Activity") "Running" else "Step"
+
+                uiState.message?.let { showSnackbar(it) }
+                if (uiState.navigateToMainScreen) {
+                    navigateToMainScreen()
+                }
+            }
+        }
+    }
+
     private fun navigateToMainScreen() {
         findNavController().popBackStack(R.id.mainScreenFragment, false)
     }
 
-    private fun showToast(message: String) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
+    private fun showSnackbar(message: String) {
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).show()
     }
 
     override fun onDestroyView() {
@@ -84,3 +92,4 @@ class AddExerciseFragment : Fragment() {
         _binding = null
     }
 }
+

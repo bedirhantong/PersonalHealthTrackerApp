@@ -1,29 +1,26 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:gravity="center"
-    android:padding="8dp"
+    android:padding="12dp"
+    android:layout_margin="4dp"
     android:background="@drawable/intro_button_background"
-    android:layout_marginHorizontal="8dp">
+    android:gravity="center">
 
     <TextView
-        android:id="@+id/textDayOfWeek"
+        android:id="@+id/dayOfWeek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mon"
-        android:textSize="14sp"
-        android:textColor="@android:color/black"
-        android:gravity="center"/>
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary" />
 
     <TextView
-        android:id="@+id/textDayOfMonth"
+        android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:gravity="center"/>
+        android:text="01"
+        android:textSize="14sp"
+        android:textColor="@color/colorPrimary" />
 </LinearLayout>

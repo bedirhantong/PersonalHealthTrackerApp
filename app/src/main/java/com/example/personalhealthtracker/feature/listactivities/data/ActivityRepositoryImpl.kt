@@ -5,10 +5,15 @@ import com.example.personalhealthtracker.feature.listactivities.domain.ActivityR
 import com.google.firebase.firestore.Query
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import java.util.Date
 
 class ActivityRepositoryImpl(
     private val dataSource: FirebaseActivityDataSource
 ) : ActivityRepository {
+
+    override suspend fun saveActivity(activity: HealthyActivity) {
+        dataSource.saveActivity(activity)
+    }
 
     override suspend fun getActivities(): Flow<List<HealthyActivity>> = flow {
         val activities = dataSource.fetchActivities(Query.Direction.DESCENDING)
@@ -23,5 +28,10 @@ class ActivityRepositoryImpl(
 
     override suspend fun getActivityById(activityId: String): HealthyActivity? {
         return dataSource.fetchActivityById(activityId)
+    }
+
+    override suspend fun getActivitiesFilteredByDate(startDate: Date, endDate: Date): Flow<List<HealthyActivity>> = flow {
+        val activities = dataSource.fetchActivitiesByDateRange(startDate, endDate)
+        emit(activities)
     }
 }

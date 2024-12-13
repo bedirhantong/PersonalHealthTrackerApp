@@ -1,22 +1,24 @@
 package com.example.personalhealthtracker.feature.startnewactivity.addexercise
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.personalhealthtracker.data.HealthyActivity
 import com.example.personalhealthtracker.data.SerializableLatLng
-import com.google.firebase.Timestamp
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FieldValue
-import com.google.firebase.firestore.SetOptions
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+import com.example.personalhealthtracker.feature.listactivities.domain.GetActivitiesUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+import java.util.Date
+import javax.inject.Inject
 
-class AddExerciseViewModel : ViewModel() {
-    private val db = Firebase.firestore
-    private val auth = FirebaseAuth.getInstance()
+@HiltViewModel
+class AddExerciseViewModel @Inject constructor(
+    private val addActivityUseCase: GetActivitiesUseCase
+) : ViewModel() {
 
-    private val _uiState = MutableLiveData<UiState>()
-    val uiState: LiveData<UiState> get() = _uiState
+    private val _uiState = MutableStateFlow(UiState())
+    val uiState: StateFlow<UiState> = _uiState
 
     fun setExerciseData(
         activityName: String,
@@ -24,9 +26,9 @@ class AddExerciseViewModel : ViewModel() {
         energyConsump: String,
         elapsedTime: String,
         sourceActivity: String?,
-        polylinePoints: ArrayList<SerializableLatLng>? = null // Yeni parametre
+        polylinePoints: List<SerializableLatLng>? = null
     ) {
-        _uiState.value = UiState(
+        _uiState.value = _uiState.value.copy(
             activityName = activityName,
             kmTravelled = kmTravelled,
             energyConsump = energyConsump,
@@ -37,48 +39,26 @@ class AddExerciseViewModel : ViewModel() {
     }
 
     fun saveToHistory() {
-        val userEmail = auth.currentUser?.email ?: ""
-        val userId = auth.currentUser?.uid
-
-        val healthyActMap = hashMapOf(
-            "energyConsump" to _uiState.value?.energyConsump,
-            "kmTravelled" to _uiState.value?.kmTravelled,
-            "activityName" to _uiState.value?.activityName,
-            "userEmail" to userEmail,
-            "dateOfAct" to Timestamp.now(),
-            "elapsedTime" to _uiState.value?.elapsedTime,
-            "polylinePoints" to _uiState.value?.polylinePoints
-        )
-
-        if (userId != null) {
-            db.collection("HealthyActivities")
-                .add(healthyActMap)
-                .addOnSuccessListener { documentReference ->
-                    val activityId = documentReference.id
-                    db.collection("user")
-                        .document(userId)
-                        .set(hashMapOf("healthyActivities" to FieldValue.arrayUnion(activityId)), SetOptions.merge())
-                        .addOnSuccessListener {
-                            _uiState.value = UiState(
-                                message = "Saved successfully",
-                                navigateToMainScreen = true
-                            )
-                        }
-                        .addOnFailureListener { exception ->
-                            _uiState.value = UiState(
-                                message = exception.localizedMessage
-                            )
-                        }
-                }
-                .addOnFailureListener { exception ->
-                    _uiState.value = UiState(
-                        message = exception.localizedMessage
-                    )
-                }
-        } else {
-            _uiState.value = UiState(
-                message = "User not authenticated"
-            )
+        viewModelScope.launch {
+            try {
+                val activity = HealthyActivity(
+                    activityName = _uiState.value.activityName,
+                    kmTravelled = _uiState.value.kmTravelled,
+                    energyConsump = _uiState.value.energyConsump,
+                    elapsedTime = _uiState.value.elapsedTime,
+                    dateOfAct = Date(),
+                    polylinePoints = _uiState.value.polylinePoints ?: emptyList()
+                )
+                addActivityUseCase.saveActivity(activity)
+                _uiState.value = _uiState.value.copy(
+                    message = "Saved successfully",
+                    navigateToMainScreen = true
+                )
+            } catch (e: Exception) {
+                _uiState.value = _uiState.value.copy(
+                    message = e.localizedMessage ?: "An error occurred"
+                )
+            }
         }
     }
 
@@ -88,8 +68,9 @@ class AddExerciseViewModel : ViewModel() {
         val energyConsump: String = "",
         val elapsedTime: String = "",
         val sourceActivity: String? = null,
-        val polylinePoints: ArrayList<SerializableLatLng>? = null, // Yeni property
+        val polylinePoints: List<SerializableLatLng>? = null,
         val message: String? = null,
         val navigateToMainScreen: Boolean = false
     )
 }
+

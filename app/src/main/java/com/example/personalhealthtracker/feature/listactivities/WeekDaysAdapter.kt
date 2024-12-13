@@ -10,14 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.feature.listactivities.presentation.WeekDay
 
-class WeekAdapter(
+class WeekDayAdapter(
     val weekDays: List<WeekDay>,
     private val onDayClick: (WeekDay) -> Unit
-) : RecyclerView.Adapter<WeekAdapter.WeekViewHolder>() {
+) : RecyclerView.Adapter<WeekDayAdapter.WeekViewHolder>() {
 
     inner class WeekViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val dayOfWeekText: TextView = itemView.findViewById(R.id.textDayOfWeek)
-        private val dayOfMonthText: TextView = itemView.findViewById(R.id.textDayOfMonth)
+        private val dayOfWeekText: TextView = itemView.findViewById(R.id.dayOfWeek)
+        private val dayOfMonthText: TextView = itemView.findViewById(R.id.date)
 
         @SuppressLint("SetTextI18n")
         fun bind(weekDay: WeekDay) {

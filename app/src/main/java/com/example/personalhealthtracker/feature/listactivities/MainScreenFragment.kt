@@ -1,12 +1,11 @@
 package com.example.personalhealthtracker.feature.listactivities
 
-import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.adapter.HealthyActivityAdapter
@@ -14,93 +13,59 @@ import com.example.personalhealthtracker.databinding.FragmentMainScreenBinding
 import com.example.personalhealthtracker.feature.listactivities.presentation.MainScreenViewModel
 import com.example.personalhealthtracker.feature.listactivities.presentation.WeekDay
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
 @AndroidEntryPoint
 class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
 
-    private var _binding: FragmentMainScreenBinding? = null
-    private val binding get() = _binding!!
-    private val viewModel: MainScreenViewModel by viewModels()
-    private lateinit var adapter: HealthyActivityAdapter
-    private lateinit var daysAdapter: WeekAdapter
+    private lateinit var binding: FragmentMainScreenBinding
+    private lateinit var weekDayAdapter: WeekDayAdapter
+    private lateinit var activityAdapter: HealthyActivityAdapter
+    private lateinit var viewModel: MainScreenViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentMainScreenBinding.bind(view)
 
-        setupRecyclerView()
+        binding = FragmentMainScreenBinding.bind(view)
+        viewModel = ViewModelProvider(this).get(MainScreenViewModel::class.java)
 
-        lifecycleScope.launch {
+        setupActivityRecyclerView()
+        observeViewModel()
+    }
+
+    private fun setupActivityRecyclerView() {
+        activityAdapter = HealthyActivityAdapter {
+            // Handle activity item click
+        }
+
+        binding.recyclerViewActivities.layoutManager = LinearLayoutManager(context)
+        binding.recyclerViewActivities.adapter = activityAdapter
+    }
+
+    private fun observeViewModel() {
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.activities.collect { activities ->
-                adapter.submitList(activities)
+                activityAdapter.submitList(activities)
             }
         }
+
     }
 
-    private fun setupRecyclerView() {
-        val weekDays = getWeekDays()
-        daysAdapter = WeekAdapter(weekDays) { selectedDay ->
-            onDaySelected(selectedDay)
-        }
-        binding.recyclerViewWeek.apply {
-            layoutManager =
-                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            adapter = daysAdapter
-        }
 
-        adapter = HealthyActivityAdapter { healthyActivity ->
-            val bundle = Bundle().apply {
-                putString("activityType", healthyActivity.activityName)
-                putString("roadTravelled", healthyActivity.kmTravelled)
-                putString("timeElapsed", healthyActivity.elapsedTime)
-                putString("caloriesBurned", healthyActivity.energyConsump)
-                putSerializable("polylinePoints", ArrayList(healthyActivity.polylinePoints))
-            }
-
-            val action = MainScreenFragmentDirections.actionMainScreenFragmentToExerciseDetailFragment()
-            findNavController().navigate(action.actionId, bundle)
-        }
-        binding.recyclerViewMainScreen.apply {
-            layoutManager = LinearLayoutManager(requireContext())
-            adapter = this@MainScreenFragment.adapter
-        }
-    }
-
-    @SuppressLint("NotifyDataSetChanged")
-    private fun onDaySelected(selectedDay: WeekDay) {
-        // Tüm günleri deselect et ve seçili günü belirgin hale getir
-        daysAdapter.weekDays.forEach { it.isSelected = false }
-        selectedDay.isSelected = true
-        daysAdapter.notifyDataSetChanged()
-
-        // Seçilen güne ait verileri yükle (örneğin viewModel üzerinden)
-//        viewModel.loadActivitiesForDay(selectedDay)
-    }
-
-    private fun getWeekDays(): List<WeekDay> {
-        val weekDays = mutableListOf<WeekDay>()
+    private fun generateWeekDays(): List<WeekDay> {
         val calendar = Calendar.getInstance()
+        val dateFormat = SimpleDateFormat("EEE", Locale.getDefault())
+        val dayFormat = SimpleDateFormat("dd", Locale.getDefault())
 
-        calendar.firstDayOfWeek = Calendar.MONDAY
-        calendar.set(Calendar.DAY_OF_WEEK, calendar.firstDayOfWeek)
-
-        for (i in 0..6) {
-            val dayOfWeek =
-                calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.getDefault())
-            val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
-            weekDays.add(WeekDay(dayOfWeek ?: "", dayOfMonth))
-
-            calendar.add(Calendar.DAY_OF_MONTH, 1)  // Bir sonraki güne geç
+        return List(7) {
+            val dayOfWeek = dateFormat.format(calendar.time)
+            val dayOfMonth = dayFormat.format(calendar.time)
+            val weekDay = WeekDay(dayOfWeek, dayOfMonth.toInt(), false)
+            calendar.add(Calendar.DAY_OF_MONTH, 1)
+            weekDay
         }
-
-        return weekDays
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
+

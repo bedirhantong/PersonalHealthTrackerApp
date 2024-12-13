@@ -33,7 +33,7 @@ class IntroFragment : Fragment() {
             Navigation.findNavController(it).navigate(R.id.action_introFragment_to_loginFragment)
         }
         binding.buttonSignup.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_introFragment_to_signupUserInfo)
+            Navigation.findNavController(it).navigate(R.id.action_introFragment_to_signUpContainerFragment)
         }
     }
 

@@ -14,9 +14,10 @@
             android:id="@+id/action_introFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
         <action
-            android:id="@+id/action_introFragment_to_signupUserInfo"
-            app:destination="@id/signupUserInfo" />
+            android:id="@+id/action_introFragment_to_signUpContainerFragment"
+            app:destination="@id/signUpContainerFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.personalhealthtracker.feature.auth.LoginFragment"
@@ -26,23 +27,23 @@
             android:id="@+id/action_loginFragment_to_mainScreenFragment"
             app:destination="@id/mainScreenFragment" />
         <action
-            android:id="@+id/action_loginFragment_to_signupUserInfo"
-            app:destination="@id/signupUserInfo" />
+            android:id="@+id/action_loginFragment_to_signUpContainerFragment"
+            app:destination="@id/signUpContainerFragment" />
         <action
             android:id="@+id/action_loginFragment_to_introFragment"
             app:destination="@id/introFragment" />
     </fragment>
+
     <fragment
-        android:id="@+id/signupUserInfo"
-        android:name="com.example.personalhealthtracker.feature.auth.signup.SignupUserInfo"
-        android:label="fragment_signup_user_info"
-        tools:layout="@layout/fragment_signup_user_info" >
+        android:id="@+id/signUpContainerFragment"
+        android:name="com.example.personalhealthtracker.feature.auth.signup.SignUpContainerFragment"
+        android:label="fragment_sign_up_container"
+        tools:layout="@layout/fragment_sign_up_container">
         <action
-            android:id="@+id/action_signupUserInfo_to_introFragment"
-            app:destination="@id/introFragment" />
-        <action
-            android:id="@+id/action_signupUserInfo_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_signUpContainerFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/introFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -102,4 +103,5 @@
         android:name="com.example.personalhealthtracker.feature.exercisedetail.ExerciseDetailFragment"
         android:label="ExerciseDetailFragment">
     </fragment>
+
 </navigation>

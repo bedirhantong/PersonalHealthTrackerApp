@@ -5,168 +5,129 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/mainbackground"
-    android:orientation="vertical">
+    android:padding="16dp">
 
-
-    <Button
-        android:id="@+id/button_save"
-        android:layout_width="150dp"
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="412dp"
-        android:text="SAVE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/each_activity"
-        app:layout_constraintStart_toEndOf="@+id/button_cancel"
-        app:layout_constraintTop_toBottomOf="@+id/each_activity" />
-
-    <Button
-        android:id="@+id/button_cancel"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="26dp"
-        android:text="Cancel"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button_save"
-        app:layout_constraintEnd_toStartOf="@+id/button_save"
-        app:layout_constraintStart_toStartOf="@+id/each_activity" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/each_activity"
-        android:layout_width="390dp"
-        android:layout_height="240dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="182dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="19dp"
-        android:background="#AE343434"
-        android:paddingLeft="0dp"
-        android:paddingTop="0dp"
-        android:paddingRight="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_save"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Activity Summary"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/duration_view"
-            android:layout_width="wrap_content"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/activityCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:padding="18dp"
-            android:text="00:12:34"
-            android:textColor="#F8C06D"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/elapsedTimeText"
-            app:layout_constraintStart_toStartOf="@+id/elapsedTimeText"
-            app:layout_constraintTop_toBottomOf="@+id/elapsedTimeText"
-            app:layout_constraintVertical_bias="0.0"
-            tools:ignore="MissingConstraints" />
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/road_travelled_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:padding="18dp"
-            android:text="45 km"
-            android:textColor="#F8C06D"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/roadTravelledText"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/roadTravelledText"
-            app:layout_constraintTop_toBottomOf="@+id/roadTravelledText"
-            app:layout_constraintVertical_bias="0.0" />
+            <TextView
+                android:id="@+id/activityTypeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Activity Type:"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/kcal_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:fontFamily="sans-serif-light"
-            android:padding="18dp"
-            android:text="149kcal"
-            android:textColor="#F8C06D"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/energyConsumpText"
-            app:layout_constraintHorizontal_bias="0.666"
-            app:layout_constraintStart_toStartOf="@+id/energyConsumpText"
-            app:layout_constraintTop_toBottomOf="@+id/energyConsumpText"
-            app:layout_constraintVertical_bias="0.0" />
+            <TextView
+                android:id="@+id/activityType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toTopOf="@id/activityTypeLabel"
+                app:layout_constraintStart_toEndOf="@id/activityTypeLabel"
+                tools:text="Running" />
 
-        <TextView
-            android:id="@+id/activity_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:fontFamily="sans-serif-light"
-            android:padding="18dp"
-            android:text="Running Activity"
-            android:textColor="#F6EBEB"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/header_of_new_activity"
-            app:layout_constraintHorizontal_bias="0.55"
-            app:layout_constraintStart_toStartOf="@+id/header_of_new_activity"
-            app:layout_constraintTop_toBottomOf="@+id/header_of_new_activity" />
+            <TextView
+                android:id="@+id/kcalLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calories Burned:"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@id/activityTypeLabel"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/header_of_new_activity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Save activity to history?"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/kcalView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toTopOf="@id/kcalLabel"
+                app:layout_constraintStart_toEndOf="@id/kcalLabel"
+                tools:text="250 kcal" />
 
-        <TextView
-            android:id="@+id/roadTravelledText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="Road Travelled"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toStartOf="@+id/elapsedTimeText"
-            app:layout_constraintHorizontal_bias="0.322"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_type"
-            tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/roadTravelledLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Distance:"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@id/kcalLabel"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/elapsedTimeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="Elapsed Time"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/activity_type"
-            app:layout_constraintHorizontal_bias="0.462"
-            app:layout_constraintStart_toStartOf="@+id/activity_type"
-            app:layout_constraintTop_toBottomOf="@+id/activity_type"
-            tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/roadTravelledView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toTopOf="@id/roadTravelledLabel"
+                app:layout_constraintStart_toEndOf="@id/roadTravelledLabel"
+                tools:text="5.2 km" />
 
-        <TextView
-            android:id="@+id/energyConsumpText"
-            android:layout_width="119dp"
-            android:layout_height="17dp"
-            android:layout_marginTop="28dp"
-            android:text="Consumed Energy"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.636"
-            app:layout_constraintStart_toEndOf="@+id/elapsedTimeText"
-            app:layout_constraintTop_toBottomOf="@+id/activity_type"
-            tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/elapsedTimeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Duration:"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@id/roadTravelledLabel"
+                app:layout_constraintStart_toStartOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/durationView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toTopOf="@id/elapsedTimeText"
+                app:layout_constraintStart_toEndOf="@id/elapsedTimeText"
+                tools:text="30 minutes" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSave"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/activityCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/buttonCancel"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonCancel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/activityCard"
+        app:layout_constraintStart_toEndOf="@id/buttonSave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.45" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

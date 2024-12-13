@@ -18,9 +18,6 @@ class MainScreenViewModel @Inject constructor(
     private val _activities = MutableStateFlow<List<HealthyActivity>>(emptyList())
     val activities: StateFlow<List<HealthyActivity>> get() = _activities
 
-    private val _filterText = MutableStateFlow("")
-    val filterText: StateFlow<String> get() = _filterText
-
     init {
         loadActivities()
     }
@@ -33,17 +30,13 @@ class MainScreenViewModel @Inject constructor(
         }
     }
 
-    fun applyFilter(order: String) {
+    fun getActivities() {
         viewModelScope.launch {
-            getActivitiesUseCase.getFilteredActivities(order).collect {
+            getActivitiesUseCase.execute().collect {
                 _activities.value = it
-                _filterText.value = "Filtered by $order"
             }
         }
     }
 
-    fun resetFilter() {
-        _filterText.value = ""
-        loadActivities()
-    }
 }
+

@@ -6,17 +6,37 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.google.type.LatLng
 import kotlinx.coroutines.tasks.await
+import java.util.Date
 
 class FirebaseActivityDataSource {
 
     private val db = Firebase.firestore
     private val mAuth = FirebaseAuth.getInstance()
 
+    suspend fun saveActivity(activity: HealthyActivity) {
+        val userId = mAuth.currentUser?.uid ?: throw IllegalStateException("User not authenticated")
+
+        val activityMap = hashMapOf(
+            "activityName" to activity.activityName,
+            "kmTravelled" to activity.kmTravelled,
+            "energyConsump" to activity.energyConsump,
+            "elapsedTime" to activity.elapsedTime,
+            "dateOfAct" to activity.dateOfAct,
+            "polylinePoints" to activity.polylinePoints,
+            "userId" to userId
+        )
+
+        db.collection("HealthyActivities")
+            .add(activityMap)
+            .await()
+    }
+
     suspend fun fetchActivities(order: Query.Direction = Query.Direction.DESCENDING): List<HealthyActivity> {
+        val userId = mAuth.currentUser?.uid ?: throw IllegalStateException("User not authenticated")
+
         val snapshot = db.collection("HealthyActivities")
-            .whereEqualTo("userEmail", mAuth.currentUser?.email)
+            .whereEqualTo("userId", userId)
             .orderBy("dateOfAct", order)
             .get()
             .await()
@@ -27,7 +47,7 @@ class FirebaseActivityDataSource {
                 elapsedTime = document.getString("elapsedTime") ?: "",
                 energyConsump = document.getString("energyConsump") ?: "",
                 kmTravelled = document.getString("kmTravelled") ?: "",
-                imageUrl = document.getString("imageUrl"),
+                dateOfAct = document.getDate("dateOfAct") ?: throw IllegalStateException("Date not found"),
                 polylinePoints = document.get("polylinePoints") as List<SerializableLatLng>? ?: emptyList()
             )
         }
@@ -41,4 +61,28 @@ class FirebaseActivityDataSource {
             null
         }
     }
+
+    suspend fun fetchActivitiesByDateRange(startDate: Date, endDate: Date): List<HealthyActivity> {
+        val userId = mAuth.currentUser?.uid ?: throw IllegalStateException("User not authenticated")
+
+        val snapshot = db.collection("HealthyActivities")
+            .whereEqualTo("userId", userId)
+            .whereGreaterThanOrEqualTo("dateOfAct", startDate)
+            .whereLessThanOrEqualTo("dateOfAct", endDate)
+            .orderBy("dateOfAct", Query.Direction.DESCENDING)
+            .get()
+            .await()
+
+        return snapshot.documents.mapNotNull { document ->
+            HealthyActivity(
+                activityName = document.getString("activityName") ?: "",
+                elapsedTime = document.getString("elapsedTime") ?: "",
+                energyConsump = document.getString("energyConsump") ?: "",
+                kmTravelled = document.getString("kmTravelled") ?: "",
+                dateOfAct = document.getDate("dateOfAct") ?: throw IllegalStateException("Date not found"),
+                polylinePoints = document.get("polylinePoints") as List<SerializableLatLng>? ?: emptyList()
+            )
+        }
+    }
 }
+

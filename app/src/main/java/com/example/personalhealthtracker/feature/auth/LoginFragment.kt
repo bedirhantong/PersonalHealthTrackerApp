@@ -71,7 +71,7 @@ class LoginFragment : Fragment() {
             }
         }
         binding.signupButton.setOnClickListener {
-            findNavController().navigate(R.id.action_introFragment_to_signupUserInfo)
+            findNavController().navigate(R.id.action_introFragment_to_signUpContainerFragment)
         }
     }
 

@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             when (destination.id) {
                 R.id.introFragment,
                 R.id.mapFragment,
-                R.id.signupUserInfo,
+                R.id.signUpContainerFragment,
                 R.id.trackRunningFragment,
                 R.id.addExerciseFragment,
                 R.id.startNewActivityFragment,

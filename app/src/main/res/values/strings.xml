@@ -19,6 +19,14 @@
     <string name="activity_added">Healthy activity is saved successfully</string>
     <string name="error">Error:  %1$s</string>
 
+    <string name="error_field_required">Error! Field is Required</string>
+    <string name="error_accept_terms">Accept Terms and Conditions</string>
+    <string name="error_authentication_failed">Authentication Failed</string>
+
+    <string name="timeline_account">Account</string>
+    <string name="timeline_personal">Personal</string>
+    <string name="timeline_additional">Additional</string>
+
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
