@@ -31,7 +31,7 @@ class ActivityRepositoryImpl(
     }
 
     override suspend fun getActivitiesFilteredByDate(startDate: Date, endDate: Date): Flow<List<HealthyActivity>> = flow {
-        val activities = dataSource.fetchActivitiesByDateRange(startDate, endDate)
+        val activities = dataSource.fetchActivitiesByDate(startDate, endDate)
         emit(activities)
     }
 }

@@ -9,5 +9,5 @@ interface ActivityRepository {
     suspend fun getActivitiesFiltered(order: String): Flow<List<HealthyActivity>>
     suspend fun getActivityById(activityId: String): HealthyActivity?
     suspend fun saveActivity(activity: HealthyActivity)
-    suspend fun getActivitiesFilteredByDate(startDate: Date, endDate: Date): Flow<List<HealthyActivity>>
+    suspend fun getActivitiesFilteredByDate(startDate: Date, endDate: Date) : Flow<List<HealthyActivity>>
 }

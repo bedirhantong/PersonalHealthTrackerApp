@@ -62,18 +62,22 @@ class FirebaseActivityDataSource {
         }
     }
 
-    suspend fun fetchActivitiesByDateRange(startDate: Date, endDate: Date): List<HealthyActivity> {
+    suspend fun fetchActivitiesByDate(
+        startDate: Date,
+        endDate: Date,
+        order: Query.Direction = Query.Direction.DESCENDING
+    ): List<HealthyActivity> {
         val userId = mAuth.currentUser?.uid ?: throw IllegalStateException("User not authenticated")
 
         val snapshot = db.collection("HealthyActivities")
             .whereEqualTo("userId", userId)
             .whereGreaterThanOrEqualTo("dateOfAct", startDate)
             .whereLessThanOrEqualTo("dateOfAct", endDate)
-            .orderBy("dateOfAct", Query.Direction.DESCENDING)
+            .orderBy("dateOfAct", order)
             .get()
             .await()
 
-        return snapshot.documents.mapNotNull { document ->
+        return snapshot.documents.map { document ->
             HealthyActivity(
                 activityName = document.getString("activityName") ?: "",
                 elapsedTime = document.getString("elapsedTime") ?: "",
@@ -84,5 +88,7 @@ class FirebaseActivityDataSource {
             )
         }
     }
+
+
 }
 

@@ -8,6 +8,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import java.util.Calendar
+import java.util.Date
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,11 +20,15 @@ class MainScreenViewModel @Inject constructor(
     private val _activities = MutableStateFlow<List<HealthyActivity>>(emptyList())
     val activities: StateFlow<List<HealthyActivity>> get() = _activities
 
+    private val _selectedDateActivities = MutableStateFlow<List<HealthyActivity>>(emptyList())
+    val selectedDateActivities: StateFlow<List<HealthyActivity>> get() = _selectedDateActivities
+
     init {
         loadActivities()
     }
 
     private fun loadActivities() {
+        // Fetch all activities initially
         viewModelScope.launch {
             getActivitiesUseCase.execute().collect {
                 _activities.value = it
@@ -30,13 +36,22 @@ class MainScreenViewModel @Inject constructor(
         }
     }
 
-    fun getActivities() {
+    fun filterActivitiesByDate(selectedDate: Date) {
         viewModelScope.launch {
-            getActivitiesUseCase.execute().collect {
-                _activities.value = it
+            val calendar = Calendar.getInstance().apply {
+                time = selectedDate
+                set(Calendar.HOUR_OF_DAY, 0)
+                set(Calendar.MINUTE, 0)
+                set(Calendar.SECOND, 0)
+                set(Calendar.MILLISECOND, 0)
+            }
+            val startOfDay = calendar.time
+            calendar.add(Calendar.DATE, 1)
+            val endOfDay = calendar.time
+            getActivitiesUseCase.getActivitiesFilteredByDate(startOfDay, endOfDay).collect {
+                _selectedDateActivities.value = it
             }
         }
     }
-
 }
 

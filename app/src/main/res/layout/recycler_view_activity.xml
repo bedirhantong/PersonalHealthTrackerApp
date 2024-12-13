@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@drawable/card_background"
+    android:background="@drawable/search_bar_view"
     android:layout_margin="12dp"
     android:elevation="8dp"
     android:clipToPadding="false">

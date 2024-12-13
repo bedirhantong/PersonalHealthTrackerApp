@@ -14,11 +14,15 @@ class GetActivitiesUseCase(private val repository: ActivityRepository) {
         repository.saveActivity(activity)
     }
 
-    suspend fun getFilteredActivities(order: String): Flow<List<HealthyActivity>> {
+    suspend fun getActivitiesFiltered(order: String): Flow<List<HealthyActivity>> {
         return repository.getActivitiesFiltered(order)
     }
 
-    suspend fun getFilteredActivitiesByDate(startDate: Date, endDate: Date): Flow<List<HealthyActivity>> {
+    suspend fun getActivityById(activityId: String): HealthyActivity? {
+        return repository.getActivityById(activityId)
+    }
+
+    suspend fun getActivitiesFilteredByDate(startDate: Date, endDate: Date) : Flow<List<HealthyActivity>> {
         return repository.getActivitiesFilteredByDate(startDate, endDate)
     }
 }
