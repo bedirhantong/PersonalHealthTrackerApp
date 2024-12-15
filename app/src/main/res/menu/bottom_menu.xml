@@ -6,7 +6,7 @@
     <item
         android:id="@+id/mainScreenFragment"
         android:title="@string/activities"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/home_1_svgrepo_com"
         />
     <item
         android:id="@+id/placeholder"
@@ -14,5 +14,5 @@
     <item
         android:id="@+id/profileFragment"
         android:title="@string/profile"
-        android:icon="@drawable/ic_person"/>
+        android:icon="@drawable/profile_svgrepo_com"/>
 </menu>

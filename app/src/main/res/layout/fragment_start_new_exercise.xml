@@ -16,7 +16,7 @@
         android:layout_marginTop="56dp"
         android:padding="10dp"
         android:background="@drawable/search_bar_view"
-        android:src="@drawable/baseline_directions_run_24"
+        android:src="@drawable/woman_running_light_skin_tone_svgrepo_com"
         app:layout_constraintEnd_toEndOf="@+id/stepCounting"
         app:layout_constraintStart_toStartOf="@+id/stepCounting"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
@@ -29,7 +29,7 @@
         android:layout_marginTop="56dp"
         android:background="@drawable/search_bar_view"
         android:onClick="startHiking"
-        android:src="@drawable/lungs"
+        android:src="@drawable/hiker_walk_svgrepo_com"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="@+id/divingView"
         app:layout_constraintHorizontal_bias="0.0"
@@ -42,7 +42,7 @@
         android:layout_width="374dp"
         android:layout_height="46dp"
         android:layout_marginTop="45dp"
-        android:text="Start a New Activity"
+        android:text="Start a New Exercise"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="27sp"
@@ -54,7 +54,7 @@
         android:id="@+id/cyclingText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="15dp"
         android:text="Diving"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -66,8 +66,8 @@
         android:id="@+id/RunningText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Breath Taking"
+        android:layout_marginTop="15dp"
+        android:text="Hiking"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/breathTaking"
@@ -78,7 +78,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="15dp"
         android:text="Counting Steps"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
@@ -91,7 +91,7 @@
         android:id="@+id/HikingText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="15dp"
         android:text="Running"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
@@ -102,27 +102,19 @@
 
     <Button
         android:id="@+id/StartButton"
-        android:layout_width="125dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/search_bar_view"
+        android:background="@drawable/selected_exercise_background"
         android:text="Start"
+        android:textSize="13sp"
+        android:textColor="@color/white"
+        android:layout_marginBottom="60dp"
+        android:layout_marginHorizontal="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/RunningText"
-        app:layout_constraintStart_toStartOf="@+id/RunningText"
-        app:layout_constraintTop_toBottomOf="@+id/RunningText"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-    <Button
-        android:id="@+id/cancelButton"
-        android:layout_width="125dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/search_bar_view"
-        android:text="Cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/HikingText"
-        app:layout_constraintStart_toStartOf="@+id/HikingText"
-        app:layout_constraintTop_toBottomOf="@+id/HikingText"
-        tools:ignore="MissingConstraints" />
+
 
     <ImageView
         android:id="@+id/stepCounting"
@@ -132,7 +124,7 @@
         android:background="@drawable/search_bar_view"
         android:onClick="startCountingSteps"
         android:padding="10dp"
-        android:src="@drawable/ic_directions_walk_24"
+        android:src="@drawable/walking_svgrepo_com"
         app:layout_constraintEnd_toStartOf="@+id/divingView"
         app:layout_constraintHorizontal_bias="0.243"
         app:layout_constraintStart_toStartOf="@+id/HeadingNewActivityPage"
@@ -148,10 +140,30 @@
         android:padding="10dp"
         android:background="@drawable/search_bar_view"
         android:onClick="startDiving"
-        android:src="@drawable/icon_diving"
+        android:src="@drawable/scuba_diver_svgrepo_com"
         app:layout_constraintEnd_toEndOf="@+id/HeadingNewActivityPage"
         app:layout_constraintTop_toBottomOf="@+id/HeadingNewActivityPage"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/selectedDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="20dp"
+        android:text="Select an activity to start"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:lineSpacingExtra="4sp"
+        android:letterSpacing="0.03"
+        android:background="@drawable/rounded_bg"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/RunningText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

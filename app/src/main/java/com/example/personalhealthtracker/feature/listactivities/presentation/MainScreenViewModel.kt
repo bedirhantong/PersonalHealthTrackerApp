@@ -23,6 +23,9 @@ class MainScreenViewModel @Inject constructor(
     private val _selectedDateActivities = MutableStateFlow<List<HealthyActivity>>(emptyList())
     val selectedDateActivities: StateFlow<List<HealthyActivity>> get() = _selectedDateActivities
 
+    val isListEmpty: Boolean
+        get() = _selectedDateActivities.value.isEmpty()
+
     init {
         loadActivities()
     }
@@ -50,6 +53,9 @@ class MainScreenViewModel @Inject constructor(
             val endOfDay = calendar.time
             getActivitiesUseCase.getActivitiesFilteredByDate(startOfDay, endOfDay).collect {
                 _selectedDateActivities.value = it
+                if (it.isEmpty()) {
+                    // Show empty state
+                }
             }
         }
     }

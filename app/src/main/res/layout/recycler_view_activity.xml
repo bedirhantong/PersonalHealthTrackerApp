@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="10dp"
     android:background="@drawable/search_bar_view"
     android:layout_margin="12dp"
     android:elevation="8dp"
@@ -18,8 +18,8 @@
 
         <ImageView
             android:id="@+id/ivActivityIcon"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:contentDescription="Activity Icon"
             android:src="@drawable/ic_directions_walk_24"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:text="3.61 km"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
         <!-- Kcal Değeri Sağ Üstte -->
@@ -62,7 +62,7 @@
             android:gravity="start"
             android:text="1252 kcal"
             android:textColor="@color/item_text"
-            android:textSize="16sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,7 +73,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="5dp"
         android:gravity="center_horizontal">
 
         <!-- Süre -->

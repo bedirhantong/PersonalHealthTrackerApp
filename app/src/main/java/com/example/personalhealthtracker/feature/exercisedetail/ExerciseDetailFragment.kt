@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -59,6 +60,10 @@ class ExerciseDetailFragment : Fragment(), OnMapReadyCallback {
             uiSettings.isMapToolbarEnabled = true
         }
         setupUI()
+        // setup back click on device, there is no backButton provided in the layout
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            requireActivity().supportFragmentManager.popBackStack()
+        }
     }
 
     private fun setupUI() {

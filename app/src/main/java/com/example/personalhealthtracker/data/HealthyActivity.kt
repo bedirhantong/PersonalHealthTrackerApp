@@ -6,14 +6,14 @@ import java.util.Date
 import java.util.Locale
 
 enum class ActivityType(val displayName: String, val iconResId: Int) {
-    RUNNING("Running", R.drawable.running_icon_selected),
-    CYCLING("Cycling", R.drawable.cycling_icon_selected),
-    WALKING("Walking", R.drawable.ic_directions_walk_24),
-    OTHER("Other", R.drawable.running_icon_selected);
+    RUNNING("Running", R.drawable.woman_running_light_skin_tone_svgrepo_com),
+    WALKING("Walking", R.drawable.walking_svgrepo_com),
+    HIKING("Hiking", R.drawable.hiker_walk_svgrepo_com),
+    DIVING("Diving", R.drawable.scuba_diver_svgrepo_com);
 
     companion object {
         fun fromString(name: String): ActivityType {
-            return entries.find { it.displayName.equals(name, ignoreCase = true) } ?: OTHER
+            return entries.find { it.displayName.equals(name, ignoreCase = true) } ?: RUNNING
         }
     }
 }

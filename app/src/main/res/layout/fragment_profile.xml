@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/card_background"
+    android:background="#242424"
     tools:context=".feature.profile.ProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +19,7 @@
             android:layout_height="180dp"
             android:scaleType="centerCrop"
             android:contentDescription="Cover Photo"
-            android:src="@drawable/card_background"
+            android:src="@drawable/lukechesserdark"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -68,8 +68,8 @@
             android:id="@+id/user_bio"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="16dp"
             android:text="Lover of tech, coffee, and good books. Building something cool!"
             android:textColor="@android:color/white"
             android:textSize="14sp"
@@ -78,98 +78,6 @@
             app:layout_constraintTop_toBottomOf="@+id/user_handle" />
 
         <!-- Stats Section -->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/stats_section"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/user_bio"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <LinearLayout
-                android:id="@+id/stat_activities"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/stat_followers"
-                app:layout_constraintHorizontal_chainStyle="spread">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Activities"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/darker_gray" />
-
-                <TextView
-                    android:id="@+id/stat_activities_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="120"
-                    android:layout_gravity="center"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/stat_followers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toEndOf="@id/stat_activities"
-                app:layout_constraintEnd_toStartOf="@id/stat_following">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Followers"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/darker_gray" />
-
-                <TextView
-                    android:id="@+id/stat_followers_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="3450"
-                    android:textSize="16sp"
-                    android:layout_gravity="center"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/stat_following"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toEndOf="@id/stat_followers"
-                app:layout_constraintEnd_toEndOf="parent">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Following"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/darker_gray" />
-
-                <TextView
-                    android:id="@+id/stat_following_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="180"
-                    android:textSize="16sp"
-                    android:layout_gravity="center"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
         <!-- RecyclerView for Tweets -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_profile"
@@ -177,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/stats_section"
+            app:layout_constraintTop_toBottomOf="@id/user_bio"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:listitem="@layout/recycler_view_activity" />

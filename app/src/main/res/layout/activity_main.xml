@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:fabCradleMargin="12dp"
+        app:fabCradleMargin="10dp"
         app:fabCradleRoundedCornerRadius="10dp"
         app:fabCradleVerticalOffset="0dp"
         app:hideOnScroll="true">
@@ -29,7 +29,6 @@
             android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
             app:menu="@menu/bottom_menu"/>
 
     </com.google.android.material.bottomappbar.BottomAppBar>

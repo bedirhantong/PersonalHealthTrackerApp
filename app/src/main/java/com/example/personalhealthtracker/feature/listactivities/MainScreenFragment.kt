@@ -10,13 +10,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.personalhealthtracker.R
 import com.example.personalhealthtracker.adapter.HealthyActivityAdapter
 import com.example.personalhealthtracker.databinding.FragmentMainScreenBinding
+import com.example.personalhealthtracker.feature.listactivities.presentation.CalendarAdapter
+import com.example.personalhealthtracker.feature.listactivities.presentation.CalendarModel
 import com.example.personalhealthtracker.feature.listactivities.presentation.MainScreenViewModel
-import com.example.personalhealthtracker.feature.profile.ProfileFragmentDirections
-import com.google.android.material.datepicker.CalendarConstraints
-import com.google.android.material.datepicker.MaterialDatePicker
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.Calendar
-import java.util.Date
+import java.text.SimpleDateFormat
+import java.util.*
 
 @AndroidEntryPoint
 class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
@@ -24,7 +23,9 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
     private lateinit var binding: FragmentMainScreenBinding
     private lateinit var activityAdapter: HealthyActivityAdapter
     private lateinit var viewModel: MainScreenViewModel
-    private lateinit var datePicker: MaterialDatePicker<Long>
+    private lateinit var calendarAdapter: CalendarAdapter
+
+    private var currentCalendar: Calendar = Calendar.getInstance()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,8 +34,8 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
         viewModel = ViewModelProvider(this).get(MainScreenViewModel::class.java)
 
         setupActivityRecyclerView()
+        setupCalendarRecyclerView()
         observeViewModel()
-        setupCalendarView()
         setInitialDate()
     }
 
@@ -49,7 +50,7 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
                     putSerializable("polylinePoints", ArrayList(healthyActivity.polylinePoints))
                 }
 
-                val action = ProfileFragmentDirections.actionProfileFragmentToExerciseDetailFragment().actionId
+                val action = MainScreenFragmentDirections.actionMainScreenFragmentToExerciseDetailFragment().actionId
                 findNavController().navigate(action, bundle)
             }
         )
@@ -57,41 +58,74 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
         binding.recyclerViewActivities.adapter = activityAdapter
     }
 
+    private fun setupCalendarRecyclerView() {
+        updateCalendarUI()
+
+        calendarAdapter = CalendarAdapter { selectedDay ->
+            val selectedDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(selectedDay.date) ?: Date()
+            viewModel.filterActivitiesByDate(selectedDate)
+        }
+
+        binding.recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerView.adapter = calendarAdapter
+
+        calendarAdapter.submitList(generateWeekDays())
+
+        binding.ivCalendarPrevious.setOnClickListener {
+            changeWeek(-1)
+        }
+
+        binding.ivCalendarNext.setOnClickListener {
+            changeWeek(1)
+        }
+    }
+
+    private fun changeWeek(offset: Int) {
+        currentCalendar.add(Calendar.WEEK_OF_YEAR, offset)
+        updateCalendarUI()
+        calendarAdapter.submitList(generateWeekDays())
+    }
+
+    private fun updateCalendarUI() {
+        val monthYearFormat = SimpleDateFormat("MMMM yyyy", Locale.getDefault())
+        binding.tvDateMonth.text = monthYearFormat.format(currentCalendar.time)
+    }
+
     private fun observeViewModel() {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.selectedDateActivities.collect { activities ->
                 activityAdapter.submitList(activities)
+                if (viewModel.isListEmpty) {
+                    binding.tvNoActivities.visibility = View.VISIBLE
+                    binding.recyclerViewActivities.visibility = View.GONE
+                }else {
+                    binding.tvNoActivities.visibility = View.GONE
+                    binding.recyclerViewActivities.visibility = View.VISIBLE
+                }
             }
         }
     }
 
-    private fun setupCalendarView() {
-        // MaterialDatePicker setup
-        val constraintsBuilder = CalendarConstraints.Builder()
-        val today = MaterialDatePicker.todayInUtcMilliseconds()
-        datePicker = MaterialDatePicker.Builder.datePicker()
-            .setSelection(today)
-            .setCalendarConstraints(constraintsBuilder.build())
-            .build()
-
-        // Open date picker when calendar icon is clicked
-        binding.calendarIcon.setOnClickListener {
-            datePicker.show(childFragmentManager, datePicker.toString())
-        }
-
-        // Handle selected date
-        datePicker.addOnPositiveButtonClickListener { selection ->
-            val selectedDate = Date(selection)
-            viewModel.filterActivitiesByDate(selectedDate)
-        }
-    }
-
     private fun setInitialDate() {
-        // Set current date as selected and filter activities for today
         val today = Date()
         viewModel.filterActivitiesByDate(today)
     }
+
+    private fun generateWeekDays(): List<CalendarModel> {
+        val calendar = currentCalendar.clone() as Calendar
+        calendar.set(Calendar.DAY_OF_WEEK, calendar.firstDayOfWeek)
+
+        val weekDays = mutableListOf<CalendarModel>()
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val dayFormat = SimpleDateFormat("EEE", Locale.getDefault())
+
+        for (i in 0..6) {
+            val date = calendar.time
+            val day = dayFormat.format(date)
+            weekDays.add(CalendarModel(dateFormat.format(date), day))
+            calendar.add(Calendar.DATE, 1)
+        }
+
+        return weekDays
+    }
 }
-
-
-

@@ -42,7 +42,6 @@ class ProfileFragment : Fragment() {
     private fun setupRecyclerView() {
         recyclerViewAdapter = HealthyActivityAdapter(
             onItemClick = { healthyActivity ->
-                // Tıklama olayları için gerekli işlemler burada yapılabilir
             }
         )
         binding.recyclerViewProfile.apply {
@@ -79,10 +78,6 @@ class ProfileFragment : Fragment() {
                 .centerCrop()
                 .into(coverPhoto)
 
-            // İstatistikleri Güncelle
-            statActivitiesText.text = (userProfile["activityCount"] as Long?)?.toString() ?: "0"
-            statFollowersText.text = (userProfile["followerCount"] as Long?)?.toString() ?: "0"
-            statFollowingText.text = (userProfile["followingCount"] as Long?)?.toString() ?: "0"
         }
     }
 
