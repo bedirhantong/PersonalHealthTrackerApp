@@ -1,0 +1,159 @@
+<!-- res/layout/fragment_diving.xml -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/progress_depth"
+    android:padding="16dp">
+
+    <!-- Dalış Süresi -->
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/custom_graph_view" />
+
+    <!-- Anlık Derinlik -->
+    <TextView
+        android:id="@+id/tv_depth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 m"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/tv_time"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Maksimum Derinlik -->
+    <TextView
+        android:id="@+id/tv_max_depth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Max: 0 m"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/tv_depth"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Derinlik İlerleme Çubuğu -->
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/pb_depth"
+        android:layout_width="0dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="20dp"
+        android:max="1000"
+        android:progress="0"
+        app:trackColor="@android:color/white"
+        app:indicatorColor="@color/md_blue_900"
+        app:layout_constraintTop_toBottomOf="@id/tv_max_depth"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <!-- Dinamik Basınç -->
+    <TextView
+        android:id="@+id/tv_pressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1.00 atm"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/pb_depth"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Kalori -->
+    <TextView
+        android:id="@+id/tv_calories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 kcal"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/tv_pressure"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Grafik Alanı (CustomGraphView) -->
+    <com.example.personalhealthtracker.feature.startnewactivity.diving.CustomGraphView
+        android:id="@+id/custom_graph_view"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_risk_warning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Risk: High Depth!"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:alpha="0"
+        app:layout_constraintTop_toBottomOf="@id/tv_calories"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <LinearLayout
+        android:id="@+id/button_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_risk_warning">
+
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selected_exercise_background"
+            android:text="Start"
+            android:textColor="@android:color/white"
+            android:layout_marginEnd="16dp" /> <!-- Margin added -->
+
+        <Button
+            android:id="@+id/btn_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selected_exercise_background"
+            android:text="Stop"
+            android:textColor="@android:color/white"
+            android:visibility="gone"
+            android:layout_marginEnd="16dp" /> <!-- Margin added -->
+
+        <Button
+            android:id="@+id/btn_resume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selected_exercise_background"
+            android:text="Resume"
+            android:textColor="@android:color/white"
+            android:visibility="gone"
+            android:layout_marginEnd="16dp" /> <!-- Margin added -->
+
+        <Button
+            android:id="@+id/btn_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selected_exercise_background"
+            android:text="Done"
+            android:textColor="@android:color/white"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

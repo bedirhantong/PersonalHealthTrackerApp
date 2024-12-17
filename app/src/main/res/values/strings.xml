@@ -72,6 +72,10 @@
     <string name="click_the_chart_elements_to_see_the_detail">Click the chart elements to see the detail</string>
     <string name="activities">Home</string>
     <string name="add">Add</string>
+    <string name="depth_format">%1$d m</string>
+    <string name="pressure_format">Pressure: %.2f atm</string>
+    <string name="max_depth_format">Max: %1$d m</string>
+    <string name="calories_format">%1$d kcal</string>
     <string name="profile">Profile</string>
     <string name="time_past">Time Past</string>
     <string name="total_steps">Total Steps</string>
@@ -81,6 +85,9 @@
     <string name="average_speed">Average Speed</string>
     <string name="finish">Finish</string>
     <string name="stop">Stop</string>
+    <string name="diving_statistics">Diving Statistics</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 
 
 </resources>

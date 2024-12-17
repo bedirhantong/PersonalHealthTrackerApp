@@ -1,11 +1,12 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="3dp"
-    android:background="@drawable/selected_day_background"
+    android:background="@drawable/search_bar_view"
     android:layout_margin="5dp"
     android:elevation="8dp"
     android:clipToPadding="false">
@@ -13,8 +14,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_calendar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardElevation="5dp">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="50dp"

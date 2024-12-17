@@ -18,12 +18,12 @@
         >
         <ImageView
             android:id="@+id/iv_calendar_previous"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:contentDescription="cd_previous"
-            android:src="@drawable/previous_svgrepo_com"
+            android:src="@drawable/arrow_left_1_svgrepo_com"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,12 +31,12 @@
 
         <ImageView
             android:id="@+id/iv_calendar_next"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:contentDescription="cd_next"
-            android:src="@drawable/next_svgrepo_com"
+            android:src="@drawable/arrow_right_1_svgrepo_com"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,6 +47,7 @@
             android:layout_width="wrap_content"
             android:textColor="@color/white"
             android:layout_height="wrap_content"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@id/iv_calendar_next"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

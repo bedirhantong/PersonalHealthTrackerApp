@@ -70,6 +70,15 @@
         <action
             android:id="@+id/action_startNewActivityFragment_to_trackRunningFragment"
             app:destination="@id/trackRunningFragment" />
+        <action
+            android:id="@+id/action_startNewActivityFragment_to_divingFragment"
+            app:destination="@id/divingFragment" />
+        <action
+            android:id="@+id/action_startNewActivityFragment_to_stepCountingFragment"
+            app:destination="@id/stepCountingFragment" />
+        <action
+            android:id="@+id/action_startNewActivityFragment_to_hikingFragment"
+            app:destination="@id/hikingFragment" />
     </fragment>
     <fragment
         android:id="@+id/mainScreenFragment"
@@ -102,6 +111,39 @@
         android:id="@+id/exerciseDetailFragment"
         android:name="com.example.personalhealthtracker.feature.exercisedetail.ExerciseDetailFragment"
         android:label="ExerciseDetailFragment">
+    </fragment>
+    <fragment
+        android:id="@+id/divingFragment"
+        android:name="com.example.personalhealthtracker.feature.startnewactivity.diving.DivingFragment"
+        android:label="fragment_diving"
+        tools:layout="@layout/fragment_diving" >
+        <action
+            android:id="@+id/action_divingFragment_to_addExerciseFragment"
+            app:destination="@id/addExerciseFragment" />
+        <action
+            android:id="@+id/action_divingFragment_to_startNewActivityFragment"
+            app:destination="@id/startNewActivityFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stepCountingFragment"
+        android:name="com.example.personalhealthtracker.feature.startnewactivity.stepCounting.StepCountingFragment"
+        android:label="fragment_step_counting"
+        tools:layout="@layout/fragment_step_counting" >
+        <action
+            android:id="@+id/action_stepCountingFragment_to_addExerciseFragment"
+            app:destination="@id/addExerciseFragment" />
+        <action
+            android:id="@+id/action_stepCountingFragment_to_startNewActivityFragment"
+            app:destination="@id/startNewActivityFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hikingFragment"
+        android:name="com.example.personalhealthtracker.feature.startnewactivity.hiking.HikingFragment"
+        android:label="fragment_hiking"
+        tools:layout="@layout/fragment_hiking" >
+        <action
+            android:id="@+id/action_hikingFragment_to_startNewActivityFragment"
+            app:destination="@id/startNewActivityFragment" />
     </fragment>
 
 </navigation>

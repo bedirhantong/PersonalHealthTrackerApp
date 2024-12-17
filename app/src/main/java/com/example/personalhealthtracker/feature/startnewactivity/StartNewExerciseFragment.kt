@@ -46,8 +46,8 @@ class StartNewExerciseFragment : Fragment() {
             changeChosenOne("diving", binding.divingView)
             binding.selectedDesc.text = "Diving is very fun way to find out how deep you can go in the water."
         }
-        binding.breathTaking.setOnClickListener {
-            changeChosenOne("breathTaking", binding.breathTaking)
+        binding.hiking.setOnClickListener {
+            changeChosenOne("hiking", binding.hiking)
             binding.selectedDesc.text = "Test your limits by holding your breath as"
         }
         binding.stepCounting.setOnClickListener {
@@ -59,6 +59,15 @@ class StartNewExerciseFragment : Fragment() {
             when (chosenOne) {
                 "running" -> {
                     findNavController().navigate(R.id.action_startNewActivityFragment_to_trackRunningFragment)
+                }
+                "diving" -> {
+                    findNavController().navigate(R.id.action_startNewActivityFragment_to_divingFragment)
+                }
+                "hiking" -> {
+                    findNavController().navigate(R.id.action_startNewActivityFragment_to_hikingFragment)
+                }
+                "stepCounting" -> {
+                    findNavController().navigate(R.id.action_startNewActivityFragment_to_stepCountingFragment)
                 }
                 else -> {
                     Toast.makeText(requireContext(),"Please choose running activity because that is the " +
@@ -92,8 +101,8 @@ class StartNewExerciseFragment : Fragment() {
             divingView.setBackgroundColor(Color.TRANSPARENT)
             divingView.animate().scaleX(1f).scaleY(1f).setDuration(200).start()
 
-            breathTaking.setBackgroundColor(Color.TRANSPARENT)
-            breathTaking.animate().scaleX(1f).scaleY(1f).setDuration(200).start()
+            hiking.setBackgroundColor(Color.TRANSPARENT)
+            hiking.animate().scaleX(1f).scaleY(1f).setDuration(200).start()
 
             stepCounting.setBackgroundColor(Color.TRANSPARENT)
             stepCounting.animate().scaleX(1f).scaleY(1f).setDuration(200).start()

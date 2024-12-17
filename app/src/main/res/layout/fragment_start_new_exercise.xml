@@ -23,7 +23,7 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/breathTaking"
+        android:id="@+id/hiking"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginTop="56dp"
@@ -70,9 +70,9 @@
         android:text="Hiking"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/breathTaking"
-        app:layout_constraintStart_toStartOf="@+id/breathTaking"
-        app:layout_constraintTop_toBottomOf="@+id/breathTaking" />
+        app:layout_constraintEnd_toEndOf="@+id/hiking"
+        app:layout_constraintStart_toStartOf="@+id/hiking"
+        app:layout_constraintTop_toBottomOf="@+id/hiking" />
 
     <TextView
         android:id="@+id/textView4"

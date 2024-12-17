@@ -1,0 +1,22 @@
+<!-- res/drawable/progress_depth.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background for the ProgressBar (gray color) -->
+    <item android:id="@android:id/background">
+        <shape>
+            <solid android:color="@android:color/darker_gray"/>
+            <corners android:radius="8dp"/>
+        </shape>
+    </item>
+
+    <!-- Progress portion (Gradient color) -->
+    <item android:id="@android:id/progress">
+        <shape>
+            <gradient
+                android:startColor="@color/md_blue_200"
+                android:centerColor="@color/md_blue_500"
+            android:endColor="@color/black"
+            android:angle="270"/>
+            <corners android:radius="8dp"/>
+        </shape>
+    </item>
+</layer-list>

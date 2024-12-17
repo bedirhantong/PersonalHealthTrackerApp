@@ -35,6 +35,9 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mAuth = FirebaseAuth.getInstance()
+        binding.emailViewInLogin.setText("bdo@x.com")
+        binding.password1.setText("aaaaa.")
+
         binding.loginButton.setOnClickListener {
             val email = binding.emailViewInLogin.text.toString()
             val password = binding.password1.text.toString()

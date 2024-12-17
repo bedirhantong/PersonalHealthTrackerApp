@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="CustomSeekBar" parent="Widget.AppCompat.SeekBar">
         <item name="android:progressBackgroundTint">@android:color/white</item>
         <item name="android:progressTint">@android:color/white</item>
@@ -23,14 +24,22 @@
         <item name="colorOnError">@android:color/black</item>
         <item name="colorOnSurface">@android:color/white</item>
         <item name="scrimBackground">@color/mtrl_scrim_color</item>
-        <item name="textAppearanceHeadline1">@style/TextAppearance.MaterialComponents.Headline1</item>
-        <item name="textAppearanceHeadline2">@style/TextAppearance.MaterialComponents.Headline2</item>
-        <item name="textAppearanceHeadline3">@style/TextAppearance.MaterialComponents.Headline3</item>
-        <item name="textAppearanceHeadline4">@style/TextAppearance.MaterialComponents.Headline4</item>
-        <item name="textAppearanceHeadline5">@style/TextAppearance.MaterialComponents.Headline5</item>
-        <item name="textAppearanceHeadline6">@style/TextAppearance.MaterialComponents.Headline6</item>
-        <item name="textAppearanceSubtitle1">@style/TextAppearance.MaterialComponents.Subtitle1</item>
-        <item name="textAppearanceSubtitle2">@style/TextAppearance.MaterialComponents.Subtitle2</item>
+        <item name="textAppearanceHeadline1">@style/TextAppearance.MaterialComponents.Headline1
+        </item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.MaterialComponents.Headline2
+        </item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.MaterialComponents.Headline3
+        </item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.MaterialComponents.Headline4
+        </item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.MaterialComponents.Headline5
+        </item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.MaterialComponents.Headline6
+        </item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.MaterialComponents.Subtitle1
+        </item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.MaterialComponents.Subtitle2
+        </item>
         <item name="textAppearanceBody1">@style/TextAppearance.MaterialComponents.Body1</item>
         <item name="textAppearanceBody2">@style/TextAppearance.MaterialComponents.Body2</item>
         <item name="textAppearanceCaption">@style/TextAppearance.MaterialComponents.Caption</item>
@@ -58,6 +67,11 @@
 
     <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
         <item name="android:textColor">@color/buttonColour</item>
+    </style>
+
+    <style name="Widget.Theme.PersonalHealthTracker.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
     </style>
 
 
