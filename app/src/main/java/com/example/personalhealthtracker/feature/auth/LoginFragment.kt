@@ -59,7 +59,7 @@ class LoginFragment : Fragment() {
                                 .build()
 
                             findNavController().navigate(
-                                R.id.action_loginFragment_to_mainScreenFragment,
+                                R.id.action_loginFragment_to_paywallFragment,
                                 null,
                                 navOptions
                             )

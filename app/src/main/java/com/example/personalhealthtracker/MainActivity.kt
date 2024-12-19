@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.hikingFragment,
                 R.id.divingFragment,
                 R.id.stepCountingFragment,
+                R.id.paywallFragment,
                 R.id.addExerciseFragment,
                 R.id.startNewActivityFragment,
                 R.id.exerciseDetailFragment,

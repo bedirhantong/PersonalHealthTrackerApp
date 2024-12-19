@@ -32,6 +32,9 @@
         <action
             android:id="@+id/action_loginFragment_to_introFragment"
             app:destination="@id/introFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_paywallFragment"
+            app:destination="@id/paywallFragment" />
     </fragment>
 
     <fragment
@@ -144,6 +147,15 @@
         <action
             android:id="@+id/action_hikingFragment_to_startNewActivityFragment"
             app:destination="@id/startNewActivityFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paywallFragment"
+        android:name="com.example.personalhealthtracker.feature.paywall.PaywallFragment"
+        android:label="fragment_paywall"
+        tools:layout="@layout/fragment_paywall" >
+        <action
+            android:id="@+id/action_paywallFragment_to_mainScreenFragment"
+            app:destination="@id/mainScreenFragment" />
     </fragment>
 
 </navigation>

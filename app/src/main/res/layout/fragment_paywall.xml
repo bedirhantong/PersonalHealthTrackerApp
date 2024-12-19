@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#101820"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <!-- Header Section -->
+            <RelativeLayout
+                android:id="@+id/animated_header"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@drawable/header_gradient">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerTop"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerMiddle"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerBottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/header_gradient"
+                    android:gravity="center"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Get Unlimited Plan"
+                        android:textColor="@android:color/white"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="90+ Unique Filters • 70+ Trendy Effects"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <!-- Features Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="8dp">
+
+                <!-- Features Title -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Features"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Feature Card 1 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/card_background"
+                    android:padding="14dp"
+                    android:layout_marginTop="8dp"
+                    android:elevation="4dp"
+                    android:gravity="center_vertical">
+
+                    <!-- Icon for the Feature -->
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/logo"
+                        app:tint="#00E676"
+                        android:contentDescription="Health Tracking Icon"
+                        android:layout_marginEnd="16dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/card_background"
+                        android:padding="4dp"
+                        android:elevation="4dp"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Daily Health Tracking"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp"
+                            android:lineSpacingExtra="4dp"
+                            android:gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Daily Health Tracking"
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp"
+                            android:lineSpacingExtra="4dp"
+                            android:gravity="center_vertical"/>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <!-- Feature Card 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/card_background"
+                    android:padding="14dp"
+                    android:layout_marginTop="8dp"
+                    android:elevation="4dp"
+                    android:gravity="center_vertical">
+
+                    <!-- Icon for the Feature -->
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/tick_svgrepo_com"
+                        app:tint="#00E676"
+                        android:contentDescription="Reports Icon"
+                        android:layout_marginEnd="16dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/card_background"
+                        android:padding="4dp"
+                        android:elevation="4dp"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Basic Reports"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp"
+                            android:lineSpacingExtra="4dp"
+                            android:gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Reports on your health data"
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp"
+                            android:lineSpacingExtra="4dp"
+                            android:gravity="center_vertical"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Feature Card 3 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/card_background"
+                    android:padding="14dp"
+                    android:layout_marginTop="8dp"
+                    android:elevation="4dp"
+                    android:gravity="center_vertical">
+
+                    <!-- Icon for the Feature -->
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/user_svgrepo_com"
+                        app:tint="#00E676"
+                        android:contentDescription="24/7 Support Icon"
+                        android:layout_marginEnd="16dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/card_background"
+                        android:padding="4dp"
+                        android:elevation="4dp"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24/7 Support"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp"
+                            android:lineSpacingExtra="4dp"
+                            android:gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Live support for your queries"
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp"
+                            android:lineSpacingExtra="4dp"
+                            android:gravity="center_vertical"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Feature Card 4 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/card_background"
+                    android:padding="14dp"
+                    android:layout_marginTop="8dp"
+                    android:elevation="4dp"
+                    android:gravity="center_vertical">
+
+                    <!-- Icon for the Feature -->
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/logo"
+                        app:tint="#00E676"
+                        android:contentDescription="Custom Goals Icon"
+                        android:layout_marginEnd="16dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/card_background"
+                        android:padding="4dp"
+                        android:elevation="4dp"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Customized Goals"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp"
+                            android:lineSpacingExtra="4dp"
+                            android:gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Set goals for your health"
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp"
+                            android:lineSpacingExtra="4dp"
+                            android:gravity="center_vertical"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/subscriptionRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp" />
+
+            <!-- Subscribe Now Button -->
+            <Button
+                android:id="@+id/subscribe_button"
+                android:layout_width="match_parent"
+                android:background="@drawable/intro_button_background"
+                android:layout_height="56dp"
+                android:text="@string/subscribe_now"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:layout_margin="20dp"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
