@@ -1,5 +1,6 @@
 package com.example.personalhealthtracker.feature.listactivities
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -35,8 +36,38 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
 
         setupActivityRecyclerView()
         setupCalendarRecyclerView()
+        setupDatePicker()
         observeViewModel()
         setInitialDate()
+    }
+
+    private fun setupDatePicker() {
+        binding.tvDateMonth.setOnClickListener {
+            showDatePickerDialog()
+        }
+    }
+
+    private fun showDatePickerDialog() {
+        val year = currentCalendar.get(Calendar.YEAR)
+        val month = currentCalendar.get(Calendar.MONTH)
+        val day = currentCalendar.get(Calendar.DAY_OF_MONTH)
+
+        DatePickerDialog(
+            requireContext(),
+            { _, selectedYear, selectedMonth, selectedDay ->
+                currentCalendar.set(selectedYear, selectedMonth, selectedDay)
+                updateCalendarUI()
+                
+                val weekDays = generateWeekDays()
+                calendarAdapter.updateSelectedDate(currentCalendar.time)
+                calendarAdapter.submitList(weekDays)
+                
+                viewModel.filterActivitiesByDate(currentCalendar.time)
+            },
+            year,
+            month,
+            day
+        ).show()
     }
 
     private fun setupActivityRecyclerView() {
@@ -63,6 +94,8 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
 
         calendarAdapter = CalendarAdapter { selectedDay ->
             val selectedDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(selectedDay.date) ?: Date()
+            currentCalendar.time = selectedDate
+            updateCalendarUI()
             viewModel.filterActivitiesByDate(selectedDate)
         }
 
@@ -83,7 +116,9 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
     private fun changeWeek(offset: Int) {
         currentCalendar.add(Calendar.WEEK_OF_YEAR, offset)
         updateCalendarUI()
-        calendarAdapter.submitList(generateWeekDays())
+        val weekDays = generateWeekDays()
+        calendarAdapter.submitList(weekDays)
+        calendarAdapter.updateSelectedDate(currentCalendar.time)
     }
 
     private fun updateCalendarUI() {
@@ -108,12 +143,14 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
 
     private fun setInitialDate() {
         val today = Date()
+        currentCalendar.time = today
         viewModel.filterActivitiesByDate(today)
+        calendarAdapter.updateSelectedDate(today)
     }
 
     private fun generateWeekDays(): List<CalendarModel> {
         val calendar = currentCalendar.clone() as Calendar
-        calendar.set(Calendar.DAY_OF_WEEK, calendar.firstDayOfWeek)
+        calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY)
 
         val weekDays = mutableListOf<CalendarModel>()
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
