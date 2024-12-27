@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "599018499567",
-    "project_id": "personel-health-tracker",
-    "storage_bucket": "personel-health-tracker.appspot.com"
+    "project_number": "359507796664",
+    "project_id": "personal-health-tracker-5b40d",
+    "storage_bucket": "personal-health-tracker-5b40d.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:599018499567:android:32dddd2b9c2331e36f5a1a",
+        "mobilesdk_app_id": "1:359507796664:android:5e45d852f0a03fb3f18a4d",
         "android_client_info": {
           "package_name": "com.example.personalhealthtracker"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "599018499567-emep6kbqs6pbv6e6ks0gta7ooj390038.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCtEJUxynURg5UJWe0s2_Y2awvf4900_Lk"
+          "current_key": "AIzaSyCIUqoZyNur2FNfw9VVOpX1Wp0I-0brTMA"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "599018499567-emep6kbqs6pbv6e6ks0gta7ooj390038.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

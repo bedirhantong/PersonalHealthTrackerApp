@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/mainbackground"
-    tools:context=".ui.startNewActivity.breathTaking.BreathTakingExerciseActivity">
+    tools:context=".feature.startnewactivity.breathTaking.BreathTakingExerciseActivity">
 
 
     <TextView

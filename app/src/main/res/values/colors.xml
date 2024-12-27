@@ -8,7 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#cccccc</color>
-    <color name="buttonColour">#7D00D0</color>
+    <color name="white_30">#4DFFFFFF</color>
+    <color name="buttonColour">#9900FF</color>
+    <color name="itemResultColor">#AD3CF8</color>
     <color name="signuplogincolor">#283FB1</color>
     <color name="navbarcolor">#333030</color>
     <color name="md_blue_50">#E3F2FD</color>
@@ -20,13 +22,17 @@
     <color name="md_blue_700">#1976D2</color>
     <color name="md_blue_800">#1565C0</color>
     <color name="md_blue_900">#0D47A1</color>
-    <color name="md_blue_A100">#82B1FF</color>
+    <color name="item_text">#F89F1A</color>
     <color name="md_blue_A200">#448AFF</color>
     <color name="md_blue_A400">#2979FF</color>
     <color name="md_blue_A700">#2962FF</color>
-    <color name="colorAccent">#FFE600</color>
+    <color name="colorAccent">#DA5429</color>
     <color name="errorColor">#D50000</color>
     <color name="trackColor">#8A4E4E94</color>
     <color name="stoptrackColor">#4E4E93</color>
-
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
 </resources>

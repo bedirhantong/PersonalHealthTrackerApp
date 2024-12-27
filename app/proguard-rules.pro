@@ -19,3 +19,44 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Keep data models
+-keep class com.example.personalhealthtracker.data.models.** { *; }
+-keepclassmembers class com.example.personalhealthtracker.data.models.** { *; }
+
+# Firebase
+-keepattributes Signature
+-keepattributes *Annotation*
+-keepattributes EnclosingMethod
+-keepattributes InnerClasses
+-keep class com.google.firebase.** { *; }
+-keep class com.google.android.gms.** { *; }
+-dontwarn com.google.firebase.**
+-dontwarn com.google.android.gms.**
+
+# Compose
+-keep class androidx.compose.** { *; }
+-keepclassmembers class androidx.compose.** { *; }
+
+# Hilt
+-keep class dagger.hilt.** { *; }
+-keep class javax.inject.** { *; }
+-keep class * extends dagger.hilt.android.lifecycle.HiltViewModel
+
+# Navigation Component
+-keep class * extends androidx.navigation.Navigator
+-keepnames class androidx.navigation.fragment.FragmentNavigator$Destination
+-keepnames class androidx.navigation.NavGraph
+-keepnames class * extends android.os.Parcelable
+-keepnames class * extends java.io.Serializable
+
+# Kotlin Serialization
+-keepattributes *Annotation*, InnerClasses
+-dontnote kotlinx.serialization.AnnotationsKt
+-keepclassmembers class kotlinx.serialization.json.** {
+    *** Companion;
+}
+
+# General
+-keepattributes SourceFile,LineNumberTable
+-renamesourcefileattribute SourceFile

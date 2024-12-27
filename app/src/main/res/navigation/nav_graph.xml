@@ -2,4 +2,160 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph" />
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/introFragment">
+
+    <fragment
+        android:id="@+id/introFragment"
+        android:name="com.example.personalhealthtracker.feature.onboarding.IntroFragment"
+        android:label="fragment_intro"
+        tools:layout="@layout/fragment_intro" >
+        <action
+            android:id="@+id/action_introFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_introFragment_to_signUpContainerFragment"
+            app:destination="@id/signUpContainerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.personalhealthtracker.feature.auth.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_mainScreenFragment"
+            app:destination="@id/mainScreenFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_signUpContainerFragment"
+            app:destination="@id/signUpContainerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_introFragment"
+            app:destination="@id/introFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_paywallFragment"
+            app:destination="@id/paywallFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpContainerFragment"
+        android:name="com.example.personalhealthtracker.feature.auth.signup.SignUpContainerFragment"
+        android:label="fragment_sign_up_container"
+        tools:layout="@layout/fragment_sign_up_container">
+        <action
+            android:id="@+id/action_signUpContainerFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/introFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.personalhealthtracker.feature.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_exerciseDetailFragment"
+            app:destination="@id/exerciseDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.personalhealthtracker.feature.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/startNewActivityFragment"
+        android:name="com.example.personalhealthtracker.feature.startnewactivity.StartNewExerciseFragment"
+        android:label="fragment_start_new_activity"
+        tools:layout="@layout/fragment_start_new_exercise" >
+        <action
+            android:id="@+id/action_startNewActivityFragment_to_trackRunningFragment"
+            app:destination="@id/trackRunningFragment" />
+        <action
+            android:id="@+id/action_startNewActivityFragment_to_divingFragment"
+            app:destination="@id/divingFragment" />
+        <action
+            android:id="@+id/action_startNewActivityFragment_to_stepCountingFragment"
+            app:destination="@id/stepCountingFragment" />
+        <action
+            android:id="@+id/action_startNewActivityFragment_to_hikingFragment"
+            app:destination="@id/hikingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainScreenFragment"
+        android:name="com.example.personalhealthtracker.feature.listactivities.MainScreenFragment"
+        android:label="fragment_main_screen"
+        tools:layout="@layout/fragment_main_screen" >
+        <action
+            android:id="@+id/action_mainScreenFragment_to_exerciseDetailFragment"
+            app:destination="@id/exerciseDetailFragment">
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/trackRunningFragment"
+        android:name="com.example.personalhealthtracker.feature.startnewactivity.running.TrackRunningFragment"
+        android:label="fragment_track_running"
+        tools:layout="@layout/fragment_track_running" >
+        <action
+            android:id="@+id/action_trackRunningFragment_to_addExerciseFragment"
+            app:destination="@id/addExerciseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addExerciseFragment"
+        android:name="com.example.personalhealthtracker.feature.startnewactivity.addexercise.AddExerciseFragment"
+        android:label="AddExerciseFragment" >
+        <action
+            android:id="@+id/action_addExerciseFragment_to_mainScreenFragment"
+            app:destination="@id/mainScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exerciseDetailFragment"
+        android:name="com.example.personalhealthtracker.feature.exercisedetail.ExerciseDetailFragment"
+        android:label="ExerciseDetailFragment">
+    </fragment>
+    <fragment
+        android:id="@+id/divingFragment"
+        android:name="com.example.personalhealthtracker.feature.startnewactivity.diving.DivingFragment"
+        android:label="fragment_diving"
+        tools:layout="@layout/fragment_diving" >
+        <action
+            android:id="@+id/action_divingFragment_to_addExerciseFragment"
+            app:destination="@id/addExerciseFragment" />
+        <action
+            android:id="@+id/action_divingFragment_to_startNewActivityFragment"
+            app:destination="@id/startNewActivityFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stepCountingFragment"
+        android:name="com.example.personalhealthtracker.feature.startnewactivity.stepCounting.StepCountingFragment"
+        android:label="fragment_step_counting"
+        tools:layout="@layout/fragment_step_counting" >
+        <action
+            android:id="@+id/action_stepCountingFragment_to_addExerciseFragment"
+            app:destination="@id/addExerciseFragment" />
+        <action
+            android:id="@+id/action_stepCountingFragment_to_startNewActivityFragment"
+            app:destination="@id/startNewActivityFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hikingFragment"
+        android:name="com.example.personalhealthtracker.feature.startnewactivity.hiking.HikingFragment"
+        android:label="fragment_hiking"
+        tools:layout="@layout/fragment_hiking" >
+        <action
+            android:id="@+id/action_hikingFragment_to_startNewActivityFragment"
+            app:destination="@id/startNewActivityFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paywallFragment"
+        android:name="com.example.personalhealthtracker.feature.paywall.PaywallFragment"
+        android:label="fragment_paywall"
+        tools:layout="@layout/fragment_paywall" >
+        <action
+            android:id="@+id/action_paywallFragment_to_mainScreenFragment"
+            app:destination="@id/mainScreenFragment" />
+    </fragment>
+
+</navigation>

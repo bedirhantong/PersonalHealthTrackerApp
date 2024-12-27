@@ -1,0 +1,76 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/ThemeOverlay.PersonalHealthTracker.FullscreenContainer"
+    tools:context=".feature.startnewactivity.hiking.HikingFragment">
+
+    <!-- Custom Hiking Chart -->
+    <com.example.personalhealthtracker.feature.startnewactivity.hiking.HikingChartView
+        android:id="@+id/hiking_chart"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="50dp" />
+
+    <!-- Statistics Display -->
+    <LinearLayout
+        android:id="@+id/statistics_display"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/distance_stat"
+            android:text="Distance: 0 km"
+            android:textSize="20sp"
+            android:textColor="?attr/fullscreenTextColor"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp" />
+
+        <TextView
+            android:id="@+id/elevation_stat"
+            android:text="Elevation: 0 m"
+            android:textSize="20sp"
+            android:textColor="?attr/fullscreenTextColor"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp" />
+
+        <TextView
+            android:id="@+id/time_elapsed_stat"
+            android:text="Time: 00:00"
+            android:textSize="20sp"
+            android:textColor="?attr/fullscreenTextColor"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp" />
+
+        <TextView
+            android:id="@+id/calories_stat"
+            android:text="Calories: 0 kcal"
+            android:textSize="20sp"
+            android:textColor="?attr/fullscreenTextColor"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp" />
+
+        <Button
+            android:id="@+id/start_button"
+            android:text="Start Hike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:textColor="?android:attr/textColorPrimary"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center" />
+    </LinearLayout>
+</FrameLayout>
