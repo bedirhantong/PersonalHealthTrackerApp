@@ -9,9 +9,8 @@
 * [Technologies](#technologies)
 * [Installing Epona](#setup)
 
+![](assets/dashy.png)
 
-
-![](app/src/main/res/drawable/image.png)
 ## About
 - EPONA is a personal health tracker Android application. The application allows the user to monitor the performance for various activities such as running, step counting, diving, breath taking.
 
@@ -35,34 +34,71 @@
 
 |                0000                    |   0001                   |       0010                   |
 |:-----------------------------------------:|:------------------------------------------:|:------------------------------------------:|
-|<img src="assets\giris.png" width="200" height="400">  | <img src="assets\actvy.png" width="200" height="400"> |  <img src="assets\main.png" width="230" height="400"> |  
+|<img src="assets\intro_new.png" width="200" height="400">  | <img src="assets\map_super.png" width="200" height="400"> |  <img src="assets\paywall.png" width="230" height="400"> |  
+
+
+|                0000                    |   0001                   |       0010                   |
+|:-----------------------------------------:|:------------------------------------------:|:------------------------------------------:|
+|<img src="assets\home_en_new.png" width="200" height="400">  | <img src="assets\start_new_exercise.png" width="200" height="400"> |  <img src="assets\profile_new.png" width="230" height="400"> |  
+
+
+|                0000                    |   0001                   |       0010                   |
+|:-----------------------------------------:|:------------------------------------------:|:------------------------------------------:|
+|<img src="assets\exercise_detail_new.png" width="200" height="400">  | <img src="assets\diving_exercise_new.png" width="200" height="400"> |  <img src="assets\profile_new.png" width="230" height="400"> |  
 
 
 
+## 🛠️ Technologies
+
+<details>
+<summary><b>📱 Frontend</b></summary>
+
+* **UI Framework**
+  - Jetpack Compose
+  - Material 3 Design
+  - Custom Composables
+  - Navigation Component
+
+* **State Management**
+  - ViewModel
+  - Kotlin Flow
+  - StateFlow
+</details>
+
+<details>
+<summary><b>🔧 Backend & Data</b></summary>
+
+* **Firebase Services**
+  - Authentication
+  - Firestore
+  - Storage
+  - Analytics
+
+* **Local Storage**
+  - SharedPreferences
+  - Room Database (planned)
+</details>
+
+<details>
+<summary><b>📚 Libraries</b></summary>
+
+* **Dependency Injection**
+  - Dagger Hilt
+
+* **Image Loading**
+  - Coil
+
+* **Maps**
+  - Google Maps SDK
+  - Maps Compose
+
+* **Other**
+  - Kotlin Coroutines
+  - Android KTX
+</details>
 
 
 
-
-## Managing
-- When you finish any healthy activity and save it to the history, you will skipping to the [`AddActivitiesAndShowToUser.kt`](https://github.com/bedirhantong/PersonalHealthTrackerApp/blob/master/app/src/main/java/com/example/personalhealthtracker/data/AddActivitiesAndShowToUser.kt) to see the statistics of your healthy activity and has an option to save it to the history.
-- If you click save button, you will be skipping to the [`ProfileFragment.kt`](https://github.com/bedirhantong/PersonalHealthTrackerApp/blob/master/app/src/main/java/com/example/personalhealthtracker/ui/profile/ProfileFragment.kt). In the background I will add it to the `Firestore` with a query. That lists the healthy activities based on their activity type on `Firestore`.
-- When you save the activity to the history and skip to the [`ProfileFragment.kt`](https://github.com/bedirhantong/PersonalHealthTrackerApp/blob/master/app/src/main/java/com/example/personalhealthtracker/ui/profile/ProfileFragment.kt) you will see that the latest healthy activity that you have done will be show up at the top of previous activities. Same thing happens in  [`MainScreenFragment.kt`](https://github.com/bedirhantong/PersonalHealthTrackerApp/blob/master/app/src/main/java/com/example/personalhealthtracker/ui/mainPage/MainScreenFragment.kt). How is that possible?
-    - Skipping to the  [`ProfileFragment.kt`](https://github.com/bedirhantong/PersonalHealthTrackerApp/blob/master/app/src/main/java/com/example/personalhealthtracker/ui/profile/ProfileFragment.kt) and healthy activity statistic pulling from `Firestore` is happening simultaneously. First I get the statistics of current user. And create an object of [HealthyActivity.kt](https://github.com/bedirhantong/PersonalHealthTrackerApp/blob/master/app/src/main/java/com/example/personalhealthtracker/data/HealthyActivity.kt), after than that I add this healthy activity to the my healthy activity list. So that I can update [`ProfileFragment.kt`](https://github.com/bedirhantong/PersonalHealthTrackerApp/blob/master/app/src/main/java/com/example/personalhealthtracker/ui/profile/ProfileFragment.kt) and [HealthyActivity.kt](https://github.com/bedirhantong/PersonalHealthTrackerApp/blob/master/app/src/main/java/com/example/personalhealthtracker/data/HealthyActivity.kt) with using [HealthyActivityAdapter.kt](https://github.com/bedirhantong/PersonalHealthTrackerApp/blob/master/app/src/main/java/com/example/personalhealthtracker/adapter/HealthyActivityAdapter.kt).
-    - In [HealthyActivityAdapter.kt](https://github.com/bedirhantong/PersonalHealthTrackerApp/blob/master/app/src/main/java/com/example/personalhealthtracker/adapter/HealthyActivityAdapter.kt) you can manage the [recycler_view_activity.xml](https://github.com/bedirhantong/PersonalHealthTrackerApp/blob/master/app/src/main/res/layout/recycler_view_activity.xml) for [`ProfileFragment.kt`](https://github.com/bedirhantong/PersonalHealthTrackerApp/blob/master/app/src/main/java/com/example/personalhealthtracker/ui/profile/ProfileFragment.kt) and [`MainScreenFragment.kt`](https://github.com/bedirhantong/PersonalHealthTrackerApp/blob/master/app/src/main/java/com/example/personalhealthtracker/ui/mainPage/MainScreenFragment.kt).
-
-
-
-## Technologies
-
-1. `WilliamChart` : is an Android Library to rapidly implement attractive and insightful charts in android applications. You can see its details [here](https://github.com/diogobernardino/williamchart)
-2. `Firebase-firestore` : Implemented it so that I can manage Epona's database without any complex query and database implementation.
-3. `Firebase Authentication` :
-4. `Material Design Components` :
-5. `Easy Permission` : is a wrapper library to simplify basic system permissions logic when targeting Android M or higher. You can see its details [here](https://github.com/googlesamples/easypermissions)
-6. `Circular Progress Bar` : allowing to realize a circular ProgressBar in the simplest way possible. You can see the details [here](https://github.com/lopspower/CircularProgressBar)
-7. `Shared Preferences` :
-8. `Google maps location servies` : To get the current user's current location on the map on live.
-9. `Navigation Component` :
 
 ## Setup
 - The first thing you need to do is open the project in Android Studio on your own computer using the project's Github link.
