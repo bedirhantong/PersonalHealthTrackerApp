@@ -54,7 +54,7 @@
 <summary><b>📱 Frontend</b></summary>
 
 * **UI Framework**
-  - Jetpack Compose
+  - Android View
   - Material 3 Design
   - Custom Composables
   - Navigation Component
