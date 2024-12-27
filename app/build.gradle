@@ -21,6 +21,12 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        
+        def properties = new Properties()
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+        
+        buildConfigField("String", "MAPS_API_KEY", "\"${properties['MAPS_API_KEY']}\"")
+        manifestPlaceholders = [MAPS_API_KEY: "${properties['MAPS_API_KEY']}"]
     }
 
     buildFeatures {
@@ -30,6 +36,10 @@ android {
 
     buildTypes {
         release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
