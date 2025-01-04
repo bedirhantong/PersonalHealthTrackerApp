@@ -8,14 +8,14 @@
         </shape>
     </item>
 
--    <item android:id="@android:id/progress">
-        <shape>
-            <gradient
-                android:startColor="@color/md_blue_200"
-                android:centerColor="@color/md_blue_500"
-                android:endColor="@color/black"
-                android:angle="270"/>
-            <corners android:radius="8dp"/>
-        </shape>
-    </item>
+    -    <item android:id="@android:id/progress">
+    <shape>
+        <gradient
+            android:startColor="@color/grayce"
+            android:centerColor="@color/md_blue_900"
+            android:endColor="@color/md_blue_900"
+            android:angle="270"/>
+        <corners android:radius="8dp"/>
+    </shape>
+</item>
 </layer-list>
